@@ -2,16 +2,11 @@ import { renderPlaygroundPage } from '@apollographql/graphql-playground-html';
 import { Accepts } from 'accepts';
 import {
     ApolloServerBase,
-    FileUploadOptions,
-    formatApolloErrors,
     PlaygroundRenderPageOptions,
-    processFileUploads,
 } from 'apollo-server-core';
 import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
 import { IncomingMessage, ServerResponse, Server } from 'http';
 import { graphqlFastify } from './fastifyApollo';
-import { GraphQLOperation } from 'graphql-upload';
-const kMultipart = Symbol('multipart');
 import fastJson = require('fast-json-stringify');
 export interface ServerRegistration {
     path?: string;
@@ -28,36 +23,6 @@ const stringifyHealthCheck = fastJson({
         },
     },
 });
-
-const fileUploadMiddleware = (
-    uploadsConfig: FileUploadOptions,
-    server: ApolloServerBase,
-) => (
-    req: FastifyRequest<IncomingMessage>,
-    reply: FastifyReply<ServerResponse>,
-    done: (err: Error | null, body?: any) => void,
-    ) => {
-        if (
-            (req.req as any)[kMultipart] &&
-            typeof processFileUploads === 'function'
-        ) {
-            processFileUploads(req.req, reply.res, uploadsConfig)
-                .then((body: GraphQLOperation | GraphQLOperation[]) => {
-                    req.body = body;
-                    done(null);
-                })
-                .catch((error: any) => {
-                    if (error.status && error.expose) reply.status(error.status);
-
-                    throw formatApolloErrors([error], {
-                        formatter: server.requestOptions.formatError,
-                        debug: server.requestOptions.debug,
-                    });
-                });
-        } else {
-            done(null);
-        }
-    };
 
 export class ApolloServer extends ApolloServerBase {
     protected supportsSubscriptions(): boolean {
@@ -76,14 +41,12 @@ export class ApolloServer extends ApolloServerBase {
     }: ServerRegistration = {}) {
         this.graphqlPath = path ? path : '/graphql';
         const promiseWillStart = this.willStart();
-
         return async (
             app: FastifyInstance<Server, IncomingMessage, ServerResponse>,
         ) => {
             await promiseWillStart;
             if (!disableHealthCheck) {
                 app.get('/.well-known/apollo/server-health', async (req, res) => {
-                    // Response follows https://tools.ietf.org/html/draft-inadarei-api-health-check-01
                     res.type('application/health+json');
                     if (onHealthCheck) {
                         try {
@@ -97,7 +60,6 @@ export class ApolloServer extends ApolloServerBase {
                     }
                 });
             }
-
             app.register(
                 async instance => {
                     instance.register(require('fastify-accepts'));
@@ -117,10 +79,6 @@ export class ApolloServer extends ApolloServerBase {
                             reply: FastifyReply<ServerResponse>,
                             done: () => void,
                         ) => {
-                            // Note: if you enable playground in production and expect to be able to see your
-                            // schema, you'll need to manually specify `introspection: true` in the
-                            // ApolloServer constructor; by default, the introspection query is only
-                            // enabled in dev.
                             if (this.playgroundOptions && req.req.method === 'GET') {
                                 // perform more expensive content-type check only if necessary
                                 const accept = (req as any).accepts() as Accepts;
@@ -148,19 +106,6 @@ export class ApolloServer extends ApolloServerBase {
                             done();
                         },
                     ];
-                    if (typeof processFileUploads === 'function' && this.uploadsConfig) {
-                        instance.addContentTypeParser(
-                            'multipart',
-                            (
-                                request: IncomingMessage,
-                                done: (err: Error | null, body?: any) => void,
-                            ) => {
-                                (request as any)[kMultipart] = true;
-                                done(null);
-                            },
-                        );
-                        beforeHandlers.push(fileUploadMiddleware(this.uploadsConfig, this));
-                    }
                     instance.route({
                         method: ['GET', 'POST'],
                         url: '/',

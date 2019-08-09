@@ -1070,7 +1070,7 @@ abstract-logging@^1.0.0:
   resolved "https://registry.yarnpkg.com/abstract-logging/-/abstract-logging-1.0.0.tgz#8b7deafd310559bc28f77724dd1bb30177278c1b"
   integrity sha1-i33q/TEFWbwo93ck3RuzAXcnjBs=
 
-accepts@^1.3.7:
+accepts@^1.3.3, accepts@^1.3.7:
   version "1.3.7"
   resolved "https://registry.yarnpkg.com/accepts/-/accepts-1.3.7.tgz#531bc726517a3b2b41f850021c6cc15eaab507cd"
   integrity sha512-Il80Qs2WjYlJIBNzNkK6KYqlVMTbZLXgHx2oT0pU/fjRHyEp+PEfEPY0R3WCwAGVOtauxh1hOxNgIf5bv7dQpA==
@@ -2344,6 +2344,36 @@ fast-safe-stringify@^2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/fast-safe-stringify/-/fast-safe-stringify-2.0.6.tgz#04b26106cc56681f51a044cfc0d76cf0008ac2c2"
   integrity sha512-q8BZ89jjc+mz08rSxROs8VsrBBcn1SIw1kq9NjolL509tkABRk9io01RAjSaEv1Xb2uFLt8VtRiZbGp5H8iDtg==
+
+fastify-accepts@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/fastify-accepts/-/fastify-accepts-0.5.0.tgz#c17c201278f2bfc51bfb93ffe48efc4fc40fd363"
+  integrity sha1-wXwgEnjyv8Ub+5P/5I78T8QP02M=
+  dependencies:
+    accepts "^1.3.3"
+    fastify-plugin "^0.2.1"
+
+fastify-cors@^2.1.3:
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/fastify-cors/-/fastify-cors-2.1.3.tgz#5ae8fcc620a47270cd68d46acc3b8dd7919b538b"
+  integrity sha512-ZHFzKn1DddymsxzvdtjEQfkuMfGgwcp++FKuTTMmAN2KFB7hJRmOINffjfRdmUcgXdE4LoSy5XJROWKx/b+CPQ==
+  dependencies:
+    fastify-plugin "^1.5.0"
+    vary "^1.1.2"
+
+fastify-plugin@^0.2.1:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/fastify-plugin/-/fastify-plugin-0.2.2.tgz#e01b67685fd02e87edc98670ce2acfe251a2c715"
+  integrity sha512-oRJdjdudgCkQQUARNeh2rkbxFAmj2OhCJSVBNBLUbhS0orF+IMQ4u/bc661N1jh/wDI2J+YKmXmmHSVFQI4e7A==
+  dependencies:
+    semver "^5.4.1"
+
+fastify-plugin@^1.5.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/fastify-plugin/-/fastify-plugin-1.6.0.tgz#c8198b08608f20c502b5dad26b36e9ae27206d7c"
+  integrity sha512-lFa9txg8LZx4tljj33oG53nUXhVg0baZxtP9Pxi0dJmI0NQxzkDk5DS9kr3D7iMalUAp3mvIq16OQumc7eIvLA==
+  dependencies:
+    semver "^6.0.0"
 
 fastify@^2.7.1:
   version "2.7.1"
@@ -5447,6 +5477,11 @@ validate-npm-package-name@^3.0.0:
   integrity sha1-X6kS2B630MdK/BQN5zF/DKffQ34=
   dependencies:
     builtins "^1.0.3"
+
+vary@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
+  integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
 
 verror@1.10.0:
   version "1.10.0"
