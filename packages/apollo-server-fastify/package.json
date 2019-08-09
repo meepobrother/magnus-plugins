@@ -1,0 +1,32 @@
+{
+	"name": "apollo-server-fastify",
+	"version": "0.0.0",
+	"description": "> TODO: description",
+	"author": "imeepos <1037483576@qq.com>",
+	"homepage": "https://github.com/meepobrother/magnus-plugins#readme",
+	"license": "ISC",
+	"main": "lib/apollo-server-fastify.js",
+	"directories": {
+		"lib": "lib",
+		"test": "__tests__"
+	},
+	"files": [ "lib" ],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/meepobrother/magnus-plugins.git"
+	},
+	"scripts": {
+		"test": "echo \"Error: run tests from root\" && exit 1"
+	},
+	"bugs": {
+		"url": "https://github.com/meepobrother/magnus-plugins/issues"
+	},
+	"dependencies": {
+		"@apollographql/graphql-playground-html": "^1.6.24",
+		"accepts": "^1.3.7",
+		"apollo-server-core": "^2.8.1",
+		"apollo-server-types": "^0.2.1",
+		"fastify": "^2.7.1",
+		"graphql-upload": "^8.0.7"
+	}
+}
