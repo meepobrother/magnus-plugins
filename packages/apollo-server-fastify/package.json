@@ -1,6 +1,6 @@
 {
 	"name": "@magnus-plugins/apollo-server-fastify",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"description": "> TODO: description",
 	"author": "imeepos <1037483576@qq.com>",
 	"homepage": "https://github.com/meepobrother/magnus-plugins#readme",
@@ -22,20 +22,20 @@
 	},
 	"bugs": {
 		"url": "https://github.com/meepobrother/magnus-plugins/issues"
-    },
-    "publishConfig": {
+	},
+	"publishConfig": {
 		"access": "public"
 	},
 	"dependencies": {
-        "@apollographql/graphql-playground-html": "^1.6.24",
-        "fast-json-stringify": "^1.15.4",
-        "@nestjs/platform-fastify": "^6.5.3",
-		"fastify": "^2.7.1",
+		"@apollographql/graphql-playground-html": "^1.6.24",
+		"@nestjs/platform-fastify": "^6.5.3",
 		"accepts": "^1.3.7",
 		"apollo-server-core": "^2.8.1",
 		"apollo-server-types": "^0.2.1",
+		"fast-json-stringify": "^1.15.4",
+		"fastify": "^2.7.1",
 		"fastify-accepts": "^0.5.0",
 		"fastify-cors": "^2.1.3",
 		"graphql-subscriptions": "^1.1.0"
-    }
+	}
 }
