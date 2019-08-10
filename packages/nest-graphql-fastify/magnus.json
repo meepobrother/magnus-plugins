@@ -1,6 +1,9 @@
 {
-  "name": "fastity",
-  "inputs": ["__tests__/**/*.ts"],
-  "assets": "__tests__/assets",
-  "output": "__tests__/magnus"
+	"name": "fastity",
+	"inputs": [ "__tests__/**/*.ts" ],
+	"output": "__tests__/magnus",
+	"assets": "__tests__/assets",
+	"hasGrpc": false,
+	"debug": true,
+	"reciveName": []
 }

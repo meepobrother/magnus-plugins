@@ -1,20 +1,17 @@
 import { Module } from "@nestjs/common";
-import { parse } from "graphql";
 import { GraphqlModule } from "../lib/index";
-import { readFileSync } from "fs";
-import { join } from "path";
 const metadata = require("./assets/fastity/magnus.metadata.json");
-
+const magnus = require("./assets/fastity/magnus.server.json");
+import { IncController } from './resolver/inc';
 @Module({
-  imports: [
-    GraphqlModule.forRoot({
-      metadata,
-      magnus: parse(
-        readFileSync(join(__dirname, "assets/fastity/magnus.graphql")).toString(
-          "utf8"
-        )
-      )
-    })
-  ]
+    imports: [
+        GraphqlModule.forRoot({
+            metadata,
+            magnus
+        })
+    ],
+    controllers: [
+        IncController
+    ]
 })
-export class AppModule {}
+export class AppModule { }
