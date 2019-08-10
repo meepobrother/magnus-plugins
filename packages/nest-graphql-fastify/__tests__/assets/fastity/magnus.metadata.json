@@ -1,0 +1,22 @@
+{
+  "query": [
+    [
+      "add",
+      "IncController",
+      "",
+      "add",
+      [
+        {
+          "name": "a",
+          "type": "Int!",
+          "index": 0
+        },
+        {
+          "name": "b",
+          "type": "Int!",
+          "index": 1
+        }
+      ]
+    ]
+  ]
+}

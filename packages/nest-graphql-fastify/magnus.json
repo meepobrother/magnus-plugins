@@ -1,0 +1,6 @@
+{
+  "name": "fastity",
+  "inputs": ["__tests__/**/*.ts"],
+  "assets": "__tests__/assets",
+  "output": "__tests__/magnus"
+}
