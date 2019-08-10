@@ -7,6 +7,21 @@
 ```sh
 yarn add @magnus-plugins/nest-graphql-fastify
 ```
+控制器
+```ts
+import { Query, Magnus } from "@notadd/magnus-core";
+import { Controller } from '@nestjs/common';
+
+@Controller()
+@Magnus()
+export class IncController {
+    @Query()
+    add(a: number, b: number): number {
+        return a + b;
+    }
+}
+```
+
 入口文件
 ```ts
 import { Module } from "@nestjs/common";
