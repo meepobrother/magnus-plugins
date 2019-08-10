@@ -1,7 +1,7 @@
 # magnus 插件
 
 ## @magnus-plugins/nest-graphql-fastify
-> magnus的fastify插件
+> magnus的fastify插件,没有依赖typescript,magnus编译后运行
 
 安装
 ```sh
