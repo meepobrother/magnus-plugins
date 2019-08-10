@@ -3,10 +3,11 @@
 ## @magnus-plugins/nest-graphql-fastify
 > magnus的fastify插件
 
+安装
 ```sh
 yarn add @magnus-plugins/nest-graphql-fastify
 ```
-
+入口文件
 ```ts
 import { Module } from "@nestjs/common";
 import { GraphqlModule } from "@magnus-plugins/nest-graphql-fastify";
@@ -27,4 +28,16 @@ import { IncController } from './resolver/inc';
     ]
 })
 export class AppModule { }
+```
+启动文件
+```ts
+import { NestFactory } from "@nestjs/core";
+import { AppModule } from "./app.module";
+import { FastifyAdapter } from "@nestjs/platform-fastify";
+async function bootstrap() {
+    const app = await NestFactory.create(AppModule, new FastifyAdapter());
+    await app.init();
+    app.listen(3000);
+}
+bootstrap();
 ```
