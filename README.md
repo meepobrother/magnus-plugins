@@ -1,7 +1,7 @@
 [magnus插件](https://github.com/notadd/magnus)
 
 ## @magnus-plugins/nest-graphql-fastify
-> magnus的fastify插件,没有依赖typescript,magnus编译后运行,为什么不用@nestjs/graphql,首先@nestjs/graphql依赖ts-morph(typescript),运行速度慢，发布体积大。
+> magnus的fastify插件,没有依赖typescript,magnus编译后运行,为什么不用@nestjs/graphql,@nestjs/graphql依赖ts-morph(typescript),运行速度慢，发布体积大。
 
 安装
 ```sh
