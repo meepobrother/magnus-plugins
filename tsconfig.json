@@ -39,7 +39,7 @@
         // "moduleResolution": "node",            /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
         "baseUrl": "./" /* Base directory to resolve non-absolute module names. */,
         "paths": {
-            "@magnus-plugins/nest-graphql": [
+            "@magnus-plugins/nest-graphql-fastify": [
                 "packages/nest-graphql-fastify/lib/index.ts"
             ],
             "@magnus-plugins/apollo-server-fastify": [
