@@ -54,15 +54,17 @@ export class ResolversExplorerService extends BaseExplorerService {
                                         parameters[index] = selection;
                                     } else if (decorator === "Parent") {
                                         parameters[index] = source;
+                                    } else if (decorator === "Context") {
+                                        parameters[index] = context;
                                     } else if (decorator === "Relation") {
-                                        // parameters[index] = entityDef;
+                                        parameters[index] = undefined;
                                     } else {
                                         parameters[index] = args[name];
                                     }
                                 });
                                 result = await source[fieldName](...parameters);
                             } else if (typeSource === "undefined") {
-                                result = item(args, field2.selectionSet);
+                                result = item(args);
                             } else {
                                 result = source;
                             }
@@ -85,11 +87,11 @@ export class ResolversExplorerService extends BaseExplorerService {
             const obj: any = {};
             items.forEach(it => {
                 const [fieldName, className, tableName, methodName, argsDef] = it;
-                // const controller = app.get(className);
                 let controller = modules.map(module => this.filterResolvers(className, module)).filter(it => !!it);
-                if(controller && controller.length ===1){
+                if (controller && controller.length === 1) {
                     const ctrl = controller[0];
-                    obj[fieldName] = (args: any, selectionSet: any) => {
+                    ctrl.tablename = tableName;
+                    obj[fieldName] = (args: any) => {
                         return ctrl[methodName](...argsDef.map(arg => args[arg.name]));
                     };
                 }
