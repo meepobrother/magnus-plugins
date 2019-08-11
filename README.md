@@ -3,4 +3,4 @@
 
 | 名称                                                                      | 简介        |
 |-------------------------------------------------------------------------|-----------|
-| [@magnus-plugins/nest-graphql-fastify](./packaegs/nest-graphql-fastify) | nest fastify插件 |
+| [@magnus-plugins/nest-graphql-fastify](packages/nest-graphql-fastify/README.md) | nest fastify插件 |
