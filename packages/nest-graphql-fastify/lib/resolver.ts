@@ -108,6 +108,8 @@ export class ResolversExplorerService extends BaseExplorerService {
 
   filterResolvers(name: string, moduleRef: Module): any {
     const ctrl = moduleRef.controllers.get(name);
-    return ctrl && ctrl.instance;
+    if (ctrl) return ctrl.instance;
+    const provi = moduleRef.providers.get(name);
+    if (provi) return provi.instance;
   }
 }

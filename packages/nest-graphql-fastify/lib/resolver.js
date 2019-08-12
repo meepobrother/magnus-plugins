@@ -109,7 +109,11 @@ let ResolversExplorerService = class ResolversExplorerService extends basic_1.Ba
     }
     filterResolvers(name, moduleRef) {
         const ctrl = moduleRef.controllers.get(name);
-        return ctrl && ctrl.instance;
+        if (ctrl)
+            return ctrl.instance;
+        const provi = moduleRef.providers.get(name);
+        if (provi)
+            return provi.instance;
     }
 };
 ResolversExplorerService = __decorate([
