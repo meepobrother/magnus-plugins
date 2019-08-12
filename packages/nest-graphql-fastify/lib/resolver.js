@@ -18,6 +18,7 @@ const basic_1 = require("./basic");
 const magnus_graphql_1 = require("@notadd/magnus-graphql");
 const magnus_graphql_2 = require("@notadd/magnus-graphql");
 const lodash_1 = require("lodash");
+const rxjs_1 = require("rxjs");
 let ResolversExplorerService = class ResolversExplorerService extends basic_1.BaseExplorerService {
     constructor(modulesContainer) {
         super();
@@ -78,6 +79,9 @@ let ResolversExplorerService = class ResolversExplorerService extends basic_1.Ba
                             }
                         }
                     }));
+                    if (rxjs_1.isObservable(result)) {
+                        result = result.toPromise();
+                    }
                     return result;
                 };
             });

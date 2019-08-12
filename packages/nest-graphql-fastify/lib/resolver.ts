@@ -7,6 +7,7 @@ import { ClientVisitor, ParseVisitor, ast } from "@notadd/magnus-graphql";
 import { scalars } from "@notadd/magnus-graphql";
 import { upperFirst } from "lodash";
 import { GraphQLResolveInfo } from "graphql";
+import { isObservable } from "rxjs";
 @Injectable()
 export class ResolversExplorerService extends BaseExplorerService {
   constructor(
@@ -73,6 +74,9 @@ export class ResolversExplorerService extends BaseExplorerService {
               }
             })
           );
+          if (isObservable(result)) {
+            result = result.toPromise();
+          }
           return result;
         };
       });
