@@ -5,26 +5,35 @@
 一个微服务，链接 magnus orm 层，可通过简单的配置文件，将相应的 magnus orm 接口暴露出来，并提供 grpc 服务
 api 服务端，链接一个微服务，能根据 grpc 服务自动生成相应的 graphql 服务
 
-````ts
+```ts
 type FieldOperator = "hiden" | "readonly" | "default";
-/**
- *
- */
-grpc.pageSetting(path: string){
-    page1: {
-        list1: {
-            apis: {
 
-            },
+
+[{
+    code: 'system'
+},{},{},{}]
+// user.post
+ul>ngFor="let item of menus ;index as key" data="data[key]"
+    li>ngFor= data="data[key]"
+
+grpc.systemSetting(system: string){
+    page1: {
+        title: '',
+        icon: '',
+        list1: {
+            apis: [{
+                path: 'userList',
+                type: 'query'
+            }],
             fields: {
-                username: 'readonly',
+                username: 'default',
                 createUser: {
-                    username: 'default'
+                    username: "default"
                 }
             },
             actions: {
-                saveButton: true,
-                deleteButton: true
+                saveButton:true,
+                deleteButton: false
             }
         },
         edit1: {
@@ -49,12 +58,20 @@ grpc.pageSetting(path: string){
   - }]
 - }
 **/
+graphql.findUser(block: {},where: {},order: {}){
+    username,
+    password
+}
+
+gencode ---> service
+
   grpc.findUser(
   {
-    entity: {
+
+    where: {
         id_Lg: 10,
         // 数据权限
-        from_system_id: 1
+        from_depart_id: 1
     },
     order: {
         id: "DESC"
@@ -67,7 +84,7 @@ grpc.pageSetting(path: string){
     {
         // 字段是否展示 高级权限
         username: "readonly",
-        password: "hidden"
+        password: "readonly"
     }
   );
   /**
@@ -87,6 +104,3 @@ grpc.pageSetting(path: string){
   );
 
 ```
-
-```
-````
