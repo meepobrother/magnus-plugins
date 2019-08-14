@@ -1,7 +1,7 @@
 import faker = require("faker");
 const factory = {
   Realname: () => faker.name.findName(),
-  UserName: () => faker.finance.accountName(),
+  UserName: () => faker.internet.userName(),
   Email: () => faker.internet.email(),
   Mac: () => faker.internet.mac(),
   Password: () => faker.internet.password(),
@@ -24,7 +24,7 @@ const factory = {
   Avatar: () => faker.image.avatar(),
   Ip: () => faker.internet.ip(),
   Color: () => faker.internet.color(),
-  Phone: () => faker.phone.phoneNumber(),
+  Phone: () => faker.phone.phoneNumberFormat(),
   Number: () => faker.random.number(),
   Word: () => faker.random.word(),
   Words: () => faker.random.words(),
