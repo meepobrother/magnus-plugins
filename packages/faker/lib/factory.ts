@@ -1,7 +1,7 @@
 import faker = require("faker");
 const factory = {
   Realname: () => faker.name.findName(),
-  UserName: () => faker.internet.userName(),
+  UserName: () => faker.finance.accountName(),
   Email: () => faker.internet.email(),
   Mac: () => faker.internet.mac(),
   Password: () => faker.internet.password(),
@@ -29,7 +29,8 @@ const factory = {
   Word: () => faker.random.word(),
   Words: () => faker.random.words(),
   Boolean: () => faker.random.boolean(),
-  Uuid: () => faker.random.uuid()
+  Uuid: () => faker.random.uuid(),
+  Department: () => faker.commerce.department()
 };
 
 interface Type<T> extends Function {
@@ -48,14 +49,25 @@ interface Entities {
   [key: string]: Type<any>;
 }
 export class Factory {
-  constructor(public config: Config, public entities: Entities) {}
+  constructor(
+    public config: Config,
+    public entities: Entities,
+    public randomLen: {
+      min: number;
+      max: number;
+    } = {
+      min: 3,
+      max: 7
+    },
+    public total: number = 300
+  ) {}
   set: string[] = [];
   createEntity<T>(name: string): T {
     const res = new this.entities[name]();
     const metadata = this.config[name];
     if (metadata) {
       metadata.map(column => {
-        const num = faker.random.number({ min: 3, max: 5 });
+        const num = faker.random.number(this.randomLen);
         if (
           (column.decorators || []).includes("OneToMany") ||
           (column.decorators || []).includes("TreeChildren")
@@ -63,7 +75,7 @@ export class Factory {
           // 创建多个
           this.set.push(name);
           res[column.name] = res[column.name] || [];
-          if (this.set.filter(it => it === name).length > 300) {
+          if (this.set.filter(it => it === name).length > this.total) {
             // 足够了
           } else {
             for (let i = 0; i < num; i++) {

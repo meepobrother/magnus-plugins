@@ -30,3 +30,4 @@ exports.Password = () => exports.AnyDecorator;
 exports.Mac = () => exports.AnyDecorator;
 exports.Email = () => exports.AnyDecorator;
 exports.UserName = () => exports.AnyDecorator;
+exports.Department = () => exports.AnyDecorator;
