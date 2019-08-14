@@ -58,7 +58,6 @@ export class Factory {
         const num = faker.random.number({ min: 1, max: 5 });
         if (
           (column.decorators || []).includes("OneToMany") ||
-          (column.decorators || []).includes("ManyToMany") ||
           (column.decorators || []).includes("TreeChildren")
         ) {
           // 创建多个

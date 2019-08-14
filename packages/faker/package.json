@@ -25,5 +25,8 @@
   },
   "bugs": {
     "url": "https://github.com/meepobrother/magnus-plugins/issues"
+  },
+  "devDependencies": {
+    "faker": "^4.1.0"
   }
 }

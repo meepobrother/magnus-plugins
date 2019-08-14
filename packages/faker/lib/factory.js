@@ -46,7 +46,6 @@ class Factory {
             metadata.map(column => {
                 const num = faker.random.number({ min: 1, max: 5 });
                 if ((column.decorators || []).includes("OneToMany") ||
-                    (column.decorators || []).includes("ManyToMany") ||
                     (column.decorators || []).includes("TreeChildren")) {
                     // 创建多个
                     this.set.push(name);
