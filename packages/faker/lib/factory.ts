@@ -55,7 +55,7 @@ export class Factory {
     const metadata = this.config[name];
     if (metadata) {
       metadata.map(column => {
-        const num = faker.random.number({ min: 1, max: 5 });
+        const num = faker.random.number({ min: 3, max: 5 });
         if (
           (column.decorators || []).includes("OneToMany") ||
           (column.decorators || []).includes("TreeChildren")
