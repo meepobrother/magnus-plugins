@@ -32,7 +32,7 @@ const factory = {
     Words: () => faker.random.words(),
     Boolean: () => faker.random.boolean(),
     Uuid: () => faker.random.uuid(),
-    Department: () => faker.commerce.department()
+    DepartmentName: () => faker.commerce.department()
 };
 class Factory {
     constructor(config, entities, randomLen = {
