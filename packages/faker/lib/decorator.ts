@@ -28,4 +28,4 @@ export const Password = () => AnyDecorator;
 export const Mac = () => AnyDecorator;
 export const Email = () => AnyDecorator;
 export const UserName = () => AnyDecorator;
-export const Department = () => AnyDecorator;
+export const DepartmentName = () => AnyDecorator;
