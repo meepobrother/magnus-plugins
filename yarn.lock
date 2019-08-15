@@ -861,15 +861,6 @@
   dependencies:
     lodash "^4.15.0"
 
-"@notadd/magnus-core@^3.0.10":
-  version "3.0.10"
-  resolved "https://registry.yarnpkg.com/@notadd/magnus-core/-/magnus-core-3.0.10.tgz#23113e0de74e29ae275cd98e740d5e0934cce00c"
-  integrity sha512-0lzZdyuzY58N2dJng3UzU2uKemD2Npse4cYtg1offzeHAPGeG0A8wVzKM1zhv006zi4KN8Jr/hPoUHn6iUtJ7A==
-  dependencies:
-    graphql "^14.4.2"
-    tslib "^1.10.0"
-    typeorm "^0.2.18"
-
 "@notadd/magnus-core@^3.0.9":
   version "3.0.9"
   resolved "https://registry.yarnpkg.com/@notadd/magnus-core/-/magnus-core-3.0.9.tgz#a37eb352edb689c76f2159f2ce9095d89fcd64d7"
@@ -879,10 +870,27 @@
     tslib "^1.10.0"
     typeorm "^0.2.18"
 
+"@notadd/magnus-core@^3.1.10":
+  version "3.1.10"
+  resolved "https://registry.yarnpkg.com/@notadd/magnus-core/-/magnus-core-3.1.10.tgz#3eb3d6b750e650c33c590e27ab0ed5120eab0728"
+  integrity sha512-FlL/Heub3larRl9DLm+D+DGE6jwG7ChgyOqJfyww97cpOXnGFtZyFrCsMupcg23mEzoPKZrluio84i4bspEYtA==
+  dependencies:
+    graphql "^14.4.2"
+    tslib "^1.10.0"
+    typeorm "^0.2.18"
+
 "@notadd/magnus-graphql@^3.0.7":
   version "3.0.7"
   resolved "https://registry.yarnpkg.com/@notadd/magnus-graphql/-/magnus-graphql-3.0.7.tgz#2fdb4e5014328493786f6f04bb7cdfa61cf4ab68"
   integrity sha512-O74EMP/9blKN2yWilmpx55noFPOel0JLaydsQ5rOHsNQ2QKE5z4CxkJhGntukcEnqdSJHvkRaWOtNuTl4XaJ5A==
+  dependencies:
+    graphql "^14.4.2"
+    tslib "^1.10.0"
+
+"@notadd/magnus-graphql@^3.1.10":
+  version "3.1.10"
+  resolved "https://registry.yarnpkg.com/@notadd/magnus-graphql/-/magnus-graphql-3.1.10.tgz#93ed4af115e2d8c823408af22be5e5e26d1db081"
+  integrity sha512-kobzpCabdMzvRscFkaOQRDe237p/8pJAAVO99SqgDjyjC/qSGL+nuHWvosrFCDgOxWR/oK1ZZMc9LfNo0+Ie0A==
   dependencies:
     graphql "^14.4.2"
     tslib "^1.10.0"

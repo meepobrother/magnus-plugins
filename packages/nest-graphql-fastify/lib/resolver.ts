@@ -50,16 +50,25 @@ export class ResolversExplorerService extends BaseExplorerService {
                 const selection = field2.selectionSet;
                 params.map(par => {
                   const { name, type, index, decorator } = par;
-                  if (decorator === "Selection") {
+                  if (decorator.includes("Selection")) {
                     parameters[index] = selection;
-                  } else if (decorator === "Parent") {
+                  } else if (decorator.includes("Parent")) {
                     parameters[index] = source;
-                  } else if (decorator === "Relation") {
+                  } else if (decorator.includes("Relation")) {
                     parameters[index] = undefined;
-                  } else if (decorator === "Context") {
+                  } else if (decorator.includes("Context")) {
                     parameters[index] = context;
-                  } else if (decorator) {
-                    parameters[index] = decorators[decorator]()()(context);
+                  } else if (decorator.length === 0) {
+                    parameters[index] = args[name];
+                  } else if (decorator.length > 0) {
+                    decorator.map(dec => {
+                      parameters[index] = args[name];
+                      if (decorators[dec])
+                        parameters[index] = decorators[dec]()()(
+                          context,
+                          args[name]
+                        );
+                    });
                   } else {
                     parameters[index] = args[name];
                   }
