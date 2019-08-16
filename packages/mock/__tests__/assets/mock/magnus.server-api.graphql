@@ -1,10 +1,12 @@
 query listUser($where: UserInputWhere,$order: UserInputOrder,$limit: LimitInput){
 	listUser(where: $where,order: $order,limit: $limit){
 		list {
+		uid
 		username
 		password
 		realname
 		todoItems {
+		uid
 		title
 		desc
 		username
@@ -20,6 +22,7 @@ query listUser($where: UserInputWhere,$order: UserInputOrder,$limit: LimitInput)
 query listToDoItem($where: ToDoItemInputWhere,$order: ToDoItemInputOrder,$limit: LimitInput){
 	listToDoItem(where: $where,order: $order,limit: $limit){
 		list {
+		uid
 		title
 		desc
 		username
@@ -32,10 +35,12 @@ query listToDoItem($where: ToDoItemInputWhere,$order: ToDoItemInputOrder,$limit:
 
 query detailUser($id: Int!){
 	detailUser(id: $id){
+		uid
 		username
 		password
 		realname
 		todoItems {
+		uid
 		title
 		desc
 		username
@@ -47,6 +52,7 @@ query detailUser($id: Int!){
 
 query detailToDoItem($id: Int!){
 	detailToDoItem(id: $id){
+		uid
 		title
 		desc
 		username
@@ -56,10 +62,12 @@ query detailToDoItem($id: Int!){
 
 mutation deleteUser($id: Int!){
 	deleteUser(id: $id){
+		uid
 		username
 		password
 		realname
 		todoItems {
+		uid
 		title
 		desc
 		username
@@ -71,6 +79,7 @@ mutation deleteUser($id: Int!){
 
 mutation deleteToDoItem($id: Int!){
 	deleteToDoItem(id: $id){
+		uid
 		title
 		desc
 		username
@@ -78,12 +87,14 @@ mutation deleteToDoItem($id: Int!){
 
 }
 
-mutation deletesUser($id: [Int]!){
-	deletesUser(id: $id){
+mutation deletesUser($ids: [Int]!){
+	deletesUser(ids: $ids){
+		uid
 		username
 		password
 		realname
 		todoItems {
+		uid
 		title
 		desc
 		username
@@ -93,8 +104,9 @@ mutation deletesUser($id: [Int]!){
 
 }
 
-mutation deletesToDoItem($id: [Int]!){
-	deletesToDoItem(id: $id){
+mutation deletesToDoItem($ids: [Int]!){
+	deletesToDoItem(ids: $ids){
+		uid
 		title
 		desc
 		username
@@ -104,10 +116,12 @@ mutation deletesToDoItem($id: [Int]!){
 
 mutation updateUser($id: Int!,$data: UserPartial!){
 	updateUser(id: $id,data: $data){
+		uid
 		username
 		password
 		realname
 		todoItems {
+		uid
 		title
 		desc
 		username
@@ -119,6 +133,7 @@ mutation updateUser($id: Int!,$data: UserPartial!){
 
 mutation updateToDoItem($id: Int!,$data: ToDoItemPartial!){
 	updateToDoItem(id: $id,data: $data){
+		uid
 		title
 		desc
 		username
@@ -128,10 +143,12 @@ mutation updateToDoItem($id: Int!,$data: ToDoItemPartial!){
 
 mutation editUser($data: UserInput!){
 	editUser(data: $data){
+		uid
 		username
 		password
 		realname
 		todoItems {
+		uid
 		title
 		desc
 		username
@@ -143,6 +160,7 @@ mutation editUser($data: UserInput!){
 
 mutation editToDoItem($data: ToDoItemInput!){
 	editToDoItem(data: $data){
+		uid
 		title
 		desc
 		username
@@ -150,12 +168,14 @@ mutation editToDoItem($data: ToDoItemInput!){
 
 }
 
-mutation editsUser($data: [UserInput]!){
-	editsUser(data: $data){
+mutation editsUser($datas: [UserInput]!){
+	editsUser(datas: $datas){
+		uid
 		username
 		password
 		realname
 		todoItems {
+		uid
 		title
 		desc
 		username
@@ -165,8 +185,9 @@ mutation editsUser($data: [UserInput]!){
 
 }
 
-mutation editsToDoItem($data: [ToDoItemInput]!){
-	editsToDoItem(data: $data){
+mutation editsToDoItem($datas: [ToDoItemInput]!){
+	editsToDoItem(datas: $datas){
+		uid
 		title
 		desc
 		username

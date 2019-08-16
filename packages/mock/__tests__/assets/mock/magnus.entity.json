@@ -1,6 +1,13 @@
 {
   "ToDoItem": [
     {
+      "name": "uid",
+      "decorators": [
+        "PrimaryGeneratedColumn"
+      ],
+      "entity": "number"
+    },
+    {
       "name": "title",
       "decorators": [
         "Title"
@@ -23,6 +30,13 @@
     }
   ],
   "User": [
+    {
+      "name": "uid",
+      "decorators": [
+        "PrimaryGeneratedColumn"
+      ],
+      "entity": "number"
+    },
     {
       "name": "username",
       "decorators": [

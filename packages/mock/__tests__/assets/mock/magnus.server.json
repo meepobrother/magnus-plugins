@@ -166,6 +166,21 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
+            "value": "uid"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Int"
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
             "value": "title"
           },
           "type": {
@@ -218,6 +233,21 @@
       "interfaces": [],
       "directives": [],
       "fields": [
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "uid"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Int"
+            }
+          },
+          "directives": []
+        },
         {
           "kind": "FieldDefinition",
           "name": {
@@ -345,6 +375,21 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
+            "value": "uid"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Int"
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
             "value": "title"
           },
           "type": {
@@ -396,6 +441,21 @@
       },
       "directives": [],
       "fields": [
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "uid"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Int"
+            }
+          },
+          "directives": []
+        },
         {
           "kind": "FieldDefinition",
           "name": {
@@ -469,6 +529,166 @@
       },
       "directives": [],
       "fields": [
+        {
+          "kind": "FieldDefinition",
+          "description": {
+            "kind": "StringValue",
+            "value": ""
+          },
+          "name": {
+            "kind": "Name",
+            "value": "uid_Not"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Int"
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "description": {
+            "kind": "StringValue",
+            "value": ""
+          },
+          "name": {
+            "kind": "Name",
+            "value": "uid_In"
+          },
+          "type": {
+            "kind": "ListType",
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": {
+                  "kind": "Name",
+                  "value": "Int"
+                }
+              }
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "description": {
+            "kind": "StringValue",
+            "value": ""
+          },
+          "name": {
+            "kind": "Name",
+            "value": "uid_NotIn"
+          },
+          "type": {
+            "kind": "ListType",
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": {
+                  "kind": "Name",
+                  "value": "Int"
+                }
+              }
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "description": {
+            "kind": "StringValue",
+            "value": ""
+          },
+          "name": {
+            "kind": "Name",
+            "value": "uid_Lt"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Int"
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "description": {
+            "kind": "StringValue",
+            "value": ""
+          },
+          "name": {
+            "kind": "Name",
+            "value": "uid_Lte"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Int"
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "description": {
+            "kind": "StringValue",
+            "value": ""
+          },
+          "name": {
+            "kind": "Name",
+            "value": "uid_Gt"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Int"
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "description": {
+            "kind": "StringValue",
+            "value": ""
+          },
+          "name": {
+            "kind": "Name",
+            "value": "uid_Gte"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Int"
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "uid"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Int"
+            }
+          },
+          "directives": []
+        },
         {
           "kind": "FieldDefinition",
           "description": {
@@ -1368,6 +1588,21 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
+            "value": "uid"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
             "value": "username"
           },
           "type": {
@@ -1524,6 +1759,166 @@
       },
       "directives": [],
       "fields": [
+        {
+          "kind": "FieldDefinition",
+          "description": {
+            "kind": "StringValue",
+            "value": ""
+          },
+          "name": {
+            "kind": "Name",
+            "value": "uid_Not"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Int"
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "description": {
+            "kind": "StringValue",
+            "value": ""
+          },
+          "name": {
+            "kind": "Name",
+            "value": "uid_In"
+          },
+          "type": {
+            "kind": "ListType",
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": {
+                  "kind": "Name",
+                  "value": "Int"
+                }
+              }
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "description": {
+            "kind": "StringValue",
+            "value": ""
+          },
+          "name": {
+            "kind": "Name",
+            "value": "uid_NotIn"
+          },
+          "type": {
+            "kind": "ListType",
+            "type": {
+              "kind": "NonNullType",
+              "type": {
+                "kind": "NamedType",
+                "name": {
+                  "kind": "Name",
+                  "value": "Int"
+                }
+              }
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "description": {
+            "kind": "StringValue",
+            "value": ""
+          },
+          "name": {
+            "kind": "Name",
+            "value": "uid_Lt"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Int"
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "description": {
+            "kind": "StringValue",
+            "value": ""
+          },
+          "name": {
+            "kind": "Name",
+            "value": "uid_Lte"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Int"
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "description": {
+            "kind": "StringValue",
+            "value": ""
+          },
+          "name": {
+            "kind": "Name",
+            "value": "uid_Gt"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Int"
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "description": {
+            "kind": "StringValue",
+            "value": ""
+          },
+          "name": {
+            "kind": "Name",
+            "value": "uid_Gte"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Int"
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "uid"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Int"
+            }
+          },
+          "directives": []
+        },
         {
           "kind": "FieldDefinition",
           "description": {
@@ -2423,6 +2818,21 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
+            "value": "uid"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
             "value": "title"
           },
           "type": {
@@ -2474,6 +2884,21 @@
       },
       "directives": [],
       "fields": [
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "uid"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Int"
+            }
+          },
+          "directives": []
+        },
         {
           "kind": "FieldDefinition",
           "name": {
@@ -2547,6 +2972,21 @@
       },
       "directives": [],
       "fields": [
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "uid"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Int"
+            }
+          },
+          "directives": []
+        },
         {
           "kind": "FieldDefinition",
           "name": {
@@ -2889,7 +3329,7 @@
               "kind": "InputValueDefinition",
               "name": {
                 "kind": "Name",
-                "value": "id"
+                "value": "ids"
               },
               "type": {
                 "kind": "NonNullType",
@@ -2930,7 +3370,7 @@
               "kind": "InputValueDefinition",
               "name": {
                 "kind": "Name",
-                "value": "id"
+                "value": "ids"
               },
               "type": {
                 "kind": "NonNullType",
@@ -3147,7 +3587,7 @@
               "kind": "InputValueDefinition",
               "name": {
                 "kind": "Name",
-                "value": "data"
+                "value": "datas"
               },
               "type": {
                 "kind": "NonNullType",
@@ -3188,7 +3628,7 @@
               "kind": "InputValueDefinition",
               "name": {
                 "kind": "Name",
-                "value": "data"
+                "value": "datas"
               },
               "type": {
                 "kind": "NonNullType",

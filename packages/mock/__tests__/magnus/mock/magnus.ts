@@ -19,6 +19,7 @@ import {
 import { Observable } from 'rxjs';
 
 export interface ToDoItem {
+	uid?: number;
 	title?: string;
 	desc?: string;
 	username?: string;

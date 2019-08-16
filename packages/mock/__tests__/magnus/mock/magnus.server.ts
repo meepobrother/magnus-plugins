@@ -19,11 +19,13 @@ import {
 import { Observable } from 'rxjs';
 
 export interface ToDoItem {
+	uid?: number;
 	title?: string;
 	desc?: string;
 	username?: string;
 }
 export interface User {
+	uid?: number;
 	username?: string;
 	password?: string;
 	realname?: string;
@@ -34,17 +36,34 @@ export interface UserListResult {
 	count: number;
 }
 export interface ToDoItemInput {
+	uid?: number;
 	title?: string;
 	desc?: string;
 	username?: string;
 }
 export interface UserInput {
+	uid?: number;
 	username?: string;
 	password?: string;
 	realname?: string;
 	todoItems?: ToDoItemInput[];
 }
 export interface UserInputWhere {
+	/**/
+	uid_Not?: number;
+	/**/
+	uid_In?: number[];
+	/**/
+	uid_NotIn?: number[];
+	/**/
+	uid_Lt?: number;
+	/**/
+	uid_Lte?: number;
+	/**/
+	uid_Gt?: number;
+	/**/
+	uid_Gte?: number;
+	uid?: number;
 	/**/
 	username_Not?: string;
 	/**/
@@ -131,6 +150,7 @@ export interface UserInputWhere {
 	NOT?: UserInputWhere[];
 }
 export interface UserInputOrder {
+	uid?: string;
 	username?: string;
 	password?: string;
 	realname?: string;
@@ -145,6 +165,21 @@ export interface ToDoItemListResult {
 	count: number;
 }
 export interface ToDoItemInputWhere {
+	/**/
+	uid_Not?: number;
+	/**/
+	uid_In?: number[];
+	/**/
+	uid_NotIn?: number[];
+	/**/
+	uid_Lt?: number;
+	/**/
+	uid_Lte?: number;
+	/**/
+	uid_Gt?: number;
+	/**/
+	uid_Gte?: number;
+	uid?: number;
 	/**/
 	title_Not?: string;
 	/**/
@@ -231,17 +266,20 @@ export interface ToDoItemInputWhere {
 	NOT?: ToDoItemInputWhere[];
 }
 export interface ToDoItemInputOrder {
+	uid?: string;
 	title?: string;
 	desc?: string;
 	username?: string;
 }
 export interface UserPartial {
+	uid?: number;
 	username?: string;
 	password?: string;
 	realname?: string;
 	todoItems?: ToDoItemInput[];
 }
 export interface ToDoItemPartial {
+	uid?: number;
 	title?: string;
 	desc?: string;
 	username?: string;
@@ -255,12 +293,12 @@ export interface Query {
 export interface Mutation {
 	deleteUser<T>(id: number, __selection?: string): Promise<T & User>;
 	deleteToDoItem<T>(id: number, __selection?: string): Promise<T & ToDoItem>;
-	deletesUser<T>(id: number[], __selection?: string): Promise<T & User[]>;
-	deletesToDoItem<T>(id: number[], __selection?: string): Promise<T & ToDoItem[]>;
+	deletesUser<T>(ids: number[], __selection?: string): Promise<T & User[]>;
+	deletesToDoItem<T>(ids: number[], __selection?: string): Promise<T & ToDoItem[]>;
 	updateUser<T>(id: number, data: UserPartial, __selection?: string): Promise<T & User>;
 	updateToDoItem<T>(id: number, data: ToDoItemPartial, __selection?: string): Promise<T & ToDoItem>;
 	editUser<T>(data: UserInput, __selection?: string): Promise<T & User>;
 	editToDoItem<T>(data: ToDoItemInput, __selection?: string): Promise<T & ToDoItem>;
-	editsUser<T>(data: UserInput[], __selection?: string): Promise<T & User[]>;
-	editsToDoItem<T>(data: ToDoItemInput[], __selection?: string): Promise<T & ToDoItem[]>;
+	editsUser<T>(datas: UserInput[], __selection?: string): Promise<T & User[]>;
+	editsToDoItem<T>(datas: ToDoItemInput[], __selection?: string): Promise<T & ToDoItem[]>;
 }

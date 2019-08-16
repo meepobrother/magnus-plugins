@@ -37,6 +37,7 @@ scalar Timestamp
 scalar Date
 
 type ToDoItem {
+  uid: Int
   title: String
   desc: String
   username: String

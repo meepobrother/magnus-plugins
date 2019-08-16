@@ -37,12 +37,14 @@ scalar Timestamp
 scalar Date
 
 type ToDoItem {
+  uid: Int
   title: String
   desc: String
   username: String
 }
 
 type User {
+  uid: Int
   username: String
   password: String
   realname: String
@@ -55,12 +57,14 @@ type UserListResult {
 }
 
 input ToDoItemInput {
+  uid: Int
   title: String
   desc: String
   username: String
 }
 
 input UserInput {
+  uid: Int
   username: String
   password: String
   realname: String
@@ -68,6 +72,21 @@ input UserInput {
 }
 
 input UserInputWhere {
+  ""
+  uid_Not: Int
+  ""
+  uid_In: [Int!]
+  ""
+  uid_NotIn: [Int!]
+  ""
+  uid_Lt: Int
+  ""
+  uid_Lte: Int
+  ""
+  uid_Gt: Int
+  ""
+  uid_Gte: Int
+  uid: Int
   ""
   username_Not: String
   ""
@@ -155,6 +174,7 @@ input UserInputWhere {
 }
 
 input UserInputOrder {
+  uid: String
   username: String
   password: String
   realname: String
@@ -172,6 +192,21 @@ type ToDoItemListResult {
 }
 
 input ToDoItemInputWhere {
+  ""
+  uid_Not: Int
+  ""
+  uid_In: [Int!]
+  ""
+  uid_NotIn: [Int!]
+  ""
+  uid_Lt: Int
+  ""
+  uid_Lte: Int
+  ""
+  uid_Gt: Int
+  ""
+  uid_Gte: Int
+  uid: Int
   ""
   title_Not: String
   ""
@@ -259,12 +294,14 @@ input ToDoItemInputWhere {
 }
 
 input ToDoItemInputOrder {
+  uid: String
   title: String
   desc: String
   username: String
 }
 
 input UserPartial {
+  uid: Int
   username: String
   password: String
   realname: String
@@ -272,6 +309,7 @@ input UserPartial {
 }
 
 input ToDoItemPartial {
+  uid: Int
   title: String
   desc: String
   username: String
@@ -287,12 +325,12 @@ type Query {
 type Mutation {
   deleteUser(id: Int!): User
   deleteToDoItem(id: Int!): ToDoItem
-  deletesUser(id: [Int]!): [User]
-  deletesToDoItem(id: [Int]!): [ToDoItem]
+  deletesUser(ids: [Int]!): [User]
+  deletesToDoItem(ids: [Int]!): [ToDoItem]
   updateUser(id: Int!, data: UserPartial!): User
   updateToDoItem(id: Int!, data: ToDoItemPartial!): ToDoItem
   editUser(data: UserInput!): User
   editToDoItem(data: ToDoItemInput!): ToDoItem
-  editsUser(data: [UserInput]!): [User]
-  editsToDoItem(data: [ToDoItemInput]!): [ToDoItem]
+  editsUser(datas: [UserInput]!): [User]
+  editsToDoItem(datas: [ToDoItemInput]!): [ToDoItem]
 }

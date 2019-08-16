@@ -29,3 +29,4 @@ export const Mac = () => AnyDecorator;
 export const Email = () => AnyDecorator;
 export const UserName = () => AnyDecorator;
 export const DepartmentName = () => AnyDecorator;
+export const PrimaryGeneratedColumn = () => AnyDecorator;

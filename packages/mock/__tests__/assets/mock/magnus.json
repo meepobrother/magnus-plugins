@@ -166,6 +166,21 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
+            "value": "uid"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "Int"
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
             "value": "title"
           },
           "type": {

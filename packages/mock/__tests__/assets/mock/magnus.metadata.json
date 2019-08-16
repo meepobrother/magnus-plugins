@@ -117,7 +117,7 @@
       "deletes",
       [
         {
-          "name": "id",
+          "name": "ids",
           "type": "[Int]!",
           "index": 0,
           "decorator": []
@@ -131,7 +131,7 @@
       "deletes",
       [
         {
-          "name": "id",
+          "name": "ids",
           "type": "[Int]!",
           "index": 0,
           "decorator": []
@@ -213,7 +213,7 @@
       "edits",
       [
         {
-          "name": "data",
+          "name": "datas",
           "type": "[UserInput]!",
           "index": 0,
           "decorator": []
@@ -227,7 +227,7 @@
       "edits",
       [
         {
-          "name": "data",
+          "name": "datas",
           "type": "[ToDoItemInput]!",
           "index": 0,
           "decorator": []
