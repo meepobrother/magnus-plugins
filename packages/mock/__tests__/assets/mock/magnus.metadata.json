@@ -1,0 +1,11 @@
+{
+  "query": [
+    [
+      "getUser",
+      "GetUserResolver",
+      "",
+      "getUser",
+      []
+    ]
+  ]
+}

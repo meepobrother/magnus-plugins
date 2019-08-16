@@ -1,0 +1,32 @@
+{
+  "Domain": [
+    {
+      "name": "title",
+      "decorators": [
+        "Title"
+      ],
+      "entity": "string"
+    },
+    {
+      "name": "code",
+      "decorators": [
+        "Words"
+      ],
+      "entity": "string"
+    },
+    {
+      "name": "parent",
+      "decorators": [
+        "ManyToOne"
+      ],
+      "entity": "Domain"
+    },
+    {
+      "name": "children",
+      "decorators": [
+        "OneToMany"
+      ],
+      "entity": "Domain"
+    }
+  ]
+}

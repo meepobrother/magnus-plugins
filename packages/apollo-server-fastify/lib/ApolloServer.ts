@@ -107,16 +107,7 @@ export class ApolloServer extends ApolloServerBase {
             method: ["GET", "POST"],
             url: "/",
             preHandler: beforeHandlers,
-            handler: await graphqlFastify(
-              async (
-                req: FastifyRequest<IncomingMessage>,
-                res: FastifyReply<OutgoingMessage>
-              ) => {
-                const result = await this.graphQLServerOptions({});
-                result.context[`headers`] = req.headers;
-                return result;
-              }
-            )
+            handler: await graphqlFastify(this.graphQLServerOptions.bind(this))
           });
         },
         {
