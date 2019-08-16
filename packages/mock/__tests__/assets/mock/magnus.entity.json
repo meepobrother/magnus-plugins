@@ -1,1 +1,55 @@
-{}
+{
+  "ToDoItem": [
+    {
+      "name": "title",
+      "decorators": [
+        "Title"
+      ],
+      "entity": "string"
+    },
+    {
+      "name": "desc",
+      "decorators": [
+        "Desc"
+      ],
+      "entity": "string"
+    },
+    {
+      "name": "username",
+      "decorators": [
+        "Realname"
+      ],
+      "entity": "string"
+    }
+  ],
+  "User": [
+    {
+      "name": "username",
+      "decorators": [
+        "UserName"
+      ],
+      "entity": "string"
+    },
+    {
+      "name": "password",
+      "decorators": [
+        "Password"
+      ],
+      "entity": "string"
+    },
+    {
+      "name": "realname",
+      "decorators": [
+        "Realname"
+      ],
+      "entity": "string"
+    },
+    {
+      "name": "todoItems",
+      "decorators": [
+        "OneToMany"
+      ],
+      "entity": "ToDoItem"
+    }
+  ]
+}

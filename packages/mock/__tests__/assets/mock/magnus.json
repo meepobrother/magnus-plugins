@@ -157,11 +157,41 @@
       "kind": "ObjectTypeDefinition",
       "name": {
         "kind": "Name",
-        "value": "GetUserResult"
+        "value": "ToDoItem"
       },
       "interfaces": [],
       "directives": [],
       "fields": [
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "title"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "desc"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
+            }
+          },
+          "directives": []
+        },
         {
           "kind": "FieldDefinition",
           "name": {
@@ -173,33 +203,6 @@
             "name": {
               "kind": "Name",
               "value": "String"
-            }
-          },
-          "directives": []
-        }
-      ]
-    },
-    {
-      "kind": "ObjectTypeDefinition",
-      "name": {
-        "kind": "Name",
-        "value": "Query"
-      },
-      "interfaces": [],
-      "directives": [],
-      "fields": [
-        {
-          "kind": "FieldDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "getUser"
-          },
-          "arguments": [],
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "GetUserResult"
             }
           },
           "directives": []

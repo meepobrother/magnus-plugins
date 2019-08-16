@@ -18,9 +18,8 @@ import {
 } from '@notadd/magnus-core';
 import { Observable } from 'rxjs';
 
-export interface GetUserResult {
+export interface ToDoItem {
+	title?: string;
+	desc?: string;
 	username?: string;
-}
-export interface Query {
-	getUser<T>(__selection?: string): Promise<T & GetUserResult>;
 }

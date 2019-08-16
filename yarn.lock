@@ -870,10 +870,10 @@
     tslib "^1.10.0"
     typeorm "^0.2.18"
 
-"@notadd/magnus-core@^3.1.10":
-  version "3.1.10"
-  resolved "https://registry.yarnpkg.com/@notadd/magnus-core/-/magnus-core-3.1.10.tgz#3eb3d6b750e650c33c590e27ab0ed5120eab0728"
-  integrity sha512-FlL/Heub3larRl9DLm+D+DGE6jwG7ChgyOqJfyww97cpOXnGFtZyFrCsMupcg23mEzoPKZrluio84i4bspEYtA==
+"@notadd/magnus-core@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@notadd/magnus-core/-/magnus-core-3.2.0.tgz#0ff66e59a0d2f78be08bbcde35dbcb758fc8d52e"
+  integrity sha512-7oc2akMpjYSq3bCH8tIQcQRwbs9EyXrINzJlpd2PbWuvbXWB59Z9GsFhDCRps+1ICa6VX9dxbGig4mk8bxcmfQ==
   dependencies:
     graphql "^14.4.2"
     tslib "^1.10.0"

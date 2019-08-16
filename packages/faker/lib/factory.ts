@@ -95,4 +95,12 @@ export class Factory {
     }
     return res;
   }
+
+  createEntities<T>(name: string, total: number): T[] {
+    let res: T[] = [];
+    for (let i = 0; i < total; i++) {
+      res.push(this.createEntity(name));
+    }
+    return res;
+  }
 }

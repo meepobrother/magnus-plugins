@@ -1,6 +1,28 @@
-query getUser{
-	getUser{
+query userDetail{
+	userDetail{
 		username
+		password
+		realname
+		todoItems {
+		title
+		desc
+		username
+	}
+ 
+	}
+}
+
+query userList{
+	userList{
+		username
+		password
+		realname
+		todoItems {
+		title
+		desc
+		username
+	}
+ 
 	}
 }
 

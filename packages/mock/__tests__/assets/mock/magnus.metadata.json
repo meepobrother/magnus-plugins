@@ -1,11 +1,238 @@
 {
   "query": [
     [
-      "getUser",
-      "GetUserResolver",
-      "",
-      "getUser",
-      []
+      "listUser",
+      "Controller",
+      "User",
+      "list",
+      [
+        {
+          "name": "where",
+          "type": "UserInputWhere",
+          "index": 0,
+          "decorator": []
+        },
+        {
+          "name": "order",
+          "type": "UserInputOrder",
+          "index": 1,
+          "decorator": []
+        },
+        {
+          "name": "limit",
+          "type": "LimitInput",
+          "index": 2,
+          "decorator": []
+        }
+      ]
+    ],
+    [
+      "listToDoItem",
+      "Controller",
+      "ToDoItem",
+      "list",
+      [
+        {
+          "name": "where",
+          "type": "ToDoItemInputWhere",
+          "index": 0,
+          "decorator": []
+        },
+        {
+          "name": "order",
+          "type": "ToDoItemInputOrder",
+          "index": 1,
+          "decorator": []
+        },
+        {
+          "name": "limit",
+          "type": "LimitInput",
+          "index": 2,
+          "decorator": []
+        }
+      ]
+    ],
+    [
+      "detailUser",
+      "Controller",
+      "User",
+      "detail",
+      [
+        {
+          "name": "id",
+          "type": "Int!",
+          "index": 0,
+          "decorator": []
+        }
+      ]
+    ],
+    [
+      "detailToDoItem",
+      "Controller",
+      "ToDoItem",
+      "detail",
+      [
+        {
+          "name": "id",
+          "type": "Int!",
+          "index": 0,
+          "decorator": []
+        }
+      ]
+    ]
+  ],
+  "mutation": [
+    [
+      "deleteUser",
+      "Controller",
+      "User",
+      "delete",
+      [
+        {
+          "name": "id",
+          "type": "Int!",
+          "index": 0,
+          "decorator": []
+        }
+      ]
+    ],
+    [
+      "deleteToDoItem",
+      "Controller",
+      "ToDoItem",
+      "delete",
+      [
+        {
+          "name": "id",
+          "type": "Int!",
+          "index": 0,
+          "decorator": []
+        }
+      ]
+    ],
+    [
+      "deletesUser",
+      "Controller",
+      "User",
+      "deletes",
+      [
+        {
+          "name": "id",
+          "type": "[Int]!",
+          "index": 0,
+          "decorator": []
+        }
+      ]
+    ],
+    [
+      "deletesToDoItem",
+      "Controller",
+      "ToDoItem",
+      "deletes",
+      [
+        {
+          "name": "id",
+          "type": "[Int]!",
+          "index": 0,
+          "decorator": []
+        }
+      ]
+    ],
+    [
+      "updateUser",
+      "Controller",
+      "User",
+      "update",
+      [
+        {
+          "name": "id",
+          "type": "Int!",
+          "index": 0,
+          "decorator": []
+        },
+        {
+          "name": "data",
+          "type": "UserPartial!",
+          "index": 1,
+          "decorator": []
+        }
+      ]
+    ],
+    [
+      "updateToDoItem",
+      "Controller",
+      "ToDoItem",
+      "update",
+      [
+        {
+          "name": "id",
+          "type": "Int!",
+          "index": 0,
+          "decorator": []
+        },
+        {
+          "name": "data",
+          "type": "ToDoItemPartial!",
+          "index": 1,
+          "decorator": []
+        }
+      ]
+    ],
+    [
+      "editUser",
+      "Controller",
+      "User",
+      "edit",
+      [
+        {
+          "name": "data",
+          "type": "UserInput!",
+          "index": 0,
+          "decorator": []
+        }
+      ]
+    ],
+    [
+      "editToDoItem",
+      "Controller",
+      "ToDoItem",
+      "edit",
+      [
+        {
+          "name": "data",
+          "type": "ToDoItemInput!",
+          "index": 0,
+          "decorator": []
+        }
+      ]
+    ],
+    [
+      "editsUser",
+      "Controller",
+      "User",
+      "edits",
+      [
+        {
+          "name": "data",
+          "type": "[UserInput]!",
+          "index": 0,
+          "decorator": []
+        }
+      ]
+    ],
+    [
+      "editsToDoItem",
+      "Controller",
+      "ToDoItem",
+      "edits",
+      [
+        {
+          "name": "data",
+          "type": "[ToDoItemInput]!",
+          "index": 0,
+          "decorator": []
+        }
+      ]
     ]
   ]
 }

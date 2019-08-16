@@ -2,7 +2,7 @@ import { ModulesContainer } from "@nestjs/core/injector/modules-container";
 import { Inject, Injectable } from "@nestjs/common";
 import { BaseExplorerService } from "./basic";
 import { Module } from "@nestjs/core/injector/module";
-import { HandlerDefMap } from "@notadd/magnus-core";
+import { HandlerDefMap, MagnusBase } from "@notadd/magnus-core";
 import { ClientVisitor, ParseVisitor, ast } from "@notadd/magnus-graphql";
 import { scalars } from "@notadd/magnus-graphql";
 import { upperFirst } from "lodash";
@@ -108,7 +108,8 @@ export class ResolversExplorerService extends BaseExplorerService {
           .map(module => this.filterResolvers(className, module))
           .filter(it => !!it);
         if (controller && controller.length === 1) {
-          const ctrl = controller[0];
+          const ctrl = controller[0] as MagnusBase;
+          ctrl.tablename = tableName;
           obj[fieldName] = (...args: any[]) => {
             return ctrl[methodName](...args);
           };

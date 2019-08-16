@@ -36,10 +36,263 @@ scalar Timestamp
 
 scalar Date
 
-type GetUserResult {
+type ToDoItem {
+  title: String
+  desc: String
+  username: String
+}
+
+type User {
+  username: String
+  password: String
+  realname: String
+  todoItems: [ToDoItem]
+}
+
+type UserListResult {
+  list: [User]!
+  count: Int!
+}
+
+input ToDoItemInput {
+  title: String
+  desc: String
+  username: String
+}
+
+input UserInput {
+  username: String
+  password: String
+  realname: String
+  todoItems: [ToDoItemInput]
+}
+
+input UserInputWhere {
+  ""
+  username_Not: String
+  ""
+  username_In: [String!]
+  ""
+  username_NotIn: [String!]
+  ""
+  username_Lt: String
+  ""
+  username_Lte: String
+  ""
+  username_Gt: String
+  ""
+  username_Gte: String
+  ""
+  username_Contains: String
+  ""
+  username_NotContains: String
+  ""
+  username_StartsWith: String
+  ""
+  username_NotStartsWith: String
+  ""
+  username_EndsWith: String
+  ""
+  username_NotEndsWith: String
+  username: String
+  ""
+  password_Not: String
+  ""
+  password_In: [String!]
+  ""
+  password_NotIn: [String!]
+  ""
+  password_Lt: String
+  ""
+  password_Lte: String
+  ""
+  password_Gt: String
+  ""
+  password_Gte: String
+  ""
+  password_Contains: String
+  ""
+  password_NotContains: String
+  ""
+  password_StartsWith: String
+  ""
+  password_NotStartsWith: String
+  ""
+  password_EndsWith: String
+  ""
+  password_NotEndsWith: String
+  password: String
+  ""
+  realname_Not: String
+  ""
+  realname_In: [String!]
+  ""
+  realname_NotIn: [String!]
+  ""
+  realname_Lt: String
+  ""
+  realname_Lte: String
+  ""
+  realname_Gt: String
+  ""
+  realname_Gte: String
+  ""
+  realname_Contains: String
+  ""
+  realname_NotContains: String
+  ""
+  realname_StartsWith: String
+  ""
+  realname_NotStartsWith: String
+  ""
+  realname_EndsWith: String
+  ""
+  realname_NotEndsWith: String
+  realname: String
+  AND: [UserInputWhere!]
+  OR: [UserInputWhere!]
+  NOT: [UserInputWhere!]
+}
+
+input UserInputOrder {
+  username: String
+  password: String
+  realname: String
+  todoItems: String
+}
+
+input LimitInput {
+  page: Int
+  psize: Int
+}
+
+type ToDoItemListResult {
+  list: [ToDoItem]!
+  count: Int!
+}
+
+input ToDoItemInputWhere {
+  ""
+  title_Not: String
+  ""
+  title_In: [String!]
+  ""
+  title_NotIn: [String!]
+  ""
+  title_Lt: String
+  ""
+  title_Lte: String
+  ""
+  title_Gt: String
+  ""
+  title_Gte: String
+  ""
+  title_Contains: String
+  ""
+  title_NotContains: String
+  ""
+  title_StartsWith: String
+  ""
+  title_NotStartsWith: String
+  ""
+  title_EndsWith: String
+  ""
+  title_NotEndsWith: String
+  title: String
+  ""
+  desc_Not: String
+  ""
+  desc_In: [String!]
+  ""
+  desc_NotIn: [String!]
+  ""
+  desc_Lt: String
+  ""
+  desc_Lte: String
+  ""
+  desc_Gt: String
+  ""
+  desc_Gte: String
+  ""
+  desc_Contains: String
+  ""
+  desc_NotContains: String
+  ""
+  desc_StartsWith: String
+  ""
+  desc_NotStartsWith: String
+  ""
+  desc_EndsWith: String
+  ""
+  desc_NotEndsWith: String
+  desc: String
+  ""
+  username_Not: String
+  ""
+  username_In: [String!]
+  ""
+  username_NotIn: [String!]
+  ""
+  username_Lt: String
+  ""
+  username_Lte: String
+  ""
+  username_Gt: String
+  ""
+  username_Gte: String
+  ""
+  username_Contains: String
+  ""
+  username_NotContains: String
+  ""
+  username_StartsWith: String
+  ""
+  username_NotStartsWith: String
+  ""
+  username_EndsWith: String
+  ""
+  username_NotEndsWith: String
+  username: String
+  AND: [ToDoItemInputWhere!]
+  OR: [ToDoItemInputWhere!]
+  NOT: [ToDoItemInputWhere!]
+}
+
+input ToDoItemInputOrder {
+  title: String
+  desc: String
+  username: String
+}
+
+input UserPartial {
+  username: String
+  password: String
+  realname: String
+  todoItems: [ToDoItemInput]
+}
+
+input ToDoItemPartial {
+  title: String
+  desc: String
   username: String
 }
 
 type Query {
-  getUser: GetUserResult
+  listUser(where: UserInputWhere, order: UserInputOrder, limit: LimitInput): UserListResult
+  listToDoItem(where: ToDoItemInputWhere, order: ToDoItemInputOrder, limit: LimitInput): ToDoItemListResult
+  detailUser(id: Int!): User
+  detailToDoItem(id: Int!): ToDoItem
+}
+
+type Mutation {
+  deleteUser(id: Int!): User
+  deleteToDoItem(id: Int!): ToDoItem
+  deletesUser(id: [Int]!): [User]
+  deletesToDoItem(id: [Int]!): [ToDoItem]
+  updateUser(id: Int!, data: UserPartial!): User
+  updateToDoItem(id: Int!, data: ToDoItemPartial!): ToDoItem
+  editUser(data: UserInput!): User
+  editToDoItem(data: ToDoItemInput!): ToDoItem
+  editsUser(data: [UserInput]!): [User]
+  editsToDoItem(data: [ToDoItemInput]!): [ToDoItem]
 }

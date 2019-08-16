@@ -1,6 +1,176 @@
-query getUser{
-	getUser{
+query listUser($where: UserInputWhere,$order: UserInputOrder,$limit: LimitInput){
+	listUser(where: $where,order: $order,limit: $limit){
+		list {
+		username
+		password
+		realname
+		todoItems {
+		title
+		desc
 		username
 	}
+ 
+	}
+ 
+		count
+	}
+
+}
+
+query listToDoItem($where: ToDoItemInputWhere,$order: ToDoItemInputOrder,$limit: LimitInput){
+	listToDoItem(where: $where,order: $order,limit: $limit){
+		list {
+		title
+		desc
+		username
+	}
+ 
+		count
+	}
+
+}
+
+query detailUser($id: Int!){
+	detailUser(id: $id){
+		username
+		password
+		realname
+		todoItems {
+		title
+		desc
+		username
+	}
+ 
+	}
+
+}
+
+query detailToDoItem($id: Int!){
+	detailToDoItem(id: $id){
+		title
+		desc
+		username
+	}
+
+}
+
+mutation deleteUser($id: Int!){
+	deleteUser(id: $id){
+		username
+		password
+		realname
+		todoItems {
+		title
+		desc
+		username
+	}
+ 
+	}
+
+}
+
+mutation deleteToDoItem($id: Int!){
+	deleteToDoItem(id: $id){
+		title
+		desc
+		username
+	}
+
+}
+
+mutation deletesUser($id: [Int]!){
+	deletesUser(id: $id){
+		username
+		password
+		realname
+		todoItems {
+		title
+		desc
+		username
+	}
+ 
+	}
+
+}
+
+mutation deletesToDoItem($id: [Int]!){
+	deletesToDoItem(id: $id){
+		title
+		desc
+		username
+	}
+
+}
+
+mutation updateUser($id: Int!,$data: UserPartial!){
+	updateUser(id: $id,data: $data){
+		username
+		password
+		realname
+		todoItems {
+		title
+		desc
+		username
+	}
+ 
+	}
+
+}
+
+mutation updateToDoItem($id: Int!,$data: ToDoItemPartial!){
+	updateToDoItem(id: $id,data: $data){
+		title
+		desc
+		username
+	}
+
+}
+
+mutation editUser($data: UserInput!){
+	editUser(data: $data){
+		username
+		password
+		realname
+		todoItems {
+		title
+		desc
+		username
+	}
+ 
+	}
+
+}
+
+mutation editToDoItem($data: ToDoItemInput!){
+	editToDoItem(data: $data){
+		title
+		desc
+		username
+	}
+
+}
+
+mutation editsUser($data: [UserInput]!){
+	editsUser(data: $data){
+		username
+		password
+		realname
+		todoItems {
+		title
+		desc
+		username
+	}
+ 
+	}
+
+}
+
+mutation editsToDoItem($data: [ToDoItemInput]!){
+	editsToDoItem(data: $data){
+		title
+		desc
+		username
+	}
+
 }
 

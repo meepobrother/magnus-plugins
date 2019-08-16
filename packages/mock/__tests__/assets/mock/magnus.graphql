@@ -36,10 +36,8 @@ scalar Timestamp
 
 scalar Date
 
-type GetUserResult {
+type ToDoItem {
+  title: String
+  desc: String
   username: String
-}
-
-type Query {
-  getUser: GetUserResult
 }
