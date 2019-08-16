@@ -5,7 +5,8 @@ import {
     Realname,
     Title,
     Desc,
-    PrimaryGeneratedColumn
+    PrimaryGeneratedColumn,
+    ManyToOne
 } from "@magnus-plugins/faker";
 import {
     Magnus,
@@ -20,7 +21,7 @@ const config = require("../assets/mock/magnus.entity.json");
 @Entity()
 export class ToDoItem {
     @PrimaryGeneratedColumn()
-    uid: number;
+    id: number;
 
     @Title()
     title: string;
@@ -30,13 +31,16 @@ export class ToDoItem {
 
     @Realname()
     username: string;
+
+    @ManyToOne()
+    user: User;
 }
 
 @Entity()
 export class User {
 
     @PrimaryGeneratedColumn()
-    uid: number;
+    id: number;
 
     @UserName()
     username: string;
@@ -65,7 +69,8 @@ interface ListResult<T> {
  * 默认有一些初始化数据
  */
 export const db: { [key: string]: any[] } = {
-    User: factory.createEntities('User', 100)
+    User: factory.createEntities('User', 100),
+    ToDoItem: factory.createEntities('ToDoItem', 100)
 }
 /**
  * 接口规范，一旦制定，不容随意修改

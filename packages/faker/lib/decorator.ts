@@ -1,4 +1,4 @@
-export const AnyDecorator = (...args: any[]) => {};
+export const AnyDecorator = (...args: any[]) => { };
 export const Realname = () => AnyDecorator;
 export const Uuid = () => AnyDecorator;
 export const Boolean = () => AnyDecorator;
@@ -30,3 +30,4 @@ export const Email = () => AnyDecorator;
 export const UserName = () => AnyDecorator;
 export const DepartmentName = () => AnyDecorator;
 export const PrimaryGeneratedColumn = () => AnyDecorator;
+export const ManyToOne = () => AnyDecorator;

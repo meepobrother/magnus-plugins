@@ -5,6 +5,9 @@ const factory = {
         i += 1;
         return i;
     },
+    ManyToOne: () => {
+        return {};
+    },
     Realname: () => faker.name.findName(),
     UserName: () => faker.internet.userName(),
     Email: () => faker.internet.email(),
