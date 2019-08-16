@@ -19,13 +19,13 @@ import {
 import { Observable } from 'rxjs';
 
 export interface ToDoItem {
-	uid?: number;
+	id?: number;
 	title?: string;
 	desc?: string;
 	username?: string;
 }
 export interface User {
-	uid?: number;
+	id?: number;
 	username?: string;
 	password?: string;
 	realname?: string;
@@ -35,14 +35,19 @@ export interface UserListResult {
 	list: User[];
 	count: number;
 }
+export interface UserMessages {
+	code: string;
+	message: string;
+	data: UserListResult;
+}
 export interface ToDoItemInput {
-	uid?: number;
+	id?: number;
 	title?: string;
 	desc?: string;
 	username?: string;
 }
 export interface UserInput {
-	uid?: number;
+	id?: number;
 	username?: string;
 	password?: string;
 	realname?: string;
@@ -50,20 +55,20 @@ export interface UserInput {
 }
 export interface UserInputWhere {
 	/**/
-	uid_Not?: number;
+	id_Not?: number;
 	/**/
-	uid_In?: number[];
+	id_In?: number[];
 	/**/
-	uid_NotIn?: number[];
+	id_NotIn?: number[];
 	/**/
-	uid_Lt?: number;
+	id_Lt?: number;
 	/**/
-	uid_Lte?: number;
+	id_Lte?: number;
 	/**/
-	uid_Gt?: number;
+	id_Gt?: number;
 	/**/
-	uid_Gte?: number;
-	uid?: number;
+	id_Gte?: number;
+	id?: number;
 	/**/
 	username_Not?: string;
 	/**/
@@ -150,7 +155,7 @@ export interface UserInputWhere {
 	NOT?: UserInputWhere[];
 }
 export interface UserInputOrder {
-	uid?: string;
+	id?: string;
 	username?: string;
 	password?: string;
 	realname?: string;
@@ -164,22 +169,27 @@ export interface ToDoItemListResult {
 	list: ToDoItem[];
 	count: number;
 }
+export interface ToDoItemMessages {
+	code: string;
+	message: string;
+	data: ToDoItemListResult;
+}
 export interface ToDoItemInputWhere {
 	/**/
-	uid_Not?: number;
+	id_Not?: number;
 	/**/
-	uid_In?: number[];
+	id_In?: number[];
 	/**/
-	uid_NotIn?: number[];
+	id_NotIn?: number[];
 	/**/
-	uid_Lt?: number;
+	id_Lt?: number;
 	/**/
-	uid_Lte?: number;
+	id_Lte?: number;
 	/**/
-	uid_Gt?: number;
+	id_Gt?: number;
 	/**/
-	uid_Gte?: number;
-	uid?: number;
+	id_Gte?: number;
+	id?: number;
 	/**/
 	title_Not?: string;
 	/**/
@@ -266,27 +276,27 @@ export interface ToDoItemInputWhere {
 	NOT?: ToDoItemInputWhere[];
 }
 export interface ToDoItemInputOrder {
-	uid?: string;
+	id?: string;
 	title?: string;
 	desc?: string;
 	username?: string;
 }
 export interface UserPartial {
-	uid?: number;
+	id?: number;
 	username?: string;
 	password?: string;
 	realname?: string;
 	todoItems?: ToDoItemInput[];
 }
 export interface ToDoItemPartial {
-	uid?: number;
+	id?: number;
 	title?: string;
 	desc?: string;
 	username?: string;
 }
 export interface Query {
-	listUser<T>(where?: UserInputWhere, order?: UserInputOrder, limit?: LimitInput, __selection?: string): Promise<T & UserListResult>;
-	listToDoItem<T>(where?: ToDoItemInputWhere, order?: ToDoItemInputOrder, limit?: LimitInput, __selection?: string): Promise<T & ToDoItemListResult>;
+	listUser<T>(where?: UserInputWhere, order?: UserInputOrder, limit?: LimitInput, __selection?: string): Promise<T & UserMessages>;
+	listToDoItem<T>(where?: ToDoItemInputWhere, order?: ToDoItemInputOrder, limit?: LimitInput, __selection?: string): Promise<T & ToDoItemMessages>;
 	detailUser<T>(id: number, __selection?: string): Promise<T & User>;
 	detailToDoItem<T>(id: number, __selection?: string): Promise<T & ToDoItem>;
 }

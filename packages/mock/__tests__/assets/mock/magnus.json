@@ -166,7 +166,7 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "uid"
+            "value": "id"
           },
           "type": {
             "kind": "NamedType",

@@ -166,7 +166,7 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "uid"
+            "value": "id"
           },
           "type": {
             "kind": "NamedType",
@@ -237,7 +237,7 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "uid"
+            "value": "id"
           },
           "type": {
             "kind": "NamedType",
@@ -364,6 +364,71 @@
       ]
     },
     {
+      "kind": "ObjectTypeDefinition",
+      "name": {
+        "kind": "Name",
+        "value": "UserMessages"
+      },
+      "interfaces": [],
+      "directives": [],
+      "fields": [
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "code"
+          },
+          "type": {
+            "kind": "NonNullType",
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "String"
+              }
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "message"
+          },
+          "type": {
+            "kind": "NonNullType",
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "String"
+              }
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "data"
+          },
+          "type": {
+            "kind": "NonNullType",
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "UserListResult"
+              }
+            }
+          },
+          "directives": []
+        }
+      ]
+    },
+    {
       "kind": "InputObjectTypeDefinition",
       "name": {
         "kind": "Name",
@@ -375,7 +440,7 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "uid"
+            "value": "id"
           },
           "type": {
             "kind": "NamedType",
@@ -445,7 +510,7 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "uid"
+            "value": "id"
           },
           "type": {
             "kind": "NamedType",
@@ -537,7 +602,7 @@
           },
           "name": {
             "kind": "Name",
-            "value": "uid_Not"
+            "value": "id_Not"
           },
           "type": {
             "kind": "NamedType",
@@ -556,7 +621,7 @@
           },
           "name": {
             "kind": "Name",
-            "value": "uid_In"
+            "value": "id_In"
           },
           "type": {
             "kind": "ListType",
@@ -581,7 +646,7 @@
           },
           "name": {
             "kind": "Name",
-            "value": "uid_NotIn"
+            "value": "id_NotIn"
           },
           "type": {
             "kind": "ListType",
@@ -606,7 +671,7 @@
           },
           "name": {
             "kind": "Name",
-            "value": "uid_Lt"
+            "value": "id_Lt"
           },
           "type": {
             "kind": "NamedType",
@@ -625,7 +690,7 @@
           },
           "name": {
             "kind": "Name",
-            "value": "uid_Lte"
+            "value": "id_Lte"
           },
           "type": {
             "kind": "NamedType",
@@ -644,7 +709,7 @@
           },
           "name": {
             "kind": "Name",
-            "value": "uid_Gt"
+            "value": "id_Gt"
           },
           "type": {
             "kind": "NamedType",
@@ -663,7 +728,7 @@
           },
           "name": {
             "kind": "Name",
-            "value": "uid_Gte"
+            "value": "id_Gte"
           },
           "type": {
             "kind": "NamedType",
@@ -678,7 +743,7 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "uid"
+            "value": "id"
           },
           "type": {
             "kind": "NamedType",
@@ -1588,7 +1653,7 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "uid"
+            "value": "id"
           },
           "type": {
             "kind": "NamedType",
@@ -1752,6 +1817,71 @@
       ]
     },
     {
+      "kind": "ObjectTypeDefinition",
+      "name": {
+        "kind": "Name",
+        "value": "ToDoItemMessages"
+      },
+      "interfaces": [],
+      "directives": [],
+      "fields": [
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "code"
+          },
+          "type": {
+            "kind": "NonNullType",
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "String"
+              }
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "message"
+          },
+          "type": {
+            "kind": "NonNullType",
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "String"
+              }
+            }
+          },
+          "directives": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "data"
+          },
+          "type": {
+            "kind": "NonNullType",
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "ToDoItemListResult"
+              }
+            }
+          },
+          "directives": []
+        }
+      ]
+    },
+    {
       "kind": "InputObjectTypeDefinition",
       "name": {
         "kind": "Name",
@@ -1767,7 +1897,7 @@
           },
           "name": {
             "kind": "Name",
-            "value": "uid_Not"
+            "value": "id_Not"
           },
           "type": {
             "kind": "NamedType",
@@ -1786,7 +1916,7 @@
           },
           "name": {
             "kind": "Name",
-            "value": "uid_In"
+            "value": "id_In"
           },
           "type": {
             "kind": "ListType",
@@ -1811,7 +1941,7 @@
           },
           "name": {
             "kind": "Name",
-            "value": "uid_NotIn"
+            "value": "id_NotIn"
           },
           "type": {
             "kind": "ListType",
@@ -1836,7 +1966,7 @@
           },
           "name": {
             "kind": "Name",
-            "value": "uid_Lt"
+            "value": "id_Lt"
           },
           "type": {
             "kind": "NamedType",
@@ -1855,7 +1985,7 @@
           },
           "name": {
             "kind": "Name",
-            "value": "uid_Lte"
+            "value": "id_Lte"
           },
           "type": {
             "kind": "NamedType",
@@ -1874,7 +2004,7 @@
           },
           "name": {
             "kind": "Name",
-            "value": "uid_Gt"
+            "value": "id_Gt"
           },
           "type": {
             "kind": "NamedType",
@@ -1893,7 +2023,7 @@
           },
           "name": {
             "kind": "Name",
-            "value": "uid_Gte"
+            "value": "id_Gte"
           },
           "type": {
             "kind": "NamedType",
@@ -1908,7 +2038,7 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "uid"
+            "value": "id"
           },
           "type": {
             "kind": "NamedType",
@@ -2818,7 +2948,7 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "uid"
+            "value": "id"
           },
           "type": {
             "kind": "NamedType",
@@ -2888,7 +3018,7 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "uid"
+            "value": "id"
           },
           "type": {
             "kind": "NamedType",
@@ -2976,7 +3106,7 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "uid"
+            "value": "id"
           },
           "type": {
             "kind": "NamedType",
@@ -3100,7 +3230,7 @@
             "kind": "NamedType",
             "name": {
               "kind": "Name",
-              "value": "UserListResult"
+              "value": "UserMessages"
             }
           },
           "directives": []
@@ -3162,7 +3292,7 @@
             "kind": "NamedType",
             "name": {
               "kind": "Name",
-              "value": "ToDoItemListResult"
+              "value": "ToDoItemMessages"
             }
           },
           "directives": []

@@ -42,7 +42,7 @@ export class ResolversExplorerService extends BaseExplorerService {
               const field2 = node.visit(client, args);
               const typeSource = typeof source;
               const selfhandlerDef = handlerDef[key].find(
-                it => it[3] === fieldName
+                it => it[0] === fieldName
               );
               if (selfhandlerDef) {
                 const params = selfhandlerDef[4];
@@ -109,8 +109,8 @@ export class ResolversExplorerService extends BaseExplorerService {
           .filter(it => !!it);
         if (controller && controller.length === 1) {
           const ctrl = controller[0] as MagnusBase;
-          ctrl.tablename = tableName;
           obj[fieldName] = (...args: any[]) => {
+            ctrl.tablename = tableName;
             return ctrl[methodName](...args);
           };
         }

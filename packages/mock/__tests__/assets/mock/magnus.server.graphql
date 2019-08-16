@@ -37,14 +37,14 @@ scalar Timestamp
 scalar Date
 
 type ToDoItem {
-  uid: Int
+  id: Int
   title: String
   desc: String
   username: String
 }
 
 type User {
-  uid: Int
+  id: Int
   username: String
   password: String
   realname: String
@@ -56,15 +56,21 @@ type UserListResult {
   count: Int!
 }
 
+type UserMessages {
+  code: String!
+  message: String!
+  data: UserListResult!
+}
+
 input ToDoItemInput {
-  uid: Int
+  id: Int
   title: String
   desc: String
   username: String
 }
 
 input UserInput {
-  uid: Int
+  id: Int
   username: String
   password: String
   realname: String
@@ -73,20 +79,20 @@ input UserInput {
 
 input UserInputWhere {
   ""
-  uid_Not: Int
+  id_Not: Int
   ""
-  uid_In: [Int!]
+  id_In: [Int!]
   ""
-  uid_NotIn: [Int!]
+  id_NotIn: [Int!]
   ""
-  uid_Lt: Int
+  id_Lt: Int
   ""
-  uid_Lte: Int
+  id_Lte: Int
   ""
-  uid_Gt: Int
+  id_Gt: Int
   ""
-  uid_Gte: Int
-  uid: Int
+  id_Gte: Int
+  id: Int
   ""
   username_Not: String
   ""
@@ -174,7 +180,7 @@ input UserInputWhere {
 }
 
 input UserInputOrder {
-  uid: String
+  id: String
   username: String
   password: String
   realname: String
@@ -191,22 +197,28 @@ type ToDoItemListResult {
   count: Int!
 }
 
+type ToDoItemMessages {
+  code: String!
+  message: String!
+  data: ToDoItemListResult!
+}
+
 input ToDoItemInputWhere {
   ""
-  uid_Not: Int
+  id_Not: Int
   ""
-  uid_In: [Int!]
+  id_In: [Int!]
   ""
-  uid_NotIn: [Int!]
+  id_NotIn: [Int!]
   ""
-  uid_Lt: Int
+  id_Lt: Int
   ""
-  uid_Lte: Int
+  id_Lte: Int
   ""
-  uid_Gt: Int
+  id_Gt: Int
   ""
-  uid_Gte: Int
-  uid: Int
+  id_Gte: Int
+  id: Int
   ""
   title_Not: String
   ""
@@ -294,14 +306,14 @@ input ToDoItemInputWhere {
 }
 
 input ToDoItemInputOrder {
-  uid: String
+  id: String
   title: String
   desc: String
   username: String
 }
 
 input UserPartial {
-  uid: Int
+  id: Int
   username: String
   password: String
   realname: String
@@ -309,15 +321,15 @@ input UserPartial {
 }
 
 input ToDoItemPartial {
-  uid: Int
+  id: Int
   title: String
   desc: String
   username: String
 }
 
 type Query {
-  listUser(where: UserInputWhere, order: UserInputOrder, limit: LimitInput): UserListResult
-  listToDoItem(where: ToDoItemInputWhere, order: ToDoItemInputOrder, limit: LimitInput): ToDoItemListResult
+  listUser(where: UserInputWhere, order: UserInputOrder, limit: LimitInput): UserMessages
+  listToDoItem(where: ToDoItemInputWhere, order: ToDoItemInputOrder, limit: LimitInput): ToDoItemMessages
   detailUser(id: Int!): User
   detailToDoItem(id: Int!): ToDoItem
 }

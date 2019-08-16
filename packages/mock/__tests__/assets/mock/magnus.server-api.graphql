@@ -1,12 +1,15 @@
-query listUser($where: UserInputWhere,$order: UserInputOrder,$limit: LimitInput){
-	listUser(where: $where,order: $order,limit: $limit){
+query Userlist($where: UserInputWhere,$order: UserInputOrder,$limit: LimitInput){
+	Userlist(where: $where,order: $order,limit: $limit){
+		code
+		message
+		data {
 		list {
-		uid
+		id
 		username
 		password
 		realname
 		todoItems {
-		uid
+		id
 		title
 		desc
 		username
@@ -16,13 +19,18 @@ query listUser($where: UserInputWhere,$order: UserInputOrder,$limit: LimitInput)
  
 		count
 	}
+ 
+	}
 
 }
 
-query listToDoItem($where: ToDoItemInputWhere,$order: ToDoItemInputOrder,$limit: LimitInput){
-	listToDoItem(where: $where,order: $order,limit: $limit){
+query ToDoItemlist($where: ToDoItemInputWhere,$order: ToDoItemInputOrder,$limit: LimitInput){
+	ToDoItemlist(where: $where,order: $order,limit: $limit){
+		code
+		message
+		data {
 		list {
-		uid
+		id
 		title
 		desc
 		username
@@ -30,17 +38,39 @@ query listToDoItem($where: ToDoItemInputWhere,$order: ToDoItemInputOrder,$limit:
  
 		count
 	}
+ 
+	}
 
 }
 
-query detailUser($id: Int!){
-	detailUser(id: $id){
-		uid
+query Userdetail($id: Int!){
+	Userdetail(id: $id){
+		code
+		message
+		data {
+		id
 		username
 		password
 		realname
 		todoItems {
-		uid
+		id
+		title
+		desc
+		username
+	}
+ 
+	}
+ 
+	}
+
+}
+
+query ToDoItemdetail($id: Int!){
+	ToDoItemdetail(id: $id){
+		code
+		message
+		data {
+		id
 		title
 		desc
 		username
@@ -50,24 +80,34 @@ query detailUser($id: Int!){
 
 }
 
-query detailToDoItem($id: Int!){
-	detailToDoItem(id: $id){
-		uid
-		title
-		desc
-		username
-	}
-
-}
-
-mutation deleteUser($id: Int!){
-	deleteUser(id: $id){
-		uid
+mutation Userdelete($id: Int!){
+	Userdelete(id: $id){
+		code
+		message
+		data {
+		id
 		username
 		password
 		realname
 		todoItems {
-		uid
+		id
+		title
+		desc
+		username
+	}
+ 
+	}
+ 
+	}
+
+}
+
+mutation ToDoItemdelete($id: Int!){
+	ToDoItemdelete(id: $id){
+		code
+		message
+		data {
+		id
 		title
 		desc
 		username
@@ -77,24 +117,78 @@ mutation deleteUser($id: Int!){
 
 }
 
-mutation deleteToDoItem($id: Int!){
-	deleteToDoItem(id: $id){
-		uid
-		title
-		desc
-		username
-	}
-
-}
-
-mutation deletesUser($ids: [Int]!){
-	deletesUser(ids: $ids){
-		uid
+mutation deletes($ids: [Int]!){
+	deletes(ids: $ids){
+		code
+		message
+		data {
+		id
 		username
 		password
 		realname
 		todoItems {
-		uid
+		id
+		title
+		desc
+		username
+	}
+ 
+	}
+ 
+	}
+
+}
+
+mutation deletes($ids: [Int]!){
+	deletes(ids: $ids){
+		code
+		message
+		data {
+		id
+		username
+		password
+		realname
+		todoItems {
+		id
+		title
+		desc
+		username
+	}
+ 
+	}
+ 
+	}
+
+}
+
+mutation Userupdate($id: Int!,$data: UserPartial!){
+	Userupdate(id: $id,data: $data){
+		code
+		message
+		data {
+		id
+		username
+		password
+		realname
+		todoItems {
+		id
+		title
+		desc
+		username
+	}
+ 
+	}
+ 
+	}
+
+}
+
+mutation ToDoItemupdate($id: Int!,$data: ToDoItemPartial!){
+	ToDoItemupdate(id: $id,data: $data){
+		code
+		message
+		data {
+		id
 		title
 		desc
 		username
@@ -104,24 +198,34 @@ mutation deletesUser($ids: [Int]!){
 
 }
 
-mutation deletesToDoItem($ids: [Int]!){
-	deletesToDoItem(ids: $ids){
-		uid
-		title
-		desc
-		username
-	}
-
-}
-
-mutation updateUser($id: Int!,$data: UserPartial!){
-	updateUser(id: $id,data: $data){
-		uid
+mutation Useredit($data: UserInput!){
+	Useredit(data: $data){
+		code
+		message
+		data {
+		id
 		username
 		password
 		realname
 		todoItems {
-		uid
+		id
+		title
+		desc
+		username
+	}
+ 
+	}
+ 
+	}
+
+}
+
+mutation ToDoItemedit($data: ToDoItemInput!){
+	ToDoItemedit(data: $data){
+		code
+		message
+		data {
+		id
 		title
 		desc
 		username
@@ -131,66 +235,46 @@ mutation updateUser($id: Int!,$data: UserPartial!){
 
 }
 
-mutation updateToDoItem($id: Int!,$data: ToDoItemPartial!){
-	updateToDoItem(id: $id,data: $data){
-		uid
-		title
-		desc
-		username
-	}
-
-}
-
-mutation editUser($data: UserInput!){
-	editUser(data: $data){
-		uid
+mutation edits($datas: [[object Object]]!){
+	edits(datas: $datas){
+		code
+		message
+		data {
+		id
 		username
 		password
 		realname
 		todoItems {
-		uid
+		id
 		title
 		desc
 		username
 	}
  
 	}
-
-}
-
-mutation editToDoItem($data: ToDoItemInput!){
-	editToDoItem(data: $data){
-		uid
-		title
-		desc
-		username
+ 
 	}
 
 }
 
-mutation editsUser($datas: [UserInput]!){
-	editsUser(datas: $datas){
-		uid
+mutation edits($datas: [[object Object]]!){
+	edits(datas: $datas){
+		code
+		message
+		data {
+		id
 		username
 		password
 		realname
 		todoItems {
-		uid
+		id
 		title
 		desc
 		username
 	}
  
 	}
-
-}
-
-mutation editsToDoItem($datas: [ToDoItemInput]!){
-	editsToDoItem(datas: $datas){
-		uid
-		title
-		desc
-		username
+ 
 	}
 
 }
