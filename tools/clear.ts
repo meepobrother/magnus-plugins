@@ -6,5 +6,6 @@ async function clear(path: string) {
   });
 }
 clear(join(process.cwd(), "libs/**/*.{js,d.ts,js.map}"));
+clear(join(process.cwd(), "packages/**/*.{js,d.ts,js.map}"));
 clear(join(process.cwd(), "demo/**/*.{js,d.ts,js.map}"));
 clear(join(process.cwd(), "tools/**/*.{js,d.ts,js.map}"));

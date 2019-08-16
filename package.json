@@ -12,7 +12,8 @@
   "scripts": {
     "commit": "git add . && git-cz",
     "start": "ts-node -r ts-node/register -r tsconfig-paths/register packages/nest-graphql-fastify/__tests__/index.ts",
-    "compiler": "./node_modules/.bin/tsc -p tsconfig.json -w"
+    "compiler": "./node_modules/.bin/tsc -p tsconfig.json -w",
+    "clear": "ts-node -r ts-node/register -r tsconfig-paths/register tools/clear.ts"
   },
   "dependencies": {
     "@apollographql/graphql-playground-html": "^1.6.24",
