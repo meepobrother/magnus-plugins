@@ -35,3 +35,7 @@ scalar Json
 scalar Timestamp
 
 scalar Date
+
+type Query {
+  add(a: Int!, b: Int!): Int
+}

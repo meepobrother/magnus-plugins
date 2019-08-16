@@ -1,0 +1,9 @@
+{
+	"name": "mock",
+	"inputs": [ "__tests__/**/*.ts" ],
+	"output": "__tests__/magnus",
+	"assets": "__tests__/assets",
+	"hasGrpc": false,
+	"debug": true,
+	"reciveName": []
+}

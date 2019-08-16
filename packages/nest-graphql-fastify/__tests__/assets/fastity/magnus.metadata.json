@@ -15,6 +15,12 @@
           "name": "b",
           "type": "Int!",
           "index": 1
+        },
+        {
+          "name": "headers",
+          "type": "Json!",
+          "index": 2,
+          "decorator": "Headers"
         }
       ]
     ]
