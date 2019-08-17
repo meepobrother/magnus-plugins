@@ -1,11 +1,15 @@
 import faker = require("faker");
 let i = 0;
 const factory = {
-    PrimaryGeneratedColumn: () => {
-        i += 1;
-        return i;
+    PrimaryGeneratedColumn: (source: any, entity: any, context: any) => {
+        console.log({
+            entity,
+            context,
+            source
+        })
+        return i += 1;
     },
-    ManyToOne: () => {
+    ManyToOne: (source: any, entity: any, context: any) => {
         return {};
     },
     Realname: () => faker.name.findName(),
@@ -70,7 +74,7 @@ export class Factory {
         public total: number = 300
     ) { }
     set: string[] = [];
-    createEntity<T>(name: string): T {
+    createEntity<T>(name: string, db?: any): T {
         const res = new this.entities[name]();
         const metadata = this.config[name];
         if (metadata) {
@@ -88,14 +92,14 @@ export class Factory {
                     } else {
                         for (let i = 0; i < num; i++) {
                             if (this.entities[column.entity]) {
-                                res[column.name].push(this.createEntity(column.entity));
+                                res[column.name].push(this.createEntity(column.entity, db));
                             }
                         }
                     }
                 } else {
                     column.decorators.map(dec => {
                         if (factory[dec] && typeof factory[dec] === "function") {
-                            res[column.name] = factory[dec]();
+                            res[column.name] = factory[dec](db, this.entities[name], res);
                         }
                     });
                 }
@@ -104,10 +108,10 @@ export class Factory {
         return res;
     }
 
-    createEntities<T>(name: string, total: number): T[] {
+    createEntities<T>(name: string, total: number, db: any): T[] {
         let res: T[] = [];
         for (let i = 0; i < total; i++) {
-            res.push(this.createEntity(name));
+            res.push(this.createEntity(name, db));
         }
         return res;
     }

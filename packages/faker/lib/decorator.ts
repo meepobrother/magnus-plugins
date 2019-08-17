@@ -29,5 +29,19 @@ export const Mac = () => AnyDecorator;
 export const Email = () => AnyDecorator;
 export const UserName = () => AnyDecorator;
 export const DepartmentName = () => AnyDecorator;
+
+/**
+ * 数据库关系
+ */
 export const PrimaryGeneratedColumn = () => AnyDecorator;
+export const PrimaryColumn = () => AnyDecorator;
+export const ObjectID = () => AnyDecorator;
+export const CreateDate = () => AnyDecorator;
+export const UpdateDate = () => AnyDecorator;
 export const ManyToOne = () => AnyDecorator;
+export const OneToMany = () => AnyDecorator;
+export const ManyToMany = () => AnyDecorator;
+export const Entity = () => AnyDecorator;
+export const Tree = () => AnyDecorator;
+export const TreeParent = () => AnyDecorator;
+export const TreeChildren = () => AnyDecorator;
