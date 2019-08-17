@@ -3,21 +3,21 @@ import { MAGNUS_APOLLO } from "./token";
 import { Inject, Injectable } from "@angular/core";
 
 @Injectable()
-export class Query extends a.Query {
+export class Query<A, B> extends a.Query<A, B> {
   constructor(@Inject(MAGNUS_APOLLO) apollo: a.Apollo) {
     super(apollo);
   }
 }
 
 @Injectable()
-export class Mutation extends a.Mutation {
+export class Mutation<A, B> extends a.Mutation<A, B> {
   constructor(@Inject(MAGNUS_APOLLO) apollo: a.Apollo) {
     super(apollo);
   }
 }
 
 @Injectable()
-export class Subscription extends a.Subscription {
+export class Subscription<A, B> extends a.Subscription<A, B> {
   constructor(@Inject(MAGNUS_APOLLO) apollo: a.Apollo) {
     super(apollo);
   }
