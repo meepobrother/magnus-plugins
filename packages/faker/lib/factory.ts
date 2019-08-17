@@ -2,11 +2,6 @@ import faker = require("faker");
 let i = 0;
 const factory = {
     PrimaryGeneratedColumn: (source: any, entity: any, context: any) => {
-        console.log({
-            entity,
-            context,
-            source
-        })
         return i += 1;
     },
     ManyToOne: (source: any, entity: any, context: any) => {
