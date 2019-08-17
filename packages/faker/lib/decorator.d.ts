@@ -1,0 +1,46 @@
+export declare const AnyDecorator: (...args: any[]) => void;
+export declare const Realname: () => (...args: any[]) => void;
+export declare const Uuid: () => (...args: any[]) => void;
+export declare const Boolean: () => (...args: any[]) => void;
+export declare const Words: () => (...args: any[]) => void;
+export declare const Word: () => (...args: any[]) => void;
+export declare const Number: () => (...args: any[]) => void;
+export declare const Phone: () => (...args: any[]) => void;
+export declare const Color: () => (...args: any[]) => void;
+export declare const Ip: () => (...args: any[]) => void;
+export declare const Avatar: () => (...args: any[]) => void;
+export declare const Image: () => (...args: any[]) => void;
+export declare const CompanyName: () => (...args: any[]) => void;
+export declare const SecondaryAddress: () => (...args: any[]) => void;
+export declare const StreetAddress: () => (...args: any[]) => void;
+export declare const StreetName: () => (...args: any[]) => void;
+export declare const Country: () => (...args: any[]) => void;
+export declare const County: () => (...args: any[]) => void;
+export declare const Lng: () => (...args: any[]) => void;
+export declare const Lat: () => (...args: any[]) => void;
+export declare const ProductName: () => (...args: any[]) => void;
+export declare const Price: () => (...args: any[]) => void;
+export declare const Content: () => (...args: any[]) => void;
+export declare const Desc: () => (...args: any[]) => void;
+export declare const Title: () => (...args: any[]) => void;
+export declare const CardId: () => (...args: any[]) => void;
+export declare const Password: () => (...args: any[]) => void;
+export declare const Mac: () => (...args: any[]) => void;
+export declare const Email: () => (...args: any[]) => void;
+export declare const UserName: () => (...args: any[]) => void;
+export declare const DepartmentName: () => (...args: any[]) => void;
+/**
+ * 数据库关系
+ */
+export declare const PrimaryGeneratedColumn: () => (...args: any[]) => void;
+export declare const PrimaryColumn: () => (...args: any[]) => void;
+export declare const ObjectID: () => (...args: any[]) => void;
+export declare const CreateDate: () => (...args: any[]) => void;
+export declare const UpdateDate: () => (...args: any[]) => void;
+export declare const ManyToOne: () => (...args: any[]) => void;
+export declare const OneToMany: () => (...args: any[]) => void;
+export declare const ManyToMany: () => (...args: any[]) => void;
+export declare const Entity: () => (...args: any[]) => void;
+export declare const Tree: () => (...args: any[]) => void;
+export declare const TreeParent: () => (...args: any[]) => void;
+export declare const TreeChildren: () => (...args: any[]) => void;
