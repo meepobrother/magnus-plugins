@@ -19,6 +19,7 @@ const core_1 = require("@angular/core");
 const apollo_cache_inmemory_1 = require("apollo-cache-inmemory");
 const apollo_angular_link_http_1 = require("apollo-angular-link-http");
 const token_1 = require("./token");
+const apollo_link_1 = require("apollo-link");
 let MagnusAngular = MagnusAngular_1 = class MagnusAngular {
     constructor() { }
     static forChild(options) {
@@ -34,7 +35,7 @@ let MagnusAngular = MagnusAngular_1 = class MagnusAngular {
                             });
                             const cache = new apollo_cache_inmemory_1.InMemoryCache();
                             apollo.createNamed(options.name, {
-                                link,
+                                link: apollo_link_1.ApolloLink.from([...options.links, link]),
                                 cache
                             });
                         };

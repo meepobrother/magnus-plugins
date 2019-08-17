@@ -3,9 +3,11 @@ import { NgModule, ModuleWithProviders, APP_INITIALIZER } from "@angular/core";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { HttpLinkHandler, HttpLink } from "apollo-angular-link-http";
 import { MAGNUS_APOLLO } from "./token";
+import { ApolloLink } from "apollo-link";
 interface MagnusAngularOptions {
   apiUrl: string;
   name: string;
+  links?: ApolloLink[];
 }
 @NgModule()
 export class MagnusAngular {
@@ -23,7 +25,7 @@ export class MagnusAngular {
               });
               const cache = new InMemoryCache();
               apollo.createNamed(options.name, {
-                link,
+                link: ApolloLink.from([...options.links, link]),
                 cache
               });
             };
