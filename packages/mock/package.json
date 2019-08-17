@@ -1,11 +1,14 @@
 {
-  "name": "mock",
+  "name": "@magnus-plugins/mock",
   "version": "0.0.17",
   "description": "> TODO: description",
   "author": "imeepos <1037483576@qq.com>",
   "homepage": "https://github.com/meepobrother/magnus-plugins#readme",
   "license": "ISC",
-  "main": "lib/mock.js",
+  "main": "lib/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -22,5 +25,6 @@
   },
   "bugs": {
     "url": "https://github.com/meepobrother/magnus-plugins/issues"
-  }
+  },
+  "gitHead": "a79dec46962a284fd2b9ad6e3bdc9b1c6f322ed1"
 }
