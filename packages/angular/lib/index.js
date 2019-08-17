@@ -35,7 +35,7 @@ let MagnusAngular = MagnusAngular_1 = class MagnusAngular {
                             });
                             const cache = new apollo_cache_inmemory_1.InMemoryCache();
                             apollo.createNamed(options.name, {
-                                link: apollo_link_1.ApolloLink.from([...options.links, link]),
+                                link: apollo_link_1.ApolloLink.from([...(options.links || []), link]),
                                 cache
                             });
                         };

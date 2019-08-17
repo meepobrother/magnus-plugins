@@ -25,7 +25,7 @@ export class MagnusAngular {
               });
               const cache = new InMemoryCache();
               apollo.createNamed(options.name, {
-                link: ApolloLink.from([...options.links, link]),
+                link: ApolloLink.from([...(options.links || []), link]),
                 cache
               });
             };
