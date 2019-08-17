@@ -28,7 +28,8 @@ export class MagnusAngular {
               });
             };
           },
-          deps: [Apollo, HttpLink]
+          deps: [Apollo, HttpLink],
+          multi: true
         },
         {
           provide: MAGNUS_APOLLO,

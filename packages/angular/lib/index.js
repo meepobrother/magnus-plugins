@@ -39,7 +39,8 @@ let MagnusAngular = MagnusAngular_1 = class MagnusAngular {
                             });
                         };
                     },
-                    deps: [apollo_angular_1.Apollo, apollo_angular_link_http_1.HttpLink]
+                    deps: [apollo_angular_1.Apollo, apollo_angular_link_http_1.HttpLink],
+                    multi: true
                 },
                 {
                     provide: token_1.MAGNUS_APOLLO,
