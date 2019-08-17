@@ -15,7 +15,7 @@ exports.Core = Core;
 async function bootstrap(appModule, port) {
     const app = await core_1.NestFactory.create(appModule, new platform_fastify_1.FastifyAdapter());
     await app.init();
-    app.listen(port, () => {
+    app.listen(port, "0.0.0.0", () => {
         console.log(`app start ${port}`);
     });
 }
