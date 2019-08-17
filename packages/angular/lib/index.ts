@@ -33,10 +33,7 @@ export class MagnusAngular {
         },
         {
           provide: MAGNUS_APOLLO,
-          useFactory: (apollo: Apollo) => {
-            return apollo.use(options.name);
-          },
-          deps: [Apollo]
+          useValue: options.name
         }
       ]
     };

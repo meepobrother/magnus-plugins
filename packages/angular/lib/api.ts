@@ -4,21 +4,24 @@ import { Inject, Injectable } from "@angular/core";
 
 @Injectable()
 export class Query<A, B> extends a.Query<A, B> {
-  constructor(@Inject(MAGNUS_APOLLO) apollo: a.Apollo) {
+  constructor(apollo: a.Apollo, @Inject(MAGNUS_APOLLO) client: string) {
     super(apollo);
+    this.client = client;
   }
 }
 
 @Injectable()
 export class Mutation<A, B> extends a.Mutation<A, B> {
-  constructor(@Inject(MAGNUS_APOLLO) apollo: a.Apollo) {
+  constructor(apollo: a.Apollo, @Inject(MAGNUS_APOLLO) client: string) {
     super(apollo);
+    this.client = client;
   }
 }
 
 @Injectable()
 export class Subscription<A, B> extends a.Subscription<A, B> {
-  constructor(@Inject(MAGNUS_APOLLO) apollo: a.Apollo) {
+  constructor(apollo: a.Apollo, @Inject(MAGNUS_APOLLO) client: string) {
     super(apollo);
+    this.client = client;
   }
 }

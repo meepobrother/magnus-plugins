@@ -23,35 +23,38 @@ const a = __importStar(require("apollo-angular"));
 const token_1 = require("./token");
 const core_1 = require("@angular/core");
 let Query = class Query extends a.Query {
-    constructor(apollo) {
+    constructor(apollo, client) {
         super(apollo);
+        this.client = client;
     }
 };
 Query = __decorate([
     core_1.Injectable(),
-    __param(0, core_1.Inject(token_1.MAGNUS_APOLLO)),
-    __metadata("design:paramtypes", [a.Apollo])
+    __param(1, core_1.Inject(token_1.MAGNUS_APOLLO)),
+    __metadata("design:paramtypes", [a.Apollo, String])
 ], Query);
 exports.Query = Query;
 let Mutation = class Mutation extends a.Mutation {
-    constructor(apollo) {
+    constructor(apollo, client) {
         super(apollo);
+        this.client = client;
     }
 };
 Mutation = __decorate([
     core_1.Injectable(),
-    __param(0, core_1.Inject(token_1.MAGNUS_APOLLO)),
-    __metadata("design:paramtypes", [a.Apollo])
+    __param(1, core_1.Inject(token_1.MAGNUS_APOLLO)),
+    __metadata("design:paramtypes", [a.Apollo, String])
 ], Mutation);
 exports.Mutation = Mutation;
 let Subscription = class Subscription extends a.Subscription {
-    constructor(apollo) {
+    constructor(apollo, client) {
         super(apollo);
+        this.client = client;
     }
 };
 Subscription = __decorate([
     core_1.Injectable(),
-    __param(0, core_1.Inject(token_1.MAGNUS_APOLLO)),
-    __metadata("design:paramtypes", [a.Apollo])
+    __param(1, core_1.Inject(token_1.MAGNUS_APOLLO)),
+    __metadata("design:paramtypes", [a.Apollo, String])
 ], Subscription);
 exports.Subscription = Subscription;

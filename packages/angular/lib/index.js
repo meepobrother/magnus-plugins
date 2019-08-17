@@ -44,10 +44,7 @@ let MagnusAngular = MagnusAngular_1 = class MagnusAngular {
                 },
                 {
                     provide: token_1.MAGNUS_APOLLO,
-                    useFactory: (apollo) => {
-                        return apollo.use(options.name);
-                    },
-                    deps: [apollo_angular_1.Apollo]
+                    useValue: options.name
                 }
             ]
         };
