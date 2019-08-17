@@ -7,10 +7,10 @@ import { IncController } from './resolver/inc';
     imports: [
         GraphqlModule.forRoot({
             metadata,
-            magnus
+            typeDefs: magnus
         })
     ],
-    controllers: [
+    providers: [
         IncController
     ]
 })

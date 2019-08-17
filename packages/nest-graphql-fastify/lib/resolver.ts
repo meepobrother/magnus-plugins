@@ -14,7 +14,6 @@ export class ResolversExplorerService extends BaseExplorerService {
     ) {
         super();
     }
-
     createResolver(
         handlerDef: HandlerDefMap,
     ) {
@@ -44,7 +43,7 @@ export class ResolversExplorerService extends BaseExplorerService {
                             const selfhandlerDef = handlerDef[key].find(
                                 it => it[3] === fieldName
                             );
-                            if (selfhandlerDef && typeSource === "object") {
+                            if (selfhandlerDef) {
                                 const params = selfhandlerDef[4];
                                 const parameters = new Array(params.length);
                                 const selection = field2.selectionSet;
@@ -62,11 +61,13 @@ export class ResolversExplorerService extends BaseExplorerService {
                                         parameters[index] = args[name];
                                     }
                                 });
-                                result = await source[fieldName](...parameters);
-                            } else if (typeSource === "undefined") {
-                                result = item(args);
-                            } else {
-                                result = source;
+                                if (typeSource === "object") {
+                                    result = await source[fieldName](...parameters);
+                                } else if (typeSource === "undefined") {
+                                    result = item(...parameters);
+                                } else {
+                                    result = source;
+                                }
                             }
                         })
                     );
@@ -91,8 +92,9 @@ export class ResolversExplorerService extends BaseExplorerService {
                 if (controller && controller.length === 1) {
                     const ctrl = controller[0];
                     ctrl.tablename = tableName;
-                    obj[fieldName] = (args: any) => {
-                        return ctrl[methodName](...argsDef.map(arg => args[arg.name]));
+                    obj[fieldName] = (...args: any[]) => {
+                        const res = ctrl[methodName](...args);
+                        return res;
                     };
                 }
             });
@@ -105,7 +107,7 @@ export class ResolversExplorerService extends BaseExplorerService {
         name: string,
         moduleRef: Module,
     ): any {
-        const ctrl = moduleRef.controllers.get(name);
+        const ctrl = moduleRef.providers.get(name);
         return ctrl && ctrl.instance
     }
 }

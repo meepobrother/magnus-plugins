@@ -1,7 +1,6 @@
 import { Module, Inject, OnModuleInit, DynamicModule } from "@nestjs/common";
 import { HttpAdapterHost } from "@nestjs/core";
 import { ApolloServer } from "@magnus-plugins/apollo-server-fastify";
-import { DocumentNode } from "graphql";
 import { Config } from 'apollo-server-core';
 import { HandlerDefMap } from "@notadd/magnus-core";
 import { MetadataScanner } from '@nestjs/core/metadata-scanner';
@@ -9,7 +8,6 @@ import { ResolversExplorerService } from "./resolver";
 interface GqlModuleOptions extends Config {
     path?: string;
     fieldResolverEnhancers?: any[];
-    magnus: DocumentNode;
     metadata: HandlerDefMap;
 }
 const defaultOptions: any = {
@@ -17,6 +15,7 @@ const defaultOptions: any = {
     fieldResolverEnhancers: []
 };
 export const GRAPHQL_MODULE_OPTIONS = "GqlModuleOptions";
+export const defaultContext = ({ req }) => ({ req });
 @Module({
     providers: [
         MetadataScanner,
@@ -57,10 +56,9 @@ export class GraphqlModule implements OnModuleInit {
         }
         const app = httpAdapter.getInstance();
         const resolvers = this.resolver.createResolver(this.options.metadata);
-        this.registerGqlServer({
-            typeDefs: this.options.magnus,
-            resolvers
-        }, app);
+        this.options.resolvers = resolvers;
+        this.options.context = this.options.context || defaultContext;
+        this.registerGqlServer(this.options, app);
         this.apolloServer.installSubscriptionHandlers(httpAdapter.getHttpServer());
     }
 
