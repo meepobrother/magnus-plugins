@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const magnus_core_1 = require("@notadd/magnus-core");
 const core_1 = require("@nestjs/core");
+const microservices_1 = require("@nestjs/microservices");
 const platform_fastify_1 = require("@nestjs/platform-fastify");
 class Core extends magnus_core_1.MagnusBase {
     __filter(it, where) {
@@ -20,6 +21,26 @@ async function bootstrap(appModule, port) {
     });
 }
 exports.bootstrap = bootstrap;
+async function bootstrapGrpc(appModule, options) {
+    const app = await core_1.NestFactory.createMicroservice(appModule, {
+        transport: microservices_1.Transport.GRPC,
+        options: {
+            ...options,
+            loader: {
+                defaults: true,
+                arrays: true,
+                objects: true,
+                oneofs: true,
+                json: true
+            }
+        }
+    });
+    await app.init();
+    app.listen(() => {
+        console.log(`app start ${options.url}`);
+    });
+}
+exports.bootstrapGrpc = bootstrapGrpc;
 class Database {
     constructor() {
         this.tables = new Map();
