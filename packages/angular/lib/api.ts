@@ -11,7 +11,6 @@ export class Query<A, B> extends a.Query<A, B> {
   }
 
   watch(variables?: B, options?: any): a.QueryRef<A, B> {
-    console.log(this.client);
     return super.watch(variables, options);
   }
 }
