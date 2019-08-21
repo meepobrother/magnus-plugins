@@ -29,7 +29,6 @@ let Query = class Query extends a.Query {
         this.client = client;
     }
     watch(variables, options) {
-        console.log(this.client);
         return super.watch(variables, options);
     }
 };

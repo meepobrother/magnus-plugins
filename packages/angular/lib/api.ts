@@ -5,7 +5,6 @@ import { Inject, Injectable, Self } from "@angular/core";
 @Injectable()
 export class Query<A, B> extends a.Query<A, B> {
   constructor(apollo: a.Apollo, @Self() @Inject(MAGNUS_APOLLO) client: string) {
-    console.log(client);
     super(apollo);
     this.client = client;
   }
@@ -18,7 +17,6 @@ export class Query<A, B> extends a.Query<A, B> {
 @Injectable()
 export class Mutation<A, B> extends a.Mutation<A, B> {
   constructor(apollo: a.Apollo, @Self() @Inject(MAGNUS_APOLLO) client: string) {
-    console.log(client);
     super(apollo);
     this.client = client;
   }
@@ -27,7 +25,6 @@ export class Mutation<A, B> extends a.Mutation<A, B> {
 @Injectable()
 export class Subscription<A, B> extends a.Subscription<A, B> {
   constructor(apollo: a.Apollo, @Self() @Inject(MAGNUS_APOLLO) client: string) {
-    console.log(client);
     super(apollo);
     this.client = client;
   }
