@@ -16,8 +16,45 @@ export class NestGrpc {
 
   public getServiceNames(grpcPkg: any): { name: string; service: any }[] {
     const services: { name: string; service: any }[] = [];
-    // this.collectDeepServices("", grpcPkg, services);
+    this.collectDeepServices("", grpcPkg, services);
+    debugger;
     return services;
+  }
+
+  private collectDeepServices(
+    name: string,
+    grpcDefinition: any,
+    accumulator: { name: string; service: any }[]
+  ) {
+    if (typeof grpcDefinition !== "object") {
+      return;
+    }
+    const keysToTraverse = Object.keys(grpcDefinition);
+    // Traverse definitions or namespace extensions
+    for (const key of keysToTraverse) {
+      const nameExtended = this.parseDeepServiceName(name, key);
+      const deepDefinition = grpcDefinition[key];
+      if (deepDefinition && deepDefinition.service) {
+        accumulator.push({
+          name: nameExtended,
+          service: deepDefinition
+        });
+      }
+      // Continue recursion until objects end or service definition found
+      else {
+        if (deepDefinition)
+          this.collectDeepServices(nameExtended, deepDefinition, accumulator);
+      }
+    }
+  }
+
+  private parseDeepServiceName(name: string, key: string): string {
+    // If depth is zero then just return key
+    if (name.length === 0) {
+      return key;
+    }
+    // Otherwise add next through dot syntax
+    return name + "." + key;
   }
 
   public lookupPackage(root: any, packageName: string) {
@@ -39,20 +76,16 @@ export class NestGrpc {
     const packageObject = loadPackageDefinition(packageDefinition);
     const grpcPkg = this.lookupPackage(packageObject, `userCenter`);
     for (const definition of this.getServiceNames(grpcPkg)) {
-      this.client.addService(
-        definition.service.service,
-        await this.createService(definition.service, definition.name)
-      );
+      console.log(definition);
+      // this.client.addService();
     }
     this.client.bind(this.url, this.credentials);
     this.client.start();
   }
-
   close() {
     this.client && this.client.forceShutdown();
     this.client = null;
   }
-
   bindEvents() {}
 }
 
