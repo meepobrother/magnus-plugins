@@ -6,101 +6,18 @@
 api 服务端，链接一个微服务，能根据 grpc 服务自动生成相应的 graphql 服务
 
 ```ts
-type FieldOperator = "hiden" | "readonly" | "default";
-
-
-[{
-    code: 'system'
-},{},{},{}]
-// user.post
-ul>ngFor="let item of menus ;index as key" data="data[key]"
-    li>ngFor= data="data[key]"
-
-grpc.systemSetting(system: string){
-    page1: {
-        title: '',
-        icon: '',
-        list1: {
-            apis: [{
-                path: 'userList',
-                type: 'query'
-            }],
-            fields: {
-                username: 'default',
-                createUser: {
-                    username: "default"
-                }
-            },
-            actions: {
-                saveButton:true,
-                deleteButton: false
-            }
-        },
-        edit1: {
-            fields: {
-                username: 'default',
-            },
-            actions: {
-                saveButton: true,
-                deleteButton: true
-            }
-        }
-    }
+package fastity;
+syntax = "proto3";
+message Empty{
 }
-
-/**
-- 查找用户
-- 只返回 username
-- {
-  - count: 1,
-  - list: [{
-  -      username: "username1"
-  - }]
-- }
-**/
-graphql.findUser(block: {},where: {},order: {}){
-    username,
-    password
+message Result{
+    int32 result = 0;
 }
-
-gencode ---> service
-
-  grpc.findUser(
-  {
-
-    where: {
-        id_Lg: 10,
-        // 数据权限
-        from_depart_id: 1
-    },
-    order: {
-        id: "DESC"
-    },
-    limit: {
-        page: 1,
-        psize: 20
-    }
-  },
-    {
-        // 字段是否展示 高级权限
-        username: "readonly",
-        password: "readonly"
-    }
-  );
-  /**
-添加或更新用户
-只有 id 生效
- **/
-  grpc.saveUser(
-    {
-        id: 1,
-        username: "imeepos"
-    },
-    {
-        username: "readonly",
-        id: "default",
-        password: "hidden"
-    }
-  );
-
+message AddInput{
+    int32 a = 0;
+    int32 b = 2;
+}
+service Query{
+    rpc add(AddInput) returns (Result);
+}
 ```

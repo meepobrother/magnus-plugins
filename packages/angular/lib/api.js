@@ -24,7 +24,6 @@ const token_1 = require("./token");
 const core_1 = require("@angular/core");
 let Query = class Query extends a.Query {
     constructor(apollo, client) {
-        console.log(client);
         super(apollo);
         this.client = client;
     }
@@ -40,7 +39,6 @@ Query = __decorate([
 exports.Query = Query;
 let Mutation = class Mutation extends a.Mutation {
     constructor(apollo, client) {
-        console.log(client);
         super(apollo);
         this.client = client;
     }
@@ -53,7 +51,6 @@ Mutation = __decorate([
 exports.Mutation = Mutation;
 let Subscription = class Subscription extends a.Subscription {
     constructor(apollo, client) {
-        console.log(client);
         super(apollo);
         this.client = client;
     }

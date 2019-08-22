@@ -1,0 +1,24 @@
+{
+  "query": [
+    [
+      "add",
+      "TestMagnus",
+      "",
+      "add",
+      [
+        {
+          "name": "a",
+          "type": "Int!",
+          "index": 0,
+          "decorator": []
+        },
+        {
+          "name": "b",
+          "type": "Int!",
+          "index": 1,
+          "decorator": []
+        }
+      ]
+    ]
+  ]
+}

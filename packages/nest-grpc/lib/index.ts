@@ -1,95 +1,98 @@
-import { loadSync } from "@grpc/proto-loader";
-import { Server, ServerCredentials, loadPackageDefinition } from "grpc";
-import { join } from "path";
+import { ServerGrpc, GrpcMethodStreamingType } from "@nestjs/microservices";
+import { HandlerDefMap, InjectMap, MagnusBase } from "@notadd/magnus-core";
+import { upperFirst } from "lodash";
 interface NestGrpcOptions {
-  max_send_message_length?: number;
-  max_receive_message_length?: number;
   protoPath: string;
+  package: string;
+  metadata: HandlerDefMap;
+  controllers: InjectMap;
+  decorators: object;
+  url?: string;
+  maxSendMessageLength?: number;
+  maxReceiveMessageLength?: number;
+  credentials?: any;
+  protoLoader?: string;
+  loader?: {
+    keepCase?: boolean;
+    alternateCommentMode?: boolean;
+    longs?: Function;
+    enums?: Function;
+    bytes?: Function;
+    defaults?: boolean;
+    arrays?: boolean;
+    objects?: boolean;
+    oneofs?: boolean;
+    json?: boolean;
+    includeDirs?: string[];
+  };
 }
-export class NestGrpc {
-  url: string = `0.0.0.0:3000`;
-  client: Server;
-  get credentials() {
-    return ServerCredentials.createInsecure();
-  }
-  constructor(private options: NestGrpcOptions) {}
 
-  public getServiceNames(grpcPkg: any): { name: string; service: any }[] {
-    const services: { name: string; service: any }[] = [];
-    this.collectDeepServices("", grpcPkg, services);
-    debugger;
-    return services;
+export class NestGrpc extends ServerGrpc {
+  private metadata: HandlerDefMap;
+  private controllers: InjectMap;
+  private decorators: object;
+  _grpcClient: any;
+  constructor(private _options: NestGrpcOptions) {
+    super({
+      ..._options
+    });
+    this.metadata = this._options.metadata;
+    this.controllers = this._options.controllers;
+    this.decorators = this._options.decorators;
   }
-
-  private collectDeepServices(
-    name: string,
-    grpcDefinition: any,
-    accumulator: { name: string; service: any }[]
-  ) {
-    if (typeof grpcDefinition !== "object") {
-      return;
-    }
-    const keysToTraverse = Object.keys(grpcDefinition);
-    // Traverse definitions or namespace extensions
-    for (const key of keysToTraverse) {
-      const nameExtended = this.parseDeepServiceName(name, key);
-      const deepDefinition = grpcDefinition[key];
-      if (deepDefinition && deepDefinition.service) {
-        accumulator.push({
-          name: nameExtended,
-          service: deepDefinition
+  listen(callback: () => void) {
+    Object.keys(this.metadata).map(key => {
+      const obj = this.metadata[key];
+      if (obj) {
+        Object.keys(obj).map(method => {
+          const item = obj[method];
+          const [fileName, className, tableName, methodName, params] = item;
+          const serviceName = this.createPattern(
+            upperFirst(key),
+            fileName,
+            GrpcMethodStreamingType.NO_STREAMING
+          );
+          const handler = async (args: any) => {
+            const type = this.controllers[className];
+            const instance = new type() as MagnusBase;
+            instance.tablename = tableName;
+            const parameters = new Array(params.length);
+            params.map(par => {
+              const { name, type, index, decorator } = par;
+              if (decorator.length === 0) {
+                parameters[index] = args[name];
+              } else if (decorator.length > 0) {
+                decorator.map(dec => {
+                  parameters[index] = args[name];
+                  if (this.decorators[dec])
+                    parameters[index] = this.decorators[dec]()()(args[name]);
+                });
+              } else {
+                parameters[index] = args[name];
+              }
+            });
+            const result = await instance[methodName](...parameters);
+            if (Array.isArray(result)) {
+              return result;
+            } else if (typeof result === "object") {
+              return result;
+            } else {
+              return {
+                result
+              };
+            }
+          };
+          this.addHandler(serviceName, handler as any);
         });
       }
-      // Continue recursion until objects end or service definition found
-      else {
-        if (deepDefinition)
-          this.collectDeepServices(nameExtended, deepDefinition, accumulator);
-      }
-    }
-  }
-
-  private parseDeepServiceName(name: string, key: string): string {
-    // If depth is zero then just return key
-    if (name.length === 0) {
-      return key;
-    }
-    // Otherwise add next through dot syntax
-    return name + "." + key;
-  }
-
-  public lookupPackage(root: any, packageName: string) {
-    let pkg = root;
-    for (const name of packageName.split(/\./)) {
-      pkg = pkg[name];
-    }
-    return pkg;
-  }
-
-  async start() {
-    this.client = new Server({
-      [`grpc.max_send_message_length`]:
-        this.options.max_send_message_length || 4 * 1024 * 1024,
-      [`grpc.max_receive_message_length`]:
-        this.options.max_receive_message_length || 4 * 1024 * 1024
     });
-    const packageDefinition = loadSync(this.options.protoPath);
-    const packageObject = loadPackageDefinition(packageDefinition);
-    const grpcPkg = this.lookupPackage(packageObject, `userCenter`);
-    for (const definition of this.getServiceNames(grpcPkg)) {
-      console.log(definition);
-      // this.client.addService();
-    }
-    this.client.bind(this.url, this.credentials);
-    this.client.start();
+    return super.listen(callback);
   }
-  close() {
-    this.client && this.client.forceShutdown();
-    this.client = null;
-  }
-  bindEvents() {}
 }
 
-const grpc = new NestGrpc({
-  protoPath: join(__dirname, "1.proto")
-});
-grpc.start();
+export function bootstrap(options: NestGrpcOptions) {
+  const grpc = new NestGrpc(options);
+  grpc.listen(() => {
+    console.log(`app start at ${options.url}`);
+  });
+}
