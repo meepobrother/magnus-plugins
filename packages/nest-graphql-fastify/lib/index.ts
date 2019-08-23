@@ -22,4 +22,4 @@ export const PermissionValue = (): ParameterDecorator => (
   target: Object,
   propertyKey: string | symbol,
   parameterIndex: number
-) => (ctx: any) => ctx.req.permission;
+) => (ctx: any) => ctx.req.permission || [];
