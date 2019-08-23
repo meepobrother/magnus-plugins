@@ -5,7 +5,7 @@
 一个微服务，链接 magnus orm 层，可通过简单的配置文件，将相应的 magnus orm 接口暴露出来，并提供 grpc 服务
 api 服务端，链接一个微服务，能根据 grpc 服务自动生成相应的 graphql 服务
 
-```ts
+```ptoto
 package fastity;
 syntax = "proto3";
 message Empty{

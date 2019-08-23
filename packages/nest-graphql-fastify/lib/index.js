@@ -7,3 +7,4 @@ __export(require("./graphql.module"));
 exports.Headers = () => (target, propertyKey, parameterIndex) => (ctx) => ctx.req.headers;
 exports.CurrentUser = () => (target, propertyKey, parameterIndex) => (ctx) => ctx.req.user;
 exports.CurrentDomain = () => (target, propertyKey, parameterIndex) => (ctx) => ctx.req.domain;
+exports.PermissionValue = () => (target, propertyKey, parameterIndex) => (ctx) => ctx.req.permission;
