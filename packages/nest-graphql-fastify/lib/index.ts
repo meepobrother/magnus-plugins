@@ -11,15 +11,3 @@ export const CurrentUser = (): ParameterDecorator => (
   propertyKey: string | symbol,
   parameterIndex: number
 ) => (ctx: any) => ctx.req.user;
-
-export const CurrentDomain = (): ParameterDecorator => (
-  target: Object,
-  propertyKey: string | symbol,
-  parameterIndex: number
-) => (ctx: any) => ctx.req.domain;
-
-export const PermissionValue = (): ParameterDecorator => (
-  target: Object,
-  propertyKey: string | symbol,
-  parameterIndex: number
-) => (ctx: any) => ctx.req.permission || [];
