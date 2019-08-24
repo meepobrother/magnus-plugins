@@ -1,8 +1,9 @@
-import { NestGrpc } from "../../lib/index";
+import { bootstrap } from "../../lib/index";
 import { join } from "path";
 import { TestMagnus } from "./inc/test";
 const metadata = require("./assets/fastity/magnus.metadata.json");
-const grpc = new NestGrpc({
+import { AppModule } from "./app";
+bootstrap(AppModule, {
   url: `0.0.0.0:3004`,
   protoPath: join(__dirname, "assets/fastity/magnus.server.proto"),
   package: `fastity`,
@@ -11,7 +12,4 @@ const grpc = new NestGrpc({
     TestMagnus
   },
   decorators: {}
-});
-grpc.listen(() => {
-  console.log(`start`);
 });

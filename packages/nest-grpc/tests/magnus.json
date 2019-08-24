@@ -3,7 +3,7 @@
   "inputs": ["src/**/*.ts"],
   "output": "src/magnus",
   "assets": "src/assets",
-  "hasGrpc": false,
+  "hasGrpc": true,
   "debug": true,
   "reciveName": []
 }
