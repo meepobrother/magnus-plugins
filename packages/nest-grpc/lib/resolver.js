@@ -35,6 +35,10 @@ let ResolversExplorerService = class ResolversExplorerService extends basic_1.Ba
                     const [fileName, className, tableName, methodName, params] = item;
                     const serviceName = this.createPattern(lodash_1.upperFirst(key), fileName, microservices_1.GrpcMethodStreamingType.NO_STREAMING);
                     const handler = async (args) => {
+                        console.log({
+                            args,
+                            item
+                        });
                         return item(args);
                     };
                     this.addHandler(serviceName, handler);

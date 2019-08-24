@@ -37,6 +37,10 @@ export class ResolversExplorerService extends BaseExplorerService {
             GrpcMethodStreamingType.NO_STREAMING
           );
           const handler = async (args: any) => {
+            console.log({
+              args,
+              item
+            });
             return item(args);
           };
           this.addHandler(serviceName, handler as any);
