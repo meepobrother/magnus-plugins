@@ -4,7 +4,7 @@ import { Module } from "@nestjs/core/injector/module";
 import { HandlerDefMap } from "@notadd/magnus-core";
 export declare class ResolversExplorerService extends BaseExplorerService {
     private readonly modulesContainer;
-    constructor(modulesContainer: ModulesContainer);
+    constructor(modulesContainer: ModulesContainer, _options: any);
     createResolver(handlerDef: HandlerDefMap, decorators: object): any;
     createFactoryByMap(map: HandlerDefMap): {
         [key: string]: {

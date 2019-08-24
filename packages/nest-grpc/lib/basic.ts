@@ -1,6 +1,8 @@
 import { Module } from "@nestjs/core/injector/module";
 import { isEmpty } from "lodash";
-export class BaseExplorerService {
+import { ServerGrpc, GrpcMethodStreamingType } from "@nestjs/microservices";
+
+export class BaseExplorerService extends ServerGrpc {
   getModules(
     modulesContainer: Map<string, Module>,
     include: Function[]

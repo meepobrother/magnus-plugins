@@ -8,87 +8,40 @@ import { scalars } from "@notadd/magnus-graphql";
 import { upperFirst } from "lodash";
 import { GraphQLResolveInfo } from "graphql";
 import { isObservable } from "rxjs";
+import { NESTJS_GRPC_OPTIONS } from "./token";
+import { GrpcMethodStreamingType } from "@nestjs/microservices";
+
 @Injectable()
 export class ResolversExplorerService extends BaseExplorerService {
   constructor(
     @Inject(ModulesContainer)
-    private readonly modulesContainer: ModulesContainer
+    private readonly modulesContainer: ModulesContainer,
+    @Inject(NESTJS_GRPC_OPTIONS)
+    _options: any
   ) {
-    super();
+    super(_options);
   }
 
   createResolver(handlerDef: HandlerDefMap, decorators: object) {
     const map = this.createFactoryByMap(handlerDef);
     const resolver: any = scalars;
-    const client = new ClientVisitor();
-    const parse = new ParseVisitor();
-    Object.keys(map).map((key: string) => {
-      const handler = map[key];
-      resolver[upperFirst(key)] = {};
-      Object.keys(handler).map(hKey => {
-        const item = handler[hKey];
-        resolver[upperFirst(key)][hKey] = async (
-          source: any,
-          args: any,
-          context: any,
-          info: GraphQLResolveInfo
-        ) => {
-          const fieldName = info.fieldName;
-          let result: any;
-          await Promise.all(
-            info.fieldNodes.map(async field => {
-              let node = new ast.FieldAst();
-              node = node.visit(parse, field);
-              const field2 = node.visit(client, args);
-              const typeSource = typeof source;
-              const selfhandlerDef = handlerDef[key].find(
-                it => it[0] === fieldName
-              );
-              if (selfhandlerDef) {
-                const params = selfhandlerDef[4];
-                const parameters = new Array(params.length);
-                const selection = field2.selectionSet;
-                params.map(par => {
-                  const { name, type, index, decorator } = par;
-                  if (decorator.includes("Selection")) {
-                    parameters[index] = selection;
-                  } else if (decorator.includes("Parent")) {
-                    parameters[index] = source;
-                  } else if (decorator.includes("Relation")) {
-                    parameters[index] = undefined;
-                  } else if (decorator.includes("Context")) {
-                    parameters[index] = context;
-                  } else if (decorator.length === 0) {
-                    parameters[index] = args[name];
-                  } else if (decorator.length > 0) {
-                    decorator.map(dec => {
-                      parameters[index] = args[name];
-                      if (decorators[dec])
-                        parameters[index] = decorators[dec]()()(
-                          context,
-                          args[name]
-                        );
-                    });
-                  } else {
-                    parameters[index] = args[name];
-                  }
-                });
-                if (typeSource === "object") {
-                  result = await source[fieldName](...parameters);
-                } else if (typeSource === "undefined") {
-                  result = item(...parameters);
-                } else {
-                  result = source;
-                }
-              }
-            })
+    Object.keys(map).map(key => {
+      const obj = map[key];
+      if (obj) {
+        Object.keys(obj).map(method => {
+          const item = obj[method];
+          const [fileName, className, tableName, methodName, params] = item;
+          const serviceName = this.createPattern(
+            upperFirst(key),
+            fileName,
+            GrpcMethodStreamingType.NO_STREAMING
           );
-          if (isObservable(result)) {
-            result = result.toPromise();
-          }
-          return result;
-        };
-      });
+          const handler = async (args: any) => {
+            return item(args);
+          };
+          this.addHandler(serviceName, handler as any);
+        });
+      }
     });
     return resolver;
   }
