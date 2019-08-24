@@ -3,11 +3,8 @@ import { Inject, Injectable } from "@nestjs/common";
 import { BaseExplorerService } from "./basic";
 import { Module } from "@nestjs/core/injector/module";
 import { HandlerDefMap, MagnusBase } from "@notadd/magnus-core";
-import { ClientVisitor, ParseVisitor, ast } from "@notadd/magnus-graphql";
 import { scalars } from "@notadd/magnus-graphql";
 import { upperFirst } from "lodash";
-import { GraphQLResolveInfo } from "graphql";
-import { isObservable } from "rxjs";
 import { NESTJS_GRPC_OPTIONS } from "./token";
 import { GrpcMethodStreamingType } from "@nestjs/microservices";
 

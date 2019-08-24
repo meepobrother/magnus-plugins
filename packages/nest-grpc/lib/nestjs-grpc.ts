@@ -6,10 +6,7 @@ interface NestjsGrpcOptions {
   controllers: InjectMap;
   decorators: object;
 }
-import { upperFirst } from "lodash";
-import { GrpcMethodStreamingType } from "@nestjs/microservices";
 import { NESTJS_GRPC_OPTIONS } from "./token";
-
 @Module({
   providers: [ResolversExplorerService]
 })
