@@ -113,9 +113,23 @@ export class ApolloServer extends ApolloServerBase {
                 {
                     prefix: this.graphqlPath
                 }
-            );
-        };
-    }
+              }
+              done();
+            }
+          ];
+          instance.route({
+            method: ["GET", "POST"],
+            url: "/",
+            preHandler: beforeHandlers,
+            handler: await graphqlFastify(this.graphQLServerOptions.bind(this))
+          });
+        },
+        {
+          prefix: this.graphqlPath
+        }
+      );
+    };
+  }
 }
 
 export const registerServer = () => {

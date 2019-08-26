@@ -1,23 +1,14 @@
-import { ResolveProperty, Query, Context } from "@notadd/magnus-core";
-import { Injectable } from "@nestjs/common";
-class Result {
-    data: number;
-    constructor(val: number) {
-        this.data = val;
-    }
-    @ResolveProperty()
-    getData(): number {
-        return this.data += 1
-    }
-}
-
-@Injectable()
+import { Query, Magnus, Context } from "@notadd/magnus-core";
+import { Controller } from "@nestjs/common";
+import { Headers } from "../../lib/index";
+@Controller()
+@Magnus()
 export class IncController {
-    @Query()
-    add(a: number, b: number,  @Context() context: any): Result {
-        console.log({
-            context
-        })
-        return new Result(a + b);
-    }
+  @Query()
+  add(a: number, b: number, @Headers() headers: any): number {
+    console.log({
+      headers
+    });
+    return a + b;
+  }
 }
