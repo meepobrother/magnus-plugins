@@ -1,4 +1,34 @@
 {
+  "Result": [
+    [
+      "dec",
+      "Result",
+      "Result",
+      "dec",
+      [
+        {
+          "name": "c",
+          "type": "Int!",
+          "index": 0,
+          "decorator": []
+        }
+      ]
+    ],
+    [
+      "dec",
+      "Result",
+      "Result",
+      "dec",
+      [
+        {
+          "name": "c",
+          "type": "Int!",
+          "index": 0,
+          "decorator": []
+        }
+      ]
+    ]
+  ],
   "query": [
     [
       "add",
@@ -9,18 +39,22 @@
         {
           "name": "a",
           "type": "Int!",
-          "index": 0
+          "index": 0,
+          "decorator": []
         },
         {
           "name": "b",
           "type": "Int!",
-          "index": 1
+          "index": 1,
+          "decorator": []
         },
         {
           "name": "headers",
           "type": "Json!",
           "index": 2,
-          "decorator": "Headers"
+          "decorator": [
+            "Headers"
+          ]
         }
       ]
     ]
