@@ -1,5 +1,5 @@
 {
-  "name": "fastify-jwt",
+  "name": "@magnus-plugins/fastify-jwt",
   "version": "0.0.20",
   "description": "> TODO: description",
   "author": "imeepos <1037483576@qq.com>",
@@ -22,5 +22,6 @@
   },
   "bugs": {
     "url": "https://github.com/meepobrother/magnus-plugins/issues"
-  }
+  },
+  "gitHead": "723d9d6131619d42bdb741ff4d9641ebf458656f"
 }
