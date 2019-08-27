@@ -37,5 +37,5 @@
     "@nestjs/core": "^6.5.3",
     "graphql": "^14.4.2"
   },
-  "gitHead": "58cb67a00ad82ecd6d740ed81b2c386ac90b8a9e"
+  "gitHead": "6fc692b3bb4998c6c0d099350e66a3223ad517c3"
 }
