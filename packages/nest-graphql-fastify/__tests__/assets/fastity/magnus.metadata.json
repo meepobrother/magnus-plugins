@@ -11,9 +11,17 @@
           "type": "Int!",
           "index": 0,
           "decorator": []
+        },
+        {
+          "name": "selection",
+          "type": "Json!",
+          "index": 1,
+          "decorator": [
+            "GetSelectionSet"
+          ]
         }
       ],
-      "number"
+      "Demo"
     ],
     [
       "dec",
@@ -26,9 +34,17 @@
           "type": "Int!",
           "index": 0,
           "decorator": []
+        },
+        {
+          "name": "selection",
+          "type": "Json!",
+          "index": 1,
+          "decorator": [
+            "GetSelectionSet"
+          ]
         }
       ],
-      "number"
+      "Demo"
     ]
   ],
   "query": [
@@ -55,7 +71,7 @@
           "type": "Json!",
           "index": 2,
           "decorator": [
-            "Selection"
+            "GetSelectionSet"
           ]
         }
       ],

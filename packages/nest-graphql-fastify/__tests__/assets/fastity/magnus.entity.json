@@ -1,4 +1,23 @@
 {
+  "Demo": [
+    {
+      "name": "value",
+      "decorators": [],
+      "entity": "number"
+    },
+    {
+      "name": "controller",
+      "decorators": [],
+      "entity": "",
+      "parameters": [
+        {
+          "name": "val",
+          "index": 0,
+          "decorator": []
+        }
+      ]
+    }
+  ],
   "Result": [
     {
       "name": "value",
@@ -12,7 +31,8 @@
       "parameters": [
         {
           "name": "value",
-          "index": 0
+          "index": 0,
+          "decorator": []
         }
       ]
     },
@@ -21,11 +41,19 @@
       "decorators": [
         "ResolveProperty"
       ],
-      "entity": "number",
+      "entity": "Demo",
       "parameters": [
         {
           "name": "c",
-          "index": 0
+          "index": 0,
+          "decorator": []
+        },
+        {
+          "name": "selection",
+          "index": 1,
+          "decorator": [
+            "GetSelectionSet"
+          ]
         }
       ]
     }
