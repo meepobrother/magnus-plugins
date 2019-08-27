@@ -51,11 +51,11 @@
           "decorator": []
         },
         {
-          "name": "headers",
+          "name": "selection",
           "type": "Json!",
           "index": 2,
           "decorator": [
-            "Headers"
+            "Selection"
           ]
         }
       ],

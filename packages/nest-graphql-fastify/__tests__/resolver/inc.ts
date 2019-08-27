@@ -1,7 +1,6 @@
-import { Query, Magnus, ResolveProperty, Entity } from "@notadd/magnus-core";
+import { Query, Magnus, ResolveProperty, } from "@notadd/magnus-core";
 import { Controller } from "@nestjs/common";
-import { Headers } from "../../lib/index";
-
+import { Entity, Selection } from '@notadd/magnus-typeorm'
 @Entity()
 class Result {
     value: number;
@@ -19,7 +18,10 @@ class Result {
 @Magnus()
 export class IncController {
     @Query()
-    add(a: number, b: number, @Headers() headers: any): Result {
+    add(a: number, b: number, @Selection() selection: any): Result {
+        console.log({
+            selection
+        })
         return new Result(a + b);
     }
 }
