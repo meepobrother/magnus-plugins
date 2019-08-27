@@ -1,5 +1,5 @@
-66 error Error: Command failed: git tag v0.1.0 -m v0.1.0
-66 error fatal: tag 'v0.1.0' already exists
+66 error Error: Command failed: git tag v0.1.1 -m v0.1.1
+66 error fatal: tag 'v0.1.1' already exists
 66 error
 66 error     at makeError (/Users/ims/Desktop/ganker/magnus-plugins/node_modules/execa/index.js:174:9)
 66 error     at /Users/ims/Desktop/ganker/magnus-plugins/node_modules/execa/index.js:278:16
