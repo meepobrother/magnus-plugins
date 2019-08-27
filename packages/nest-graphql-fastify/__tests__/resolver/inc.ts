@@ -12,9 +12,6 @@ class Result {
 
     @ResolveProperty()
     dec(c: number): number {
-        if (typeof c === 'object') {
-            c = (c as any).c;
-        }
         return this.value - c
     }
 }
@@ -23,10 +20,6 @@ class Result {
 export class IncController {
     @Query()
     add(a: number, b: number, @Headers() headers: any): Result {
-        console.log({
-            headers,
-            a, b
-        });
         return new Result(a + b);
     }
 }

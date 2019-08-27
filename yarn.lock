@@ -870,10 +870,10 @@
     tslib "^1.10.0"
     typeorm "^0.2.18"
 
-"@notadd/magnus-core@^3.4.4":
-  version "3.4.4"
-  resolved "https://registry.yarnpkg.com/@notadd/magnus-core/-/magnus-core-3.4.4.tgz#4bd1dd3897da81f70341a4f8a56a197d37be1677"
-  integrity sha512-lDnAaL2HZiVTzv3pr6LKtNeJcbVSehM8a4BqoVl5yxsrRJ21+wlu+85QHPNlhxdOmzgor7I4GI0q54fB8pafeA==
+"@notadd/magnus-core@^3.4.8":
+  version "3.4.8"
+  resolved "https://registry.yarnpkg.com/@notadd/magnus-core/-/magnus-core-3.4.8.tgz#35ac229db66e6c14e8497a48ec93be6962739198"
+  integrity sha512-H6Lz1InUeOfxdW0rCRL2/xWLNod8Tk4PSTIHgXgcd5VSH2FLryRZQefqr3MNon/052iqxk8oxAXPa8Wq4T2zDg==
   dependencies:
     graphql "^14.4.2"
     tslib "^1.10.0"
@@ -904,10 +904,10 @@
     "@types/multimatch" "^2.1.3"
     tslib "^1.10.0"
 
-"@notadd/magnus-typeorm@^0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@notadd/magnus-typeorm/-/magnus-typeorm-0.0.5.tgz#566f352bf02fa486b7b836713cca6bd9f3a809d0"
-  integrity sha512-AtE12SPZGSSCvRgVsnsHGKCoK4oqfVG2tHW3i/H7PlzDBQj3CP+MJWep3DtQooLLqVfq36hCCkl9krQeoppzdg==
+"@notadd/magnus-typeorm@^0.0.18":
+  version "0.0.18"
+  resolved "https://registry.yarnpkg.com/@notadd/magnus-typeorm/-/magnus-typeorm-0.0.18.tgz#76b6fba2601d42fd9c7e0dfda34bfea2089f4832"
+  integrity sha512-zuHfVKsDp/KcPB5lFkzl3LD9uzTIBQKwTizQUgVYopqZRk2IUCPl9uxAzF9/zYV2DTXh6NStMp4B6mqEq9iGIw==
 
 "@notadd/magnus@^3.0.9":
   version "3.0.9"

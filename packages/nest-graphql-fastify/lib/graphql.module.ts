@@ -11,7 +11,7 @@ interface GqlModuleOptions extends Config {
     fieldResolverEnhancers?: any[];
     typeDefs: DocumentNode;
     metadata: HandlerDefMap;
-    entities: any,
+    entities?: object,
     decorators?: object;
 }
 const defaultOptions: any = {
