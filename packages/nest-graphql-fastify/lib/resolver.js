@@ -16,108 +16,23 @@ const modules_container_1 = require("@nestjs/core/injector/modules-container");
 const common_1 = require("@nestjs/common");
 const basic_1 = require("./basic");
 const magnus_graphql_1 = require("@notadd/magnus-graphql");
-const magnus_graphql_2 = require("@notadd/magnus-graphql");
-const lodash_1 = require("lodash");
-const rxjs_1 = require("rxjs");
+const magnus_typeorm_1 = require("@notadd/magnus-typeorm");
 let ResolversExplorerService = class ResolversExplorerService extends basic_1.BaseExplorerService {
     constructor(modulesContainer) {
         super();
         this.modulesContainer = modulesContainer;
     }
-    createResolver(handlerDef, decorators) {
-        const map = this.createFactoryByMap(handlerDef);
-        const resolver = magnus_graphql_2.scalars;
-        const client = new magnus_graphql_1.ClientVisitor();
-        const parse = new magnus_graphql_1.ParseVisitor();
-        Object.keys(map).map((key) => {
-            const handler = map[key];
-            resolver[lodash_1.upperFirst(key)] = {};
-            Object.keys(handler).map(hKey => {
-                const item = handler[hKey];
-                resolver[lodash_1.upperFirst(key)][hKey] = async (source, args, context, info) => {
-                    const fieldName = info.fieldName;
-                    let result;
-                    await Promise.all(info.fieldNodes.map(async (field) => {
-                        let node = new magnus_graphql_1.ast.FieldAst();
-                        node = node.visit(parse, field);
-                        const field2 = node.visit(client, args);
-                        const typeSource = typeof source;
-                        const selfhandlerDef = handlerDef[key].find(it => it[0] === fieldName);
-                        if (selfhandlerDef) {
-                            const params = selfhandlerDef[4];
-                            const parameters = new Array(params.length);
-                            const selection = field2.selectionSet;
-                            params.map(par => {
-                                const { name, type, index, decorator } = par;
-                                if (decorator.includes("Selection")) {
-                                    parameters[index] = selection;
-                                }
-                                else if (decorator.includes("Parent")) {
-                                    parameters[index] = source;
-                                }
-                                else if (decorator.includes("Relation")) {
-                                    parameters[index] = undefined;
-                                }
-                                else if (decorator.includes("Context")) {
-                                    parameters[index] = context;
-                                }
-                                else if (decorator.length === 0) {
-                                    parameters[index] = args[name];
-                                }
-                                else if (decorator.length > 0) {
-                                    decorator.map(dec => {
-                                        parameters[index] = args[name];
-                                        if (decorators[dec])
-                                            parameters[index] = decorators[dec]()()(context, args[name]);
-                                    });
-                                }
-                                else {
-                                    parameters[index] = args[name];
-                                }
-                            });
-                            if (typeSource === "object") {
-                                result = await source[fieldName](...parameters);
-                            }
-                            else if (typeSource === "undefined") {
-                                result = item(...parameters);
-                            }
-                            else {
-                                result = source;
-                            }
-                        }
-                    }));
-                    if (rxjs_1.isObservable(result)) {
-                        result = result.toPromise();
-                    }
-                    return result;
-                };
-            });
-        });
-        return resolver;
-    }
-    createFactoryByMap(map) {
+    createResolver(handlerDef, metadata, decorators) {
+        const resolver = magnus_graphql_1.scalars;
         const modules = this.getModules(this.modulesContainer, []);
-        const factory = {};
-        Object.keys(map).map(operationName => {
-            const items = map[operationName] || [];
-            const obj = {};
-            items.forEach(it => {
-                const [fieldName, className, tableName, methodName, argsDef] = it;
-                // const controller = app.get(className);
-                let controller = modules
-                    .map(module => this.filterResolvers(className, module))
-                    .filter(it => !!it);
-                if (controller && controller.length === 1) {
-                    const ctrl = controller[0];
-                    obj[fieldName] = (...args) => {
-                        ctrl.tablename = tableName;
-                        return ctrl[methodName](...args);
-                    };
-                }
-            });
-            factory[operationName] = obj;
+        const resolvers = magnus_typeorm_1.createResolvers(handlerDef, metadata, decorators, (name) => {
+            const results = modules
+                .map(module => this.filterResolvers(name, module))
+                .filter(it => !!it);
+            if (results.length === 1)
+                return results[0];
         });
-        return factory;
+        return { ...resolver, ...resolvers };
     }
     filterResolvers(name, moduleRef) {
         const ctrl = moduleRef.controllers.get(name);

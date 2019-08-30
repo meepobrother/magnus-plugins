@@ -13,19 +13,20 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var GraphqlModule_1;
 Object.defineProperty(exports, "__esModule", { value: true });
-"use strict";
 const common_1 = require("@nestjs/common");
 const core_1 = require("@nestjs/core");
-const apollo_server_fastify_1 = require("@magnus-plugins/apollo-server-fastify");
+const apollo_server_fastify_1 = require("apollo-server-fastify");
 const metadata_scanner_1 = require("@nestjs/core/metadata-scanner");
 const resolver_1 = require("./resolver");
-exports.defaultContext = ({ req }) => ({ req });
 const defaultOptions = {
-    context: exports.defaultContext,
+    context: ({ req }) => ({
+        req
+    }),
     path: "/graphql",
     fieldResolverEnhancers: []
 };
 exports.GRAPHQL_MODULE_OPTIONS = "GqlModuleOptions";
+exports.defaultContext = ({ req }) => ({ req });
 let GraphqlModule = GraphqlModule_1 = class GraphqlModule {
     constructor(httpAdapterHost, resolver, options) {
         this.httpAdapterHost = httpAdapterHost;
@@ -56,7 +57,7 @@ let GraphqlModule = GraphqlModule_1 = class GraphqlModule {
             return;
         }
         const app = httpAdapter.getInstance();
-        this.options.resolvers = this.resolver.createResolver(this.options.metadata, this.options.decorators || {});
+        this.options.resolvers = this.resolver.createResolver(this.options.metadata, this.options.entities, this.options.decorators || {});
         this.registerGqlServer(app);
         this.apolloServer.installSubscriptionHandlers(httpAdapter.getHttpServer());
     }

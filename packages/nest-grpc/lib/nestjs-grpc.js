@@ -13,7 +13,6 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var NestjsGrpcModule_1;
 Object.defineProperty(exports, "__esModule", { value: true });
-"use strict";
 const common_1 = require("@nestjs/common");
 const resolver_1 = require("./resolver");
 const token_1 = require("./token");
