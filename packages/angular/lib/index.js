@@ -58,3 +58,4 @@ MagnusAngular = MagnusAngular_1 = __decorate([
 exports.MagnusAngular = MagnusAngular;
 __export(require("./api"));
 __export(require("./token"));
+//# sourceMappingURL=index.js.map

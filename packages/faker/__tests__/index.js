@@ -10,3 +10,4 @@ const faker = new lib_1.Factory(entity, {
 });
 const domain = faker.createEntity("Domain");
 debugger;
+//# sourceMappingURL=index.js.map

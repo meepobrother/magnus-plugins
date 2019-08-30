@@ -61,3 +61,4 @@ Subscription = __decorate([
     __metadata("design:paramtypes", [a.Apollo, String])
 ], Subscription);
 exports.Subscription = Subscription;
+//# sourceMappingURL=api.js.map

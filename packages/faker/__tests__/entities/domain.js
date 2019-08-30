@@ -35,3 +35,4 @@ Domain = Domain_1 = __decorate([
     typeorm_1.Entity()
 ], Domain);
 exports.Domain = Domain;
+//# sourceMappingURL=domain.js.map

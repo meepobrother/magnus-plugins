@@ -92,3 +92,4 @@ exports.ApolloServer = ApolloServer;
 exports.registerServer = () => {
     throw new Error("Please use server.createHandler instead of registerServer. This warning will be removed in the next release");
 };
+//# sourceMappingURL=ApolloServer.js.map

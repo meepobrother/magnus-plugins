@@ -38,3 +38,4 @@ ToDoItem = __decorate([
     magnus_core_1.Entity()
 ], ToDoItem);
 exports.ToDoItem = ToDoItem;
+//# sourceMappingURL=toDoItem.js.map

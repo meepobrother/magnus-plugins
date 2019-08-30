@@ -46,3 +46,4 @@ exports.Entity = () => exports.AnyDecorator;
 exports.Tree = () => exports.AnyDecorator;
 exports.TreeParent = () => exports.AnyDecorator;
 exports.TreeChildren = () => exports.AnyDecorator;
+//# sourceMappingURL=decorator.js.map

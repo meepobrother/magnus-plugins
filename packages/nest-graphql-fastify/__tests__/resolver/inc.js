@@ -35,3 +35,4 @@ IncController = __decorate([
     magnus_core_1.Magnus()
 ], IncController);
 exports.IncController = IncController;
+//# sourceMappingURL=inc.js.map

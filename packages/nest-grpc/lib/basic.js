@@ -15,3 +15,4 @@ class BaseExplorerService extends microservices_1.ServerGrpc {
     }
 }
 exports.BaseExplorerService = BaseExplorerService;
+//# sourceMappingURL=basic.js.map

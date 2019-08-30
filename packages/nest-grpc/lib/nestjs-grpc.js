@@ -45,3 +45,4 @@ NestjsGrpcModule = NestjsGrpcModule_1 = __decorate([
     __metadata("design:paramtypes", [resolver_1.ResolversExplorerService, Object])
 ], NestjsGrpcModule);
 exports.NestjsGrpcModule = NestjsGrpcModule;
+//# sourceMappingURL=nestjs-grpc.js.map
