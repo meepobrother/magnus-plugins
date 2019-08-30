@@ -1,6 +1,6 @@
 {
   "name": "@magnus-plugins/nest-graphql-fastify",
-  "version": "0.1.14",
+  "version": "0.1.17",
   "description": "> TODO: description",
   "author": "imeepos <1037483576@qq.com>",
   "homepage": "https://github.com/meepobrother/magnus-plugins#readme",
@@ -27,7 +27,7 @@
     "url": "https://github.com/meepobrother/magnus-plugins/issues"
   },
   "dependencies": {
-    "@magnus-plugins/apollo-server-fastify": "^0.1.5",
+    "@magnus-plugins/apollo-server-fastify": "^0.1.17",
     "@notadd/magnus-core": "^3.1.10",
     "@notadd/magnus-graphql": "^3.1.10",
     "apollo-server-core": "^2.8.1"
