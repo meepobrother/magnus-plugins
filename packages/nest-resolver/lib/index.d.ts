@@ -5,11 +5,6 @@ import { HandlerDefMap } from "@notadd/magnus-core";
 export declare class ResolversExplorerService extends BaseExplorerService {
     private readonly modulesContainer;
     constructor(modulesContainer: ModulesContainer);
-    createResolver(handlerDef: HandlerDefMap, decorators: object): any;
-    createFactoryByMap(map: HandlerDefMap): {
-        [key: string]: {
-            [key: string]: any;
-        };
-    };
+    createResolver(handlerDef: HandlerDefMap, metadata: any, decorators: object): any;
     filterResolvers(name: string, moduleRef: Module): any;
 }

@@ -4,7 +4,7 @@ import { ApolloServer } from "apollo-server-fastify";
 import { DocumentNode } from "graphql";
 import { Config } from "apollo-server-core";
 import { HandlerDefMap } from "@notadd/magnus-core";
-import { ResolversExplorerService } from "./resolver";
+import { ResolversExplorerService } from '@magnus-plugins/nest-resolver';
 interface GqlModuleOptions extends Config {
     path?: string;
     fieldResolverEnhancers?: any[];

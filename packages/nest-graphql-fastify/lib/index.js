@@ -4,6 +4,4 @@ function __export(m) {
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./graphql.module"));
-exports.Headers = () => (target, propertyKey, parameterIndex) => (ctx) => ctx.req.headers;
-exports.CurrentUser = () => (target, propertyKey, parameterIndex) => (ctx) => ctx.req.user;
 //# sourceMappingURL=index.js.map

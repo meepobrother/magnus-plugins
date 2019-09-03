@@ -17,7 +17,8 @@ const common_1 = require("@nestjs/common");
 const core_1 = require("@nestjs/core");
 const apollo_server_fastify_1 = require("apollo-server-fastify");
 const metadata_scanner_1 = require("@nestjs/core/metadata-scanner");
-const resolver_1 = require("./resolver");
+// import { ResolversExplorerService } from "./resolver";
+const nest_resolver_1 = require("@magnus-plugins/nest-resolver");
 const defaultOptions = {
     context: ({ req }) => ({
         req
@@ -70,11 +71,11 @@ let GraphqlModule = GraphqlModule_1 = class GraphqlModule {
 };
 GraphqlModule = GraphqlModule_1 = __decorate([
     common_1.Module({
-        providers: [metadata_scanner_1.MetadataScanner, resolver_1.ResolversExplorerService]
+        providers: [metadata_scanner_1.MetadataScanner, nest_resolver_1.ResolversExplorerService]
     }),
     __param(2, common_1.Inject(exports.GRAPHQL_MODULE_OPTIONS)),
     __metadata("design:paramtypes", [core_1.HttpAdapterHost,
-        resolver_1.ResolversExplorerService, Object])
+        nest_resolver_1.ResolversExplorerService, Object])
 ], GraphqlModule);
 exports.GraphqlModule = GraphqlModule;
 //# sourceMappingURL=graphql.module.js.map

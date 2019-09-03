@@ -13,7 +13,6 @@ function __export(m) {
 }
 var MagnusAngular_1;
 Object.defineProperty(exports, "__esModule", { value: true });
-"use strict";
 const apollo_angular_1 = require("apollo-angular");
 const core_1 = require("@angular/core");
 const apollo_cache_inmemory_1 = require("apollo-cache-inmemory");

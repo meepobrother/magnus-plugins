@@ -5,75 +5,76 @@ import { DocumentNode } from "graphql";
 import { Config } from "apollo-server-core";
 import { HandlerDefMap } from "@notadd/magnus-core";
 import { MetadataScanner } from "@nestjs/core/metadata-scanner";
-import { ResolversExplorerService } from "./resolver";
+// import { ResolversExplorerService } from "./resolver";
+import { ResolversExplorerService } from '@magnus-plugins/nest-resolver';
 interface GqlModuleOptions extends Config {
-  path?: string;
-  fieldResolverEnhancers?: any[];
-  typeDefs: DocumentNode;
-  metadata: HandlerDefMap;
-  entities?: object;
-  decorators?: object;
+    path?: string;
+    fieldResolverEnhancers?: any[];
+    typeDefs: DocumentNode;
+    metadata: HandlerDefMap;
+    entities?: object;
+    decorators?: object;
 }
 const defaultOptions: any = {
-  context: ({ req }) => ({
-    req
-  }),
-  path: "/graphql",
-  fieldResolverEnhancers: []
+    context: ({ req }) => ({
+        req
+    }),
+    path: "/graphql",
+    fieldResolverEnhancers: []
 };
 export const GRAPHQL_MODULE_OPTIONS = "GqlModuleOptions";
 export const defaultContext = ({ req }) => ({ req });
 @Module({
-  providers: [MetadataScanner, ResolversExplorerService]
+    providers: [MetadataScanner, ResolversExplorerService]
 })
 export class GraphqlModule implements OnModuleInit {
-  protected apolloServer: ApolloServer;
-  application: any;
-  constructor(
-    private readonly httpAdapterHost: HttpAdapterHost,
-    private readonly resolver: ResolversExplorerService,
-    @Inject(GRAPHQL_MODULE_OPTIONS) private readonly options: GqlModuleOptions
-  ) {}
+    protected apolloServer: ApolloServer;
+    application: any;
+    constructor(
+        private readonly httpAdapterHost: HttpAdapterHost,
+        private readonly resolver: ResolversExplorerService,
+        @Inject(GRAPHQL_MODULE_OPTIONS) private readonly options: GqlModuleOptions
+    ) { }
 
-  static forRoot(options: GqlModuleOptions): DynamicModule {
-    options = {
-      ...defaultOptions,
-      ...options
-    };
-    return {
-      module: GraphqlModule,
-      providers: [
-        {
-          provide: GRAPHQL_MODULE_OPTIONS,
-          useValue: options
+    static forRoot(options: GqlModuleOptions): DynamicModule {
+        options = {
+            ...defaultOptions,
+            ...options
+        };
+        return {
+            module: GraphqlModule,
+            providers: [
+                {
+                    provide: GRAPHQL_MODULE_OPTIONS,
+                    useValue: options
+                }
+            ]
+        };
+    }
+    async onModuleInit() {
+        if (!this.httpAdapterHost) {
+            return;
         }
-      ]
-    };
-  }
-  async onModuleInit() {
-    if (!this.httpAdapterHost) {
-      return;
+        const httpAdapter = this.httpAdapterHost.httpAdapter;
+        if (!httpAdapter) {
+            return;
+        }
+        const app = httpAdapter.getInstance();
+        this.options.resolvers = this.resolver.createResolver(
+            this.options.metadata,
+            this.options.entities,
+            this.options.decorators || {}
+        );
+        this.registerGqlServer(app);
+        this.apolloServer.installSubscriptionHandlers(httpAdapter.getHttpServer());
     }
-    const httpAdapter = this.httpAdapterHost.httpAdapter;
-    if (!httpAdapter) {
-      return;
-    }
-    const app = httpAdapter.getInstance();
-    this.options.resolvers = this.resolver.createResolver(
-      this.options.metadata,
-      this.options.entities,
-      this.options.decorators || {}
-    );
-    this.registerGqlServer(app);
-    this.apolloServer.installSubscriptionHandlers(httpAdapter.getHttpServer());
-  }
 
-  private registerGqlServer(app: any) {
-    this.apolloServer = new ApolloServer(this.options);
-    app.register(
-      this.apolloServer.createHandler({
-        path: this.options.path
-      })
-    );
-  }
+    private registerGqlServer(app: any) {
+        this.apolloServer = new ApolloServer(this.options);
+        app.register(
+            this.apolloServer.createHandler({
+                path: this.options.path
+            })
+        );
+    }
 }

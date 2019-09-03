@@ -46,7 +46,8 @@
         "packages/apollo-server-fastify/lib/index.ts"
       ],
       "@magnus-plugins/faker": ["packages/faker/lib/index.ts"],
-      "@magnus-plugins/mock": ["packages/mock/lib/index.ts"]
+      "@magnus-plugins/mock": ["packages/mock/lib/index.ts"],
+      "@magnus-plugins/nest-resolver": ["packages/nest-resolver/lib/index.ts"]
     } /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */,
     // "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */
     // "typeRoots": [],                       /* List of folders to include type definitions from. */

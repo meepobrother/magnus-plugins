@@ -10,7 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var Domain_1;
 Object.defineProperty(exports, "__esModule", { value: true });
-"use strict";
 const typeorm_1 = require("typeorm");
 const lib_1 = require("../../lib");
 let Domain = Domain_1 = class Domain {
