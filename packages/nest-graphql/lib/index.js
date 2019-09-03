@@ -14,10 +14,10 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 var GraphqlModule_1;
 Object.defineProperty(exports, "__esModule", { value: true });
 const common_1 = require("@nestjs/common");
-const core_1 = require("@nestjs/core");
-const apollo_server_fastify_1 = require("apollo-server-fastify");
-const metadata_scanner_1 = require("@nestjs/core/metadata-scanner");
+const graphql_1 = require("graphql");
+const graphql_tools_1 = require("graphql-tools");
 const nest_resolver_1 = require("@magnus-plugins/nest-resolver");
+const magnus_nest_runner_1 = require("@notadd/magnus-nest-runner");
 const defaultOptions = {
     context: ({ req }) => ({
         req
@@ -28,8 +28,7 @@ const defaultOptions = {
 exports.GRAPHQL_MODULE_OPTIONS = "GqlModuleOptions";
 exports.defaultContext = ({ req }) => ({ req });
 let GraphqlModule = GraphqlModule_1 = class GraphqlModule {
-    constructor(httpAdapterHost, resolver, options) {
-        this.httpAdapterHost = httpAdapterHost;
+    constructor(resolver, options) {
         this.resolver = resolver;
         this.options = options;
     }
@@ -49,32 +48,27 @@ let GraphqlModule = GraphqlModule_1 = class GraphqlModule {
         };
     }
     async onModuleInit() {
-        if (!this.httpAdapterHost) {
-            return;
-        }
-        const httpAdapter = this.httpAdapterHost.httpAdapter;
-        if (!httpAdapter) {
-            return;
-        }
-        const app = httpAdapter.getInstance();
         this.options.resolvers = this.resolver.createResolver(this.options.metadata, this.options.entities, this.options.decorators || {});
-        this.registerGqlServer(app);
-        this.apolloServer.installSubscriptionHandlers(httpAdapter.getHttpServer());
-    }
-    registerGqlServer(app) {
-        this.apolloServer = new apollo_server_fastify_1.ApolloServer(this.options);
-        app.register(this.apolloServer.createHandler({
-            path: this.options.path
-        }));
+        const schema = graphql_tools_1.makeExecutableSchema({
+            typeDefs: this.options.typeDefs,
+            resolvers: this.options.resolvers
+        });
+        const runner = (source, variableValues, rootValue, contextValue) => graphql_1.graphql({
+            schema,
+            source,
+            rootValue,
+            contextValue,
+            variableValues
+        });
+        magnus_nest_runner_1.setClient(this.options.name, new nest_resolver_1.NestGraphqlClient(runner));
     }
 };
 GraphqlModule = GraphqlModule_1 = __decorate([
     common_1.Module({
-        providers: [metadata_scanner_1.MetadataScanner, nest_resolver_1.ResolversExplorerService]
+        providers: [nest_resolver_1.ResolversExplorerService]
     }),
-    __param(2, common_1.Inject(exports.GRAPHQL_MODULE_OPTIONS)),
-    __metadata("design:paramtypes", [core_1.HttpAdapterHost,
-        nest_resolver_1.ResolversExplorerService, Object])
+    __param(1, common_1.Inject(exports.GRAPHQL_MODULE_OPTIONS)),
+    __metadata("design:paramtypes", [nest_resolver_1.ResolversExplorerService, Object])
 ], GraphqlModule);
 exports.GraphqlModule = GraphqlModule;
-//# sourceMappingURL=graphql.module.js.map
+//# sourceMappingURL=index.js.map

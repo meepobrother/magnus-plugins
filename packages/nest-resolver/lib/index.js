@@ -49,4 +49,19 @@ ResolversExplorerService = __decorate([
     __metadata("design:paramtypes", [modules_container_1.ModulesContainer])
 ], ResolversExplorerService);
 exports.ResolversExplorerService = ResolversExplorerService;
+class NestGraphqlClient {
+    constructor(runner) {
+        this.runner = runner;
+    }
+    query(options) {
+        return this.runner(options.query, options.variables, options.root, options.context);
+    }
+    mutate(options) {
+        return this.runner(options.mutation, options.variables, options.root, options.context);
+    }
+    subscribe(options) {
+        return this.runner(options.query, options.variables, options.root, options.context);
+    }
+}
+exports.NestGraphqlClient = NestGraphqlClient;
 //# sourceMappingURL=index.js.map

@@ -5,6 +5,7 @@ import { Module } from "@nestjs/core/injector/module";
 import { HandlerDefMap } from "@notadd/magnus-core";
 import { scalars } from "@notadd/magnus-graphql";
 import { createResolvers } from "@notadd/magnus-typeorm";
+import { DocumentNode } from "graphql";
 
 @Injectable()
 export class ResolversExplorerService extends BaseExplorerService {
@@ -37,5 +38,39 @@ export class ResolversExplorerService extends BaseExplorerService {
         if (ctrl) return ctrl.instance;
         const provi = moduleRef.providers.get(name);
         if (provi) return provi.instance;
+    }
+}
+
+interface NestGraphqlQuery {
+    query: string,
+    variables: any;
+    root?: any;
+    context?: any;
+}
+interface NestGraphqlMutate {
+    mutation: string,
+    variables: any;
+    root?: any;
+    context?: any;
+}
+interface NestGraphqlSubscribe {
+    query: string,
+    variables: any;
+    root?: any;
+    context?: any;
+}
+interface Runner {
+    (doc: string, variables: any, root?: any, context?: any)
+}
+export class NestGraphqlClient {
+    constructor(public runner: Runner) { }
+    query(options: NestGraphqlQuery) {
+        return this.runner(options.query, options.variables, options.root, options.context)
+    }
+    mutate(options: NestGraphqlMutate) {
+        return this.runner(options.mutation, options.variables, options.root, options.context)
+    }
+    subscribe(options: NestGraphqlSubscribe) {
+        return this.runner(options.query, options.variables, options.root, options.context)
     }
 }
