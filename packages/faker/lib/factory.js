@@ -94,3 +94,4 @@ class Factory {
     }
 }
 exports.Factory = Factory;
+//# sourceMappingURL=factory.js.map

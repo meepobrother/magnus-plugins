@@ -87,3 +87,4 @@ ResolversExplorerService = __decorate([
     __metadata("design:paramtypes", [modules_container_1.ModulesContainer, Object])
 ], ResolversExplorerService);
 exports.ResolversExplorerService = ResolversExplorerService;
+//# sourceMappingURL=resolver.js.map

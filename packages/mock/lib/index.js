@@ -47,3 +47,4 @@ class Database {
     }
 }
 exports.Database = Database;
+//# sourceMappingURL=index.js.map

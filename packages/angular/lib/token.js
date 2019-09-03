@@ -5,3 +5,4 @@ exports.MAGNUS_APOLLO = new core_1.InjectionToken(`MAGNUS_APOLLO`, {
     providedIn: "root",
     factory: () => "default"
 });
+//# sourceMappingURL=token.js.map

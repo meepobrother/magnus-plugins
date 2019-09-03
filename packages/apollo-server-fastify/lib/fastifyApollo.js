@@ -43,3 +43,4 @@ async function graphqlFastify(options) {
     };
 }
 exports.graphqlFastify = graphqlFastify;
+//# sourceMappingURL=fastifyApollo.js.map
