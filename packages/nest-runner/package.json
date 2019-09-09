@@ -1,6 +1,6 @@
 {
 	"name": "@notadd/magnus-nest-runner",
-	"version": "1.1.6",
+	"version": "1.1.7",
 	"description": "> TODO: description",
 	"author": "imeepos <1037483576@qq.com>",
 	"homepage": "https://github.com/meepobrother/magnus-plugins#readme",
@@ -10,7 +10,9 @@
 		"lib": "lib",
 		"test": "__tests__"
 	},
-	"files": [ "lib" ],
+	"files": [
+		"lib"
+	],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/meepobrother/magnus-plugins.git"
