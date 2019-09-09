@@ -6,6 +6,7 @@ import { Config } from "apollo-server-core";
 import { HandlerDefMap } from "@notadd/magnus-core";
 import { MetadataScanner } from "@nestjs/core/metadata-scanner";
 import { ResolversExplorerService } from '@magnus-plugins/nest-resolver';
+import { scalars } from '@notadd/magnus-graphql'
 interface GqlModuleOptions extends Config {
     name?: string;
     path?: string;
@@ -65,6 +66,10 @@ export class GraphqlModule implements OnModuleInit {
             this.options.entities,
             this.options.decorators || {}
         );
+        this.options.resolvers = {
+            ...scalars,
+            ...this.options.resolvers
+        }
         this.registerGqlServer(app);
         this.apolloServer.installSubscriptionHandlers(httpAdapter.getHttpServer());
     }
