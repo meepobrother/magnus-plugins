@@ -1,6 +1,6 @@
 import { Module, Inject, OnModuleInit, DynamicModule } from "@nestjs/common";
 import { HttpAdapterHost } from "@nestjs/core";
-import { ApolloServer } from "apollo-server-fastify";
+import { ApolloServer } from "@magnus-plugins/apollo-server-fastify";
 import { DocumentNode } from "graphql";
 import { Config } from "apollo-server-core";
 import { HandlerDefMap } from "@notadd/magnus-core";

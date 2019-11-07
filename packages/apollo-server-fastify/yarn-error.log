@@ -1,0 +1,78 @@
+Arguments: 
+  /Users/ims/.nvm/versions/node/v12.8.1/bin/node /usr/local/bin/yarn add fastify
+
+PATH: 
+  /Users/ims/.nvm/versions/node/v12.8.1/bin:/Users/ims/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:~/.dotnet/tools:/Users/ims/.nvm/versions/node/v12.8.1/bin:/Users/ims/bin
+
+Yarn version: 
+  1.13.0
+
+Node version: 
+  12.8.1
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: http://registry.npmjs.org/apollo-server-integration-testsuite: Not found
+      at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:66255:18)
+      at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:129397:22)
+      at Request.emit (events.js:203:13)
+      at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:130369:10)
+      at Request.emit (events.js:203:13)
+      at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:130291:12)
+      at Object.onceWrapper (events.js:291:20)
+      at IncomingMessage.emit (events.js:208:15)
+      at endReadableNT (_stream_readable.js:1168:12)
+      at processTicksAndRejections (internal/process/task_queues.js:77:11)
+
+npm manifest: 
+  {
+    "name": "apollo-server-fastify",
+    "version": "2.9.7",
+    "description": "Production-ready Node.js GraphQL server for Fastify",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/apollographql/apollo-server/tree/master/packages/apollo-server-fastify"
+    },
+    "keywords": [
+      "GraphQL",
+      "Apollo",
+      "Server",
+      "Fastify",
+      "Javascript"
+    ],
+    "author": "opensource@apollographql.com",
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/apollographql/apollo-server/issues"
+    },
+    "homepage": "https://github.com/apollographql/apollo-server#readme",
+    "engines": {
+      "node": ">=6"
+    },
+    "dependencies": {
+      "@apollographql/graphql-playground-html": "1.6.24",
+      "apollo-server-core": "^2.9.7",
+      "apollo-server-types": "^0.2.5",
+      "fastify-accepts": "^0.5.0",
+      "fastify-cors": "^0.2.0",
+      "graphql-subscriptions": "^1.0.0",
+      "graphql-tools": "^4.0.0"
+    },
+    "devDependencies": {
+      "apollo-server-integration-testsuite": "^2.9.7"
+    },
+    "peerDependencies": {
+      "graphql": "^0.12.0 || ^0.13.0 || ^14.0.0"
+    },
+    "gitHead": "5d94e986f04457ec17114791ee6db3ece4213dd8"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
