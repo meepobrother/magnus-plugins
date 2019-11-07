@@ -1,8 +1,8 @@
 {
-  "name": "@magnus-plugins/nest-graphql-fastify",
-  "version": "1.1.7",
+  "name": "@magnus-plugins/angular",
+  "version": "1.1.6",
   "description": "> TODO: description",
-  "author": "imeepos <1037483576@qq.com>",
+  "author": "meepo <1037483576@qq.com>",
   "homepage": "https://github.com/meepobrother/magnus-plugins#readme",
   "license": "ISC",
   "main": "lib/index.js",
@@ -27,15 +27,13 @@
     "url": "https://github.com/meepobrother/magnus-plugins/issues"
   },
   "dependencies": {
-    "@magnus-plugins/apollo-server-fastify": "^0.1.17",
-    "@notadd/magnus-core": "^3.1.10",
-    "@notadd/magnus-graphql": "^3.1.10",
-    "apollo-server-core": "^2.8.1"
+    "apollo-angular": "^1.6.0",
+    "apollo-angular-link-http": "^1.8.0",
+    "apollo-cache-inmemory": "^1.6.3"
   },
   "peerDependencies": {
-    "@nestjs/common": "^6.5.3",
-    "@nestjs/core": "^6.5.3",
-    "graphql": "^14.4.2"
-  },
-  "gitHead": "a79dec46962a284fd2b9ad6e3bdc9b1c6f322ed1"
+    "@angular/common": "^8.2.2",
+    "@angular/core": "^8.2.2",
+    "apollo-client": "^2.6.4"
+  }
 }

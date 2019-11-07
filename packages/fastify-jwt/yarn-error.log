@@ -1,0 +1,65 @@
+Arguments: 
+  /home/gj017/.nvm/versions/node/v12.8.0/bin/node /home/gj017/.nvm/versions/node/v12.8.0/bin/yarn add lodash @tyeps/lodash
+
+PATH: 
+  /home/gj017/.nvm/versions/node/v12.8.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+
+Yarn version: 
+  1.17.3
+
+Node version: 
+  12.8.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/@tyeps%2flodash: Not found
+      at Request.params.callback [as _callback] (/home/gj017/.nvm/versions/node/v12.8.0/lib/node_modules/yarn/lib/cli.js:66830:18)
+      at Request.self.callback (/home/gj017/.nvm/versions/node/v12.8.0/lib/node_modules/yarn/lib/cli.js:140464:22)
+      at Request.emit (events.js:203:13)
+      at Request.<anonymous> (/home/gj017/.nvm/versions/node/v12.8.0/lib/node_modules/yarn/lib/cli.js:141436:10)
+      at Request.emit (events.js:203:13)
+      at IncomingMessage.<anonymous> (/home/gj017/.nvm/versions/node/v12.8.0/lib/node_modules/yarn/lib/cli.js:141358:12)
+      at Object.onceWrapper (events.js:291:20)
+      at IncomingMessage.emit (events.js:208:15)
+      at endReadableNT (_stream_readable.js:1168:12)
+      at processTicksAndRejections (internal/process/task_queues.js:77:11)
+
+npm manifest: 
+  {
+    "name": "@magnus-plugins/nest-grpc",
+    "version": "0.1.5",
+    "description": "> TODO: description",
+    "author": "meepo <1037483576@qq.com>",
+    "homepage": "https://github.com/meepobrother/magnus-plugins#readme",
+    "license": "ISC",
+    "main": "lib/index.js",
+    "publishConfig": {
+      "access": "public"
+    },
+    "directories": {
+      "lib": "lib",
+      "test": "__tests__"
+    },
+    "files": [
+      "lib"
+    ],
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/meepobrother/magnus-plugins.git"
+    },
+    "scripts": {
+      "test": "echo \"Error: run tests from root\" && exit 1"
+    },
+    "bugs": {
+      "url": "https://github.com/meepobrother/magnus-plugins/issues"
+    },
+    "gitHead": "a79dec46962a284fd2b9ad6e3bdc9b1c6f322ed1"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

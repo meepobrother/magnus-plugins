@@ -1,12 +1,10 @@
 import { Module, Inject, OnModuleInit, DynamicModule } from "@nestjs/common";
-import { HttpAdapterHost } from "@nestjs/core";
-import { ApolloServer } from "apollo-server-fastify";
-import { DocumentNode } from "graphql";
+import { DocumentNode, graphql } from "graphql";
 import { Config } from "apollo-server-core";
 import { HandlerDefMap } from "@notadd/magnus-core";
-import { MetadataScanner } from "@nestjs/core/metadata-scanner";
-import { ResolversExplorerService } from '@magnus-plugins/nest-resolver';
-import { scalars } from '@notadd/magnus-graphql'
+import { makeExecutableSchema } from 'graphql-tools';
+import { ResolversExplorerService, NestGraphqlClient } from '@magnus-plugins/nest-resolver';
+import { setClient } from '@notadd/magnus-nest-runner';
 interface GqlModuleOptions extends Config {
     name?: string;
     path?: string;
@@ -26,13 +24,11 @@ const defaultOptions: any = {
 export const GRAPHQL_MODULE_OPTIONS = "GqlModuleOptions";
 export const defaultContext = ({ req }) => ({ req });
 @Module({
-    providers: [MetadataScanner, ResolversExplorerService]
+    providers: [ResolversExplorerService]
 })
 export class GraphqlModule implements OnModuleInit {
-    protected apolloServer: ApolloServer;
     application: any;
     constructor(
-        private readonly httpAdapterHost: HttpAdapterHost,
         private readonly resolver: ResolversExplorerService,
         @Inject(GRAPHQL_MODULE_OPTIONS) private readonly options: GqlModuleOptions
     ) { }
@@ -53,33 +49,22 @@ export class GraphqlModule implements OnModuleInit {
         };
     }
     async onModuleInit() {
-        if (!this.httpAdapterHost) {
-            return;
-        }
-        const httpAdapter = this.httpAdapterHost.httpAdapter;
-        if (!httpAdapter) {
-            return;
-        }
-        const app = httpAdapter.getInstance();
         this.options.resolvers = this.resolver.createResolver(
             this.options.metadata,
             this.options.entities,
             this.options.decorators || {}
         );
-        this.options.resolvers = {
-            ...scalars,
-            ...this.options.resolvers
-        }
-        this.registerGqlServer(app);
-        this.apolloServer.installSubscriptionHandlers(httpAdapter.getHttpServer());
-    }
-
-    private registerGqlServer(app: any) {
-        this.apolloServer = new ApolloServer(this.options);
-        app.register(
-            this.apolloServer.createHandler({
-                path: this.options.path
-            })
-        );
+        const schema = makeExecutableSchema({
+            typeDefs: this.options.typeDefs,
+            resolvers: this.options.resolvers
+        });
+        const runner = (source: string, variableValues: any, rootValue?: any, contextValue?: any) => graphql({
+            schema,
+            source,
+            rootValue,
+            contextValue,
+            variableValues
+        });
+        setClient(this.options.name!, new NestGraphqlClient(runner) as any)
     }
 }

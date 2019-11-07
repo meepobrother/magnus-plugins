@@ -1,9 +1,9 @@
-import { Module } from '@nestjs/core/injector/module';
-import { isEmpty } from 'lodash';
+import { Module } from "@nestjs/core/injector/module";
+import { isEmpty } from "lodash";
 export class BaseExplorerService {
     getModules(
         modulesContainer: Map<string, Module>,
-        include: Function[],
+        include: Function[]
     ): Module[] {
         if (!include || isEmpty(include)) {
             return [...modulesContainer.values()];
@@ -14,10 +14,10 @@ export class BaseExplorerService {
 
     includeWhitelisted(
         modulesContainer: Map<string, Module>,
-        include: Function[],
+        include: Function[]
     ): Module[] {
         return [...modulesContainer.values()].filter(({ metatype }) =>
-            include.some(item => item === metatype),
+            include.some(item => item === metatype)
         );
     }
 }

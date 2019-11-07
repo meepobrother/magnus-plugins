@@ -1,14 +1,12 @@
 {
-  "name": "@magnus-plugins/nest-graphql-fastify",
-  "version": "1.1.7",
+  "name": "@magnus-plugins/apollo-server-fastify",
+  "version": "1.0.17",
   "description": "> TODO: description",
   "author": "imeepos <1037483576@qq.com>",
   "homepage": "https://github.com/meepobrother/magnus-plugins#readme",
   "license": "ISC",
   "main": "lib/index.js",
-  "publishConfig": {
-    "access": "public"
-  },
+  "types": "lib/index.d.ts",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -26,16 +24,19 @@
   "bugs": {
     "url": "https://github.com/meepobrother/magnus-plugins/issues"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
-    "@magnus-plugins/apollo-server-fastify": "^0.1.17",
-    "@notadd/magnus-core": "^3.1.10",
-    "@notadd/magnus-graphql": "^3.1.10",
-    "apollo-server-core": "^2.8.1"
-  },
-  "peerDependencies": {
-    "@nestjs/common": "^6.5.3",
-    "@nestjs/core": "^6.5.3",
-    "graphql": "^14.4.2"
-  },
-  "gitHead": "a79dec46962a284fd2b9ad6e3bdc9b1c6f322ed1"
+    "@apollographql/graphql-playground-html": "^1.6.24",
+    "@nestjs/platform-fastify": "^6.5.3",
+    "accepts": "^1.3.7",
+    "apollo-server-core": "^2.8.1",
+    "apollo-server-types": "^0.2.1",
+    "fast-json-stringify": "^1.15.4",
+    "fastify": "^2.7.1",
+    "fastify-accepts": "^0.5.0",
+    "fastify-cors": "^2.1.3",
+    "graphql-subscriptions": "^1.1.0"
+  }
 }
