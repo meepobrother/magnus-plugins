@@ -5,7 +5,7 @@ import { Module } from "@nestjs/core/injector/module";
 import { HandlerDefMap } from "@notadd/magnus-core";
 import { scalars } from "@notadd/magnus-graphql";
 import { createResolvers } from "@notadd/magnus-typeorm";
-import { DocumentNode } from "graphql";
+import { PermissionError } from "@ganker/error";
 
 @Injectable()
 export class ResolversExplorerService extends BaseExplorerService {
@@ -16,13 +16,15 @@ export class ResolversExplorerService extends BaseExplorerService {
         super();
     }
 
-    createResolver(handlerDef: HandlerDefMap, metadata: any, decorators: object) {
+    createResolver(handlerDef: HandlerDefMap, metadata: any, decorators: object, preHandler?: any, afterHandler?: any) {
         const resolver: any = scalars;
         const modules = this.getModules(this.modulesContainer, []);
         const resolvers = createResolvers(
             handlerDef,
             metadata,
             decorators,
+            preHandler,
+            afterHandler,
             (name: string) => {
                 const results = modules
                     .map(module => this.filterResolvers(name, module))

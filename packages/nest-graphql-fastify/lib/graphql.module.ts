@@ -7,6 +7,7 @@ import { HandlerDefMap } from "@notadd/magnus-core";
 import { MetadataScanner } from "@nestjs/core/metadata-scanner";
 import { ResolversExplorerService } from '@magnus-plugins/nest-resolver';
 import { scalars } from '@notadd/magnus-graphql'
+import { SelectionSet } from '@notadd/magnus-typeorm';
 interface GqlModuleOptions extends Config {
     name?: string;
     path?: string;
@@ -15,10 +16,13 @@ interface GqlModuleOptions extends Config {
     metadata: HandlerDefMap;
     entities?: object;
     decorators?: object;
+    preHandler?: (set: SelectionSet) => boolean;
+    afterHandler?: <T>(set: SelectionSet, res: T) => T;
 }
 const defaultOptions: any = {
-    context: ({ req }) => ({
-        req
+    context: ({ req, res }) => ({
+        req,
+        res
     }),
     path: "/graphql",
     fieldResolverEnhancers: []
@@ -64,7 +68,9 @@ export class GraphqlModule implements OnModuleInit {
         this.options.resolvers = this.resolver.createResolver(
             this.options.metadata,
             this.options.entities,
-            this.options.decorators || {}
+            this.options.decorators || {},
+            this.options.preHandler,
+            this.options.afterHandler
         );
         this.options.resolvers = {
             ...scalars,
