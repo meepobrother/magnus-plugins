@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@apollographql/graphql-playground-html": "^1.6.24",
+    "@ganker/error": "^1.0.0",
     "@nestjs/common": "^6.5.3",
     "@nestjs/core": "^6.5.3",
     "@nestjs/graphql": "^6.4.2",

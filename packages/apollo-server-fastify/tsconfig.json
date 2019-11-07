@@ -1,3 +1,9 @@
 {
-  "extends": "../../tsconfig.json"
+  "extends": "../../tsconfig.json",
+  "compileOnSave": true,
+  "compilerOptions": {
+      "declaration": true
+  },
+  "include": ["lib"],
+  "exclude": ["node_modules"]
 }

@@ -511,6 +511,14 @@ fast-json-stringify@^1.15.0:
     ajv "^6.8.1"
     deepmerge "^4.0.0"
 
+fast-json-stringify@^1.15.4:
+  version "1.15.6"
+  resolved "https://registry.yarnpkg.com/fast-json-stringify/-/fast-json-stringify-1.15.6.tgz#47864aa15bc4be40ed959089a53a02c4fa7f5140"
+  integrity sha512-UKypbA85Qc53b8xdcXWI3g7TBnOV34+cYJczHJZv4KQ4mF3H9Mk3547FjX3lvUJO4Wf5kK0IhSO0eUTJKKcmEw==
+  dependencies:
+    ajv "^6.10.2"
+    deepmerge "^4.0.0"
+
 fast-redact@^1.4.4:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/fast-redact/-/fast-redact-1.5.0.tgz#302892f566750c4f5eec7b830bfc9bc473484034"

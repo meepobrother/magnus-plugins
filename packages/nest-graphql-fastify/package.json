@@ -1,40 +1,42 @@
 {
-  "name": "@magnus-plugins/nest-graphql-fastify",
-  "version": "0.0.16",
-  "description": "> TODO: description",
-  "author": "imeepos <1037483576@qq.com>",
-  "homepage": "https://github.com/meepobrother/magnus-plugins#readme",
-  "license": "ISC",
-  "main": "lib/index.js",
-  "publishConfig": {
-    "access": "public"
-  },
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
-  "files": [
-    "lib"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/meepobrother/magnus-plugins.git"
-  },
-  "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
-  },
-  "bugs": {
-    "url": "https://github.com/meepobrother/magnus-plugins/issues"
-  },
-  "dependencies": {
-    "@magnus-plugins/apollo-server-fastify": "^0.0.16",
-    "@notadd/magnus-core": "^3.1.10",
-    "@notadd/magnus-graphql": "^3.1.10",
-    "apollo-server-core": "^2.8.1"
-  },
-  "peerDependencies": {
-    "@nestjs/common": "^6.5.3",
-    "@nestjs/core": "^6.5.3",
-    "graphql": "^14.4.2"
-  }
+	"name": "@magnus-plugins/nest-graphql-fastify",
+	"version": "1.1.17",
+	"description": "> TODO: description",
+	"author": "imeepos <1037483576@qq.com>",
+	"homepage": "https://github.com/meepobrother/magnus-plugins#readme",
+	"license": "ISC",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+	"publishConfig": {
+		"access": "public"
+	},
+	"directories": {
+		"lib": "lib",
+		"test": "__tests__"
+	},
+	"files": [
+		"lib"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/meepobrother/magnus-plugins.git"
+	},
+	"scripts": {
+		"test": "echo \"Error: run tests from root\" && exit 1"
+	},
+	"bugs": {
+		"url": "https://github.com/meepobrother/magnus-plugins/issues"
+	},
+	"dependencies": {
+		"@ganker/error": "^1.0.0",
+		"@magnus-plugins/apollo-server-fastify": "1.0.17",
+		"@notadd/magnus-core": "^3.1.10",
+		"@notadd/magnus-graphql": "^3.1.10",
+		"apollo-server-core": "^2.8.1"
+	},
+	"peerDependencies": {
+		"@nestjs/common": "^6.5.3",
+		"@nestjs/core": "^6.5.3",
+		"graphql": "^14.4.2"
+	}
 }
