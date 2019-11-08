@@ -1,24 +1,10 @@
 import { Module, Inject, OnModuleInit, DynamicModule } from "@nestjs/common";
 import { HttpAdapterHost } from "@nestjs/core";
 import { ApolloServer } from "@magnus-plugins/apollo-server-fastify";
-import { DocumentNode } from "graphql";
-import { Config } from "apollo-server-core";
-import { HandlerDefMap } from "@notadd/magnus-core";
 import { MetadataScanner } from "@nestjs/core/metadata-scanner";
 import { ResolversExplorerService } from '@magnus-plugins/nest-resolver';
 import { scalars } from '@notadd/magnus-graphql'
-import { SelectionSet } from '@notadd/magnus-typeorm';
-interface GqlModuleOptions extends Config {
-    name?: string;
-    path?: string;
-    fieldResolverEnhancers?: any[];
-    typeDefs: DocumentNode;
-    metadata: HandlerDefMap;
-    entities?: object;
-    decorators?: object;
-    preHandler?: (set: SelectionSet) => boolean;
-    afterHandler?: <T>(set: SelectionSet, res: T) => T;
-}
+import { GRAPHQL_MODULE_OPTIONS, GqlModuleOptions } from './static'
 const defaultOptions: any = {
     context: ({ req, res }) => ({
         req,
@@ -27,7 +13,6 @@ const defaultOptions: any = {
     path: "/graphql",
     fieldResolverEnhancers: []
 };
-export const GRAPHQL_MODULE_OPTIONS = "GqlModuleOptions";
 export const defaultContext = ({ req }) => ({ req });
 @Module({
     providers: [MetadataScanner, ResolversExplorerService]
