@@ -33,10 +33,10 @@
     graphql-subscriptions "^1.1.0"
     graphql-tools "^4.0.6"
 
-"@magnus-plugins/nest-resolver@^1.1.73":
-  version "1.1.73"
-  resolved "https://registry.yarnpkg.com/@magnus-plugins/nest-resolver/-/nest-resolver-1.1.73.tgz#54cf5dc2716ce2923aed59652c103bc75179c4b3"
-  integrity sha512-Jc97AcWZGhHzz7cgbn/zu6BEwMwlSYt7KdA7Bmj9yLkgMLVx076Msy2QAcGIsv9YiZWU7VdFco/7Dj5u6Wmm7A==
+"@magnus-plugins/nest-resolver@^1.1.75":
+  version "1.1.75"
+  resolved "https://registry.yarnpkg.com/@magnus-plugins/nest-resolver/-/nest-resolver-1.1.75.tgz#da0801336e783b147da76932eaebb1b2ee605de6"
+  integrity sha512-IqjEt41W4r6R0zigBYGyFvMHhHrh5uCfEAEykGxG9jKiobkYKHk8NB71qErxjx1e8pE/paMUcJkroETkbFRkUA==
   dependencies:
     "@ganker/error" "^1.0.0"
     "@notadd/magnus-core" "^3.6.1"

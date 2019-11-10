@@ -2,7 +2,7 @@ import { Module, Inject, OnModuleInit, DynamicModule } from "@nestjs/common";
 import { HttpAdapterHost } from "@nestjs/core";
 import { ApolloServer } from "@magnus-plugins/apollo-server-fastify";
 import { MetadataScanner } from "@nestjs/core/metadata-scanner";
-import { ResolversExplorerService } from '@magnus-plugins/nest-resolver';
+import { NestResolverModule, ResolversExplorerService } from '@magnus-plugins/nest-resolver';
 import { scalars } from '@notadd/magnus-graphql'
 import { GRAPHQL_MODULE_OPTIONS, GqlModuleOptions } from './static'
 const defaultOptions: any = {
@@ -13,9 +13,14 @@ const defaultOptions: any = {
     path: "/graphql",
     fieldResolverEnhancers: []
 };
+import { MagnusRunner } from './runner';
 export const defaultContext = ({ req }) => ({ req });
 @Module({
-    providers: [MetadataScanner, ResolversExplorerService]
+    imports: [NestResolverModule],
+    providers: [MetadataScanner, MagnusRunner],
+    exports: [
+        MagnusRunner
+    ]
 })
 export class GraphqlModule implements OnModuleInit {
     protected apolloServer: ApolloServer;
