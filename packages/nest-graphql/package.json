@@ -1,6 +1,6 @@
 {
   "name": "nest-graphql",
-  "version": "1.1.7",
+  "version": "1.2.0",
   "description": "> TODO: description",
   "author": "imeepos <1037483576@qq.com>",
   "homepage": "https://github.com/meepobrother/magnus-plugins#readme",
@@ -22,5 +22,9 @@
   },
   "bugs": {
     "url": "https://github.com/meepobrother/magnus-plugins/issues"
+  },
+  "dependencies": {
+      "@nestjs/common": "*",
+      "@notadd/magnus-nest-runner": "*"
   }
 }
