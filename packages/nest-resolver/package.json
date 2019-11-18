@@ -1,6 +1,6 @@
 {
 	"name": "@magnus-plugins/nest-resolver",
-	"version": "1.1.75",
+	"version": "1.2.0",
 	"description": "> TODO: description",
 	"author": "imeepos <1037483576@qq.com>",
 	"homepage": "https://github.com/meepobrother/magnus-plugins#readme",
@@ -27,9 +27,9 @@
 		"url": "https://github.com/meepobrother/magnus-plugins/issues"
 	},
 	"dependencies": {
-		"@ganker/error": "^1.0.0",
-		"@notadd/magnus-core": "^3.6.1",
-		"@notadd/magnus-graphql": "^3.6.2",
-		"@notadd/magnus-typeorm": "^0.8.13"
+		"@ganker/error": "*",
+		"@notadd/magnus-core": "*",
+		"@notadd/magnus-graphql": "*",
+		"@notadd/magnus-typeorm": "*"
 	}
 }
