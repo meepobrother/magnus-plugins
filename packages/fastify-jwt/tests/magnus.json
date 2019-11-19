@@ -1,9 +1,0 @@
-{
-  "name": "fastity",
-  "inputs": ["src/**/*.ts"],
-  "output": "src/magnus",
-  "assets": "src/assets",
-  "hasGrpc": true,
-  "debug": true,
-  "reciveName": []
-}

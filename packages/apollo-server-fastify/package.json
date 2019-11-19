@@ -1,42 +1,44 @@
 {
-  "name": "@magnus-plugins/apollo-server-fastify",
-  "version": "1.2.0",
-  "description": "Production-ready Node.js GraphQL server for Fastify",
-  "main": "src/index.js",
-  "types": "src/index.d.ts",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/apollographql/apollo-server/tree/master/packages/apollo-server-fastify"
-  },
-  "keywords": [
-    "GraphQL",
-    "Apollo",
-    "Server",
-    "Fastify",
-    "Javascript"
-  ],
-  "author": "opensource@apollographql.com",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/apollographql/apollo-server/issues"
-  },
-  "homepage": "https://github.com/apollographql/apollo-server#readme",
-  "engines": {
-    "node": ">=6"
-  },
-  "dependencies": {
-    "@apollographql/graphql-playground-html": "*",
-    "apollo-server-core": "*",
-    "apollo-server-types": "*",
-    "fastify": "*",
-    "fastify-accepts": "*",
-    "fastify-cors": "*",
-    "graphql-subscriptions": "*",
-    "graphql-tools": "*"
-  },
-  "devDependencies": {},
-  "peerDependencies": {
-    "graphql": "*"
-  },
-  "gitHead": "5d94e986f04457ec17114791ee6db3ece4213dd8"
+	"name": "@magnus-plugins/apollo-server-fastify",
+	"version": "1.2.2",
+	"description": "Production-ready Node.js GraphQL server for Fastify",
+	"main": "src/index.js",
+	"types": "src/index.d.ts",
+	"publishConfig": {
+		"access": "public"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/apollographql/apollo-server/tree/master/packages/apollo-server-fastify"
+	},
+	"keywords": [
+		"GraphQL",
+		"Apollo",
+		"Server",
+		"Fastify",
+		"Javascript"
+	],
+	"author": "opensource@apollographql.com",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/apollographql/apollo-server/issues"
+	},
+	"homepage": "https://github.com/apollographql/apollo-server#readme",
+	"engines": {
+		"node": ">=6"
+	},
+	"dependencies": {
+		"@apollographql/graphql-playground-html": "^1.6.24",
+		"apollo-server-core": "^2.9.9",
+		"apollo-server-types": "^0.2.5",
+		"fastify": "^2.10.0",
+		"fastify-accepts": "^0.5.0",
+		"fastify-cors": "^2.2.0",
+		"graphql-subscriptions": "^1.1.0",
+		"graphql-tools": "^4.0.6"
+	},
+	"peerDependencies": {
+		"graphql": "*"
+	},
+	"gitHead": "5d94e986f04457ec17114791ee6db3ece4213dd8"
 }
