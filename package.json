@@ -19,7 +19,7 @@
     "@angular/common": "^8.2.2",
     "@angular/core": "^8.2.2",
     "@apollographql/graphql-playground-html": "^1.6.24",
-    "@grpc/grpc-js": "^0.5.2",
+    "@grpc/grpc-js": "^1.1.8",
     "@grpc/proto-loader": "^0.5.1",
     "@magnus-plugins/nest-resolver": "^1.1.6",
     "@nestjs/common": "^6.5.3",
