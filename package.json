@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@angular/common": "^8.2.2",
-    "@angular/core": "^8.2.2",
+    "@angular/core": "^11.0.5",
     "@apollographql/graphql-playground-html": "^1.6.24",
     "@grpc/grpc-js": "^0.5.2",
     "@grpc/proto-loader": "^0.5.1",
